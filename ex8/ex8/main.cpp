@@ -56,7 +56,7 @@ void saisirParametres ( int *longueurUne, int *longueurDeux, float *angle )
 
 
 // d)
-float afficherSurface ( float rayon = 2 )
+void afficherSurface ( float rayon )
 {
 	cout << " Surface cercle : " << (3.14 * rayon * rayon ) << endl;
 }
@@ -64,7 +64,7 @@ float afficherSurface ( float rayon = 2 )
 
 
 // e)
-float afficherSurface ( float largeur, float longueur )
+void afficherSurface ( float largeur, float longueur )
 {
 	cout << " Surface rectangle : " << ( largeur * longueur ) << endl;
 }
@@ -72,7 +72,7 @@ float afficherSurface ( float largeur, float longueur )
 
 
 // f)
-float afficherSurface ( float coteUn, float coteDeux, float angle )
+void afficherSurface ( float coteUn, float coteDeux, float angle )
 {
 	cout << " Surface rectangle : " << ( (coteUn * coteDeux)/2 * sin(angle) ) << endl;
 }
@@ -80,7 +80,19 @@ float afficherSurface ( float coteUn, float coteDeux, float angle )
 
 
 // g)
-void main (int arc, char *argv[])
+void main (int argc, char *argv[])
 {
+	cout << "Parametres : " << endl;
+	for (short int i = 0; i<argc; i++){
+		cout << "Param " << i << " = " << argv[i] << endl;
+	}
 
+	if ( argc < 2 ){
+		cout << "ERROR : 2 params minimum requis";
+	} else if ( argc > 2 && argc <=5 ){
+			
+	} else {
+	
+	}
+	system("pause");
 }
