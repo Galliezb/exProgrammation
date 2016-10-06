@@ -2,8 +2,6 @@
 
 #include <string>
 
-using namespace std;
-
 class User
 {
 public:
@@ -11,7 +9,7 @@ public:
 	void displayData();
 	~User();
 private:
-	string name_;
+	std::string name_;
 	bool subscriber_;
 
 };

@@ -2,6 +2,9 @@
 
 #include "Bus.h"
 
+using std::cout;
+using std::endl;
+
 Bus::Bus(){
 
 	registrationNumber_ = 0;
@@ -22,9 +25,13 @@ void Bus::displayData(){
 
 
 
-int Bus::upWeight ( int weight){
+int Bus::upWeight ( unsigned int weight){
 
-	totalWeight_ += weight;
+	if ( weight > 0 ){
+		totalWeight_ += weight;
+	} else {
+		cout << "weight unsigned int only !" << endl;
+	}
 
 	return totalWeight_;
 
@@ -32,37 +39,27 @@ int Bus::upWeight ( int weight){
 
 
 
-bool Bus::compareBus ( const Bus& bus1, const Bus& bus2 ){
+bool Bus::compareBus ( const Bus& busToCompare ){
 
-	if ( bus1.registrationNumber_ == bus2.registrationNumber_ 
-	     && bus1.startupYear_ == bus2.startupYear_
-		 && bus1.totalWeight_ == bus2.totalWeight_ ){
-	
-		return true;
-	
-	} else {
-	
-		return false;
-	
-	}
+	return ( registrationNumber_ == busToCompare.registrationNumber_ 
+	     && startupYear_ == busToCompare.startupYear_
+		 && totalWeight_ == busToCompare.totalWeight_ );
+
 }
 
 
 
-Bus Bus::beHeaviest( const Bus& bus1, const Bus& bus2 ){
+Bus Bus::beHeaviest( const Bus& busToCompare ){
 
-	if ( bus1.totalWeight_ > bus2.totalWeight_ ){
+
+	// and if the 2 are equal ?
+	if ( totalWeight_ > busToCompare.totalWeight_ ){
 	
-		return bus1;
-	
-	} else if ( bus1.totalWeight_ < bus2.totalWeight_ ){
-	
-		return bus2;
+		return *this;
 	
 	} else {
 	
-	// ERROR : What do here ?
-	return bus1;
+		return busToCompare;
 	
 	}
 
@@ -73,7 +70,7 @@ Bus Bus::beHeaviest( const Bus& bus1, const Bus& bus2 ){
 
 void Bus::displayAllUser(){
 
-	for (int i = 0;	i<user_.size(); i++){
+	for (int i = 0;	i < user_.size(); i++){
 
 		user_[i].displayData();
 

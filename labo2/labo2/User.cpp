@@ -2,6 +2,9 @@
 
 #include "User.h"
 
+using std::cout;
+using std::string;
+using std::endl;
 
 User::User(){
 
@@ -15,7 +18,11 @@ User::User(){
 void User::displayData(){
 
 	string subscriber;
-	(subscriber_)?subscriber="Subscriber":subscriber="Non-Subscriber";
+	if ( subscriber_ ){
+		subscriber="Subscriber";
+	} else {
+		subscriber="Non-Subscriber";	
+	}
 
 	cout << "Name  : " << name_ << " ( " << subscriber << " ) " << endl;
 
