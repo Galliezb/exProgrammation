@@ -1,15 +1,19 @@
 #include "Clavier.h"
 
+int Clavier::cptNombreObjet=0;
+
 Clavier::Clavier(){
 	marque_ = "";
 	nombreTouche_ = 0;
 	prix_ = 0;
+	Clavier::cptNombreObjet++;
 }
 
 Clavier::Clavier(string marque, short int nombreTouches, float prix){
 	marque_ = marque;
 	nombreTouche_ = nombreTouches;
 	prix_ = prix;
+	Clavier::cptNombreObjet++;
 }
 
 
@@ -36,4 +40,8 @@ double Clavier::diminuerPrix(){
 
 
 Clavier::~Clavier(){
+}
+
+int Clavier::getNombreStatic(){
+	return Clavier::cptNombreObjet;
 }
