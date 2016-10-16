@@ -8,5 +8,7 @@ void main(){
 	cout << " prix avec TVA " << clavier.afficherPrixAvecTva() << endl;
 	cout << "Prix diminue, nouveau prix : " << clavier.diminuerPrix() << endl;
 	cout << "Prix augmnete, nouveau prix : " << clavier.augmenterPrix() << endl;
+	cout << "Nombre d'objet : " << Clavier::getNombreStatic() << endl;
 	system("pause");
+
 }

@@ -14,8 +14,10 @@ public:
 	double afficherPrixAvecTva();
 	double augmenterPrix();
 	double diminuerPrix();
+	static int getNombreStatic();
 	~Clavier();
 private :
+	static int cptNombreObjet;
 	string marque_;
 	short int nombreTouche_;
 	float prix_;
