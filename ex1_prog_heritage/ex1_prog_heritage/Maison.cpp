@@ -37,7 +37,7 @@ void Maison::afficher(){
 
 	}
 
-	Batiment::afficher();
+	//Batiment::afficher();
 	cout << " " << nombreMurMitoyen_ << " mur(s) mitoyen(s) " << jardin << " jardin" << endl;
 }
 

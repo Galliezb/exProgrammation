@@ -4,7 +4,10 @@ class Maison : public Batiment {
 public:
 	Maison();
 	Maison(int nombreMurMitoyen, bool avecJardin, int age, int nombrePiece );
-	void afficher();
+	//  Ex 1
+	//void afficher();
+	// ex2
+	virtual void afficher();
 	int augmenterNombre(int nbr);
 	~Maison();
 protected:

@@ -22,7 +22,7 @@ Appartement::Appartement(int nombreEtage, int superficie, int age, int nombrePie
 
 
 void Appartement::afficher(){
-	Batiment::afficher();
+	//Batiment::afficher();
 	cout << nombreEtage_ << " etage(s)" << superficie_ << " de superficie "<< endl;
 }
 

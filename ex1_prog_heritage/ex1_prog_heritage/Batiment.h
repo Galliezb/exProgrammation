@@ -5,8 +5,8 @@ class Batiment
 public:
 	Batiment();
 	Batiment(int age, int nombrePiece);
-	void afficher();
-	void augmenterNombrePiece(int nbr);
+	virtual void afficher();
+	virtual int augmenterNombre(int nbr);
 	~Batiment();
 protected:
 	int age_;

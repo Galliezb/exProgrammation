@@ -1,45 +1,40 @@
 #include <iostream>
 #include <string>
-#include <cmath>
-#include <stdlib.h>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
+/**
+* Auto-generated code below aims at helping you parse
+* the standard input according to the problem statement.
+**/
 int main()
 {
-	int n=5; // the number of temperatures to analyse
-			 //cin >> n; cin.ignore();
-	string temps = "-1 -1 -8 4 5"; // the n temperatures expressed as integers ranging from -273 to 5526
-								  //getline(cin, temps);
-
-	
-
-	// go found < value
-	short int sortie = 5526;
-
-	for ( unsigned short int i = 0; i < n; i++ ){
-
-		// stoi take first number detected and stop at space
-		string::size_type sString;
-		short int temp = stoi(temps, &sString);
-
-		if ( fabs( temp ) < fabs( sortie )  ){
-
-			sortie = temp;
-
-		}  else if ( fabs( temp ) == fabs ( sortie ) && temp != sortie ){
-
-			// if 2 value are equal => |value|
-			sortie = fabs ( temp );
-
-		}
-		// delete number detected from the string
-		temps = temps.substr(sString);
-
+	int surfaceN; // the number of points used to draw the surface of Mars.
+	cin >> surfaceN; cin.ignore();
+	for (int i = 0; i < surfaceN; i++) {
+		int landX; // X coordinate of a surface point. (0 to 6999)
+		int landY; // Y coordinate of a surface point. By linking all the points together in a sequential fashion, you form the surface of Mars.
+		cin >> landX >> landY; cin.ignore();
 	}
 
-	cout << sortie << endl;
+	// game loop
+	while (1) {
+		int X;
+		int Y;
+		int hSpeed; // the horizontal speed (in m/s), can be negative.
+		int vSpeed; // the vertical speed (in m/s), can be negative.
+		int fuel; // the quantity of remaining fuel in liters.
+		int rotate; // the rotation angle in degrees (-90 to 90).
+		int power; // the thrust power (0 to 4).
+		cin >> X >> Y >> hSpeed >> vSpeed >> fuel >> rotate >> power; cin.ignore();
 
-	system("pause");
+		// Write an action using cout. DON'T FORGET THE "<< endl"
+		// To debug: cerr << "Debug messages..." << endl;
+
+
+		// 2 integers: rotate power. rotate is the desired rotation angle (should be 0 for level 1), power is the desired thrust power (0 to 4).
+		cout << "0 3" << endl;
+	}
 }
