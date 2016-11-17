@@ -2,7 +2,7 @@
 
 
 /********************* CLASS ADDRESS *********************/
-Address::Address(int number, string street, string postalCode, string town){
+Address::Address(int number=0, string street="null", string postalCode="null", string town="null"){
 
 	number_ = number;
 	street_ = street;
@@ -25,14 +25,6 @@ Address::~Address(){
 
 	cout << "Destruction of object Address" << endl;
 
-}
-
-
-Ai::Ai(){
-}
-
-
-Ai::~Ai(){
 }
 
 Bien::Bien(int taille){
@@ -118,7 +110,7 @@ Proprietaire::Proprietaire(string nom, string prenom, int number, string telepho
 }
 
 
-void Proprietaire::ajouterBien(const Bien &b){
+void Proprietaire::ajouterBien(Bien *b){
 	bien_.push_back(b);
 }
 
@@ -127,8 +119,8 @@ void Proprietaire::afficher(){
 	cout << "***** Proprietaire ***** " << endl;
 	cout << "Type : " << type_ << endl;	
 	cout << "***** Bien du prorprietaire *****" << endl;
-	for each (Bien b in bien_){
-		b.afficher();
+	for each (Bien *b in bien_){
+		b->afficher();
 	}
 }
 
@@ -155,5 +147,65 @@ LocProp::LocProp(string nom, string prenom, int number, string telephone, double
 	     Locataire(nom,prenom,number,telephone,salaire), 
 	     Proprietaire(nom,prenom,number,telephone,type),
 		 Client (nom,prenom,number,telephone){
+	cout << "Constructeur LocProp" << endl;
+}
 
+void LocProp::afficher(){
+	Client::afficher();
+	cout << "***** LocProp *****" << endl;
+	cout << "Salaire : " << salaire_ << endl;
+	cout << "Type : " << type_ << endl;	
+	cout << "***** Bien du Locprop *****" << endl;
+	for each (Bien *b in bien_){
+		b->afficher();
+	}
+}
+
+LocProp::~LocProp(){
+	cout << "Deconstructeur LocProp" << endl;
+}
+
+Ai::Ai(string nom, Address adr, string numeroTelephone){
+	cout << "Constructeur Ai" << endl;
+	nom_ = nom;
+	adr_ = adr;
+	numeroTelephone_ = numeroTelephone;
+}
+
+void Ai::ajouterBien(Bien * b){
+	bien_.push_back(b);
+}
+
+void Ai::ajouterPersonne(Personne * p){
+	personne_.push_back(p);
+}
+
+void Ai::afficher(){
+	cout << "***** AI ****" << endl;
+	cout << "nom : " << nom_ << endl;
+	adr_.afficher();
+	cout << "Telephone : " << numeroTelephone_ << endl;
+}
+
+void Ai::afficherBien(){
+	cout << "***** Biens Ai *****" << endl;
+	for each (Bien *b in bien_){
+		b->afficher();
+	}
+}
+
+void Ai::afficherPersonne(){
+	cout << "***** Personnes Ai *****" << endl;
+	for each (Personne *p in personne_){
+		p->afficher();
+	}
+}
+
+void Ai::associerBienPersonne(Proprietaire * p, Bien * b){
+	p->ajouterBien(b);
+}
+
+
+Ai::~Ai(){
+	cout << "Deconstructeur de Ai" << endl;
 }

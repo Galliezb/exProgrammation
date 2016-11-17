@@ -6,6 +6,8 @@
 
 using namespace std;
 
+class Address;
+
 
 class Address {
 public:
@@ -96,12 +98,12 @@ class Proprietaire : virtual public Client{
 public:
 	Proprietaire(string nom, string prenom, int number, string telephone, string type);
 	// Envoi d'un bien par référence, une classe abstraite n'autorise pas le bien direct !
-	void ajouterBien(const Bien &b);
-	void afficher();
+	void ajouterBien(Bien *b);
+	virtual void afficher();
 	~Proprietaire();
 protected:
 	string type_;
-	vector<Bien> bien_;
+	vector<Bien *> bien_;
 };
 
 
@@ -109,7 +111,7 @@ protected:
 class Locataire : virtual public Client{
 public:
 	Locataire(string nom, string prenom, int number, string telephone, double salaire);
-	void afficher();
+	virtual void afficher();
 	~Locataire();
 protected:
 	double salaire_;
@@ -129,18 +131,19 @@ public:
 
 class Ai {
 public:
-	Ai();
-	void ajouterBien();
-	void ajouterPersonne();
+	Ai(string nom, Address adr, string numeroTelephone);
+	void ajouterBien(Bien *b);
+	void ajouterPersonne(Personne *p);
+	void afficher();
 	void afficherBien();
 	void afficherPersonne();
-	void associerBienPersonne();
+	void associerBienPersonne(Proprietaire *p, Bien *b);
 	~Ai();
 private:
 	string nom_;
 	Address adr_;
-	string numeroTelephonne_;
-	vector<Bien> bien_;
-	vector<Personne> personne_;
+	string numeroTelephone_;
+	vector<Bien *> bien_;
+	vector<Personne *> personne_;
 };
 
