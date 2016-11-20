@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="a3276fb7-c4b7-4cf6-b59d-64b1844f66ec" name="UMLUseCaseDiagram1" linkedPackageId="edd73aa8-5a38-4998-aeda-b20932549259" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="ccf69ff3-d632-4e89-88db-b7a7d35ed132">
+      <profileInstance Id="0f332057-3afb-437b-9316-d17b8b420491" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="6c833613-5399-48f0-9f51-9aedbd942070">
+      <profileInstance Id="0f5dd7f0-113e-43f2-947e-f3e070c4c949" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="ef946f75-7560-4bf8-afad-406bbe3a411d" name="Gérant du groupe" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8bb5edf0-ddb8-4f41-9393-8bf132e5f5bc" />
+        <targetEnds>
+          <association Id="ea2192b4-f068-4cd5-ad80-581f71df687d" isDerived="false" sourceEndRoleName="Gérant du groupe" targetEndRoleName="Ajout d'une école" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f3fa679f-5992-44ad-a0f3-d53e57a7dbc7" LastKnownName="Gérer les écoles" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3acf6e1e-167a-43da-b6fb-5821a7f4607e" name="Gérant du groupe" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a2eb75d6-79d9-409f-b6d6-0723adb150b4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a5b24d0d-60ed-4553-9eca-f21e3bc35c2c" name="Ajout d'une école" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d0876e6f-f6e5-434e-b983-8d250ad80604" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f5f0750e-1445-42f7-9804-fc8d7136ba7e" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f3fa679f-5992-44ad-a0f3-d53e57a7dbc7" name="Gérer les écoles" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="153711a4-8d47-4608-9940-5e74b9d74c07" />
+        <extendedCases>
+          <extend Id="ea8561ab-10b0-40dc-bfa0-31cfe6c879b1">
+            <useCaseMoniker Id="a77d9316-a94d-4d2c-865f-bebbb317ae0b" LastKnownName="Ajouter" />
+            <elementDefinition Id="1819a090-7d78-4fa4-a0f9-084a0584c390" />
+          </extend>
+          <extend Id="139fa2c1-2386-4903-80ad-c395ab1ebd04">
+            <useCaseMoniker Id="b929757a-88a2-4f57-a9fa-0e37ccc9c8c5" LastKnownName="Supprimer" />
+            <elementDefinition Id="19c9c7f1-9d14-42ce-ac3e-cba4d50b1447" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="8baeded2-38ce-4396-ae26-9a734114f7de" name="Directeur" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4676d9d5-db27-4841-872a-00dd5ae6515f" />
+        <suppliersInternal>
+          <dependency Id="f8e0e893-2a43-4526-8cb5-28d4aba4e2a5">
+            <actorMoniker Id="ef946f75-7560-4bf8-afad-406bbe3a411d" LastKnownName="Gérant du groupe" />
+            <elementDefinition Id="e464d9f7-90a2-4c28-9d68-a863a4377700" />
+          </dependency>
+        </suppliersInternal>
+        <targetEnds>
+          <association Id="761e3dd0-9204-4d80-b4a5-01e36a3bbbea" isDerived="false" sourceEndRoleName="Directeur" targetEndRoleName="Embaucher du personnel" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="6bab7893-5337-4a2f-8149-97c030c312cd" LastKnownName="Gérer le personnel" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8fcde27e-51f2-41b6-8da0-4929bce1f154" name="Directeur" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e2f23c4a-4f79-408c-9ae5-324509e2fce2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d28adcd5-e0de-4062-9cbf-98ee5c14e773" name="Embaucher du personnel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1eb20aaf-379e-40bf-b0c1-b52b1957fc18" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="584452cf-d512-47b1-9c18-addcea8d7200" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="855743aa-c432-42c3-9911-76d16013d767" name="secrétaire" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e6cece8b-0d72-44f9-b0e4-c50e893fa9b5" />
+        <suppliersInternal>
+          <dependency Id="6a00cd49-8eeb-437d-83d8-777032d98e3a">
+            <actorMoniker Id="8baeded2-38ce-4396-ae26-9a734114f7de" LastKnownName="Directeur" />
+            <elementDefinition Id="fd47d514-31cf-40fb-8e40-88cc6cd12472" />
+          </dependency>
+        </suppliersInternal>
+        <targetEnds>
+          <association Id="b426a9f7-b952-457b-89b6-15811de811a3" isDerived="false" sourceEndRoleName="secrétaire" targetEndRoleName="Gérer les étudiants inscrits" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="bd6aabb4-396b-44cd-9de4-4bfa6a967b2c" LastKnownName="Inscrire les étudiants" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="39ccfc37-fe93-452e-8cd1-8891f59a5e4a" name="secrétaire" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b3374373-c248-45d9-a8fe-1d514a160e2e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="300b8db5-1012-4665-b5dd-789c39b1d346" name="Gérer les étudiants inscrits" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1329bb7a-28a0-4fa8-b1b7-07bd0ef5b7d2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="838992ec-df99-47d4-b16a-2bd4d72a83d0" />
+          </association>
+          <association Id="b9d64ff8-f6e7-40f2-81dc-1b28f282d4a6" isDerived="false" sourceEndRoleName="secrétaire" targetEndRoleName="désinscrire les étudiants" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="08610e44-261d-40c5-93da-e3463894c2e3" LastKnownName="désinscrire les étudiants" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e76775a9-aa16-4bc7-b328-a4084c016ad1" name="secrétaire" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b652983a-9035-43d5-a97f-396c184392e8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f7d8a150-f70b-4b5b-b019-683d7a12d232" name="désinscrire les étudiants" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="9e0b78bb-d212-4ae4-8552-f414102e4255" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b337d497-63a8-4014-93ba-bd2047baf5e3" />
+          </association>
+          <association Id="76fe979f-80c8-466e-bded-105befb572fb" isDerived="false" sourceEndRoleName="secrétaire" targetEndRoleName="Ajouter un batiment" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="4b081a34-3b5d-4ba4-a54e-8a196122ef27" LastKnownName="Gérer les batiments" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="49d3f5e4-4294-4886-934b-026f55ecef36" name="secrétaire" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="838ae367-3ef8-473f-b945-0ba87413900b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ba659c69-0aba-4017-ae9c-1d3859265402" name="Ajouter un batiment" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="661a24df-9d3e-4426-ac06-b038e4e2df62" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e11be898-dca6-492f-97f8-8df2a1b93452" />
+          </association>
+          <association Id="3f3bc620-1842-4a2b-8b0a-ff0cbd30e172" isDerived="false" sourceEndRoleName="secrétaire" targetEndRoleName="Ajouter un cours" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="83e540c6-7c97-49dd-818b-7ca7e98295ec" LastKnownName="Gérer le planning de cours" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4ad1e30f-ea65-4729-824b-9d7c2845d567" name="secrétaire" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="211dee10-c1dd-40e3-9e97-e9a8a172558a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="57b12798-c6a8-4cca-8210-ec186caaf44b" name="Ajouter un cours" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ef2bdc1c-8255-4386-966a-08a84d9f2aef" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e4ce78b9-e4e4-4b08-a04b-20d6e591d07b" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="e6952812-07b8-476e-8e85-a76282b4e8a3" name="Gestion du groupe" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <description>Gestion du groupe</description>
+        <elementDefinition Id="4e37c126-0ac4-4e31-8468-b5a34f53fdf0" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="6bab7893-5337-4a2f-8149-97c030c312cd" name="Gérer le personnel" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b5f3d266-4628-4590-9063-79b13cece7a7" />
+        <extendedCases>
+          <extend Id="53e43aa7-ef39-4297-8d5f-9f262c424519">
+            <useCaseMoniker Id="c39e439c-f8a4-4941-9ef8-5cc92efd7642" LastKnownName="Licencier" />
+            <elementDefinition Id="5dba9bcb-18b6-4982-a201-2150f65f38c7" />
+          </extend>
+          <extend Id="8af68b70-1dbc-45ff-a29f-6b0a9a902c82">
+            <useCaseMoniker Id="dc676e7b-c765-4d55-b257-b1e79fcff82b" LastKnownName="Embaucher" />
+            <elementDefinition Id="6f364eb1-ddd3-41ef-866d-7d4ad87cc9d5" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="bd6aabb4-396b-44cd-9de4-4bfa6a967b2c" name="Inscrire les étudiants" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="45db341b-a283-4eb4-b54f-52405d9bfe66" />
+        <additions>
+          <include Id="8355e27f-7362-4edc-a65b-3f3443e4459c">
+            <useCaseMoniker Id="892bd8be-1df5-4df2-b5fb-9e6100eeb868" LastKnownName="En ordre administrativement" />
+            <elementDefinition Id="f335a1c9-e96a-44b6-adc3-0732f7239578" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="892bd8be-1df5-4df2-b5fb-9e6100eeb868" name="En ordre administrativement" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2eef3a83-598d-48df-b635-ebd7368227a6" />
+        <subjects>
+          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="08610e44-261d-40c5-93da-e3463894c2e3" name="désinscrire les étudiants" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4d68e22e-09f6-4430-814b-f72b19f89cee" />
+        <additions>
+          <include Id="5e847e88-661e-4b8e-bdc9-84b69d776b72">
+            <useCaseMoniker Id="b87fa903-9959-47cc-a984-fa048398d561" LastKnownName="fin d'étude ou abandon" />
+            <elementDefinition Id="87cc9d10-d420-4550-9f4e-16daf6244bad" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="b87fa903-9959-47cc-a984-fa048398d561" name="fin d'étude ou abandon" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a6f7dd6d-1001-4cae-86c0-83bed2f83c7f" />
+        <subjects>
+          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="4b081a34-3b5d-4ba4-a54e-8a196122ef27" name="Gérer les batiments" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ffeb2ce0-6e1e-445d-8853-c808c4817882" />
+        <extendedCases>
+          <extend Id="7c54f4e5-c801-43f7-9cd4-4f8c00dc88d8">
+            <useCaseMoniker Id="2c0e233d-733c-4327-b88e-bde5f33f8e4f" LastKnownName="Gérer les classes" />
+            <elementDefinition Id="919be910-b7c0-44d3-bb4e-2b1e41e750de" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="2c0e233d-733c-4327-b88e-bde5f33f8e4f" name="Gérer les classes" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5f8230a5-edef-40dd-b3ed-3ac9d6c654d6" />
+        <extendedCases>
+          <extend Id="766da6e8-2aaa-4c92-a6e7-4fe9b9551177">
+            <useCaseMoniker Id="2bc74b42-03ca-4b6b-b10e-4f2f24e2cf60" LastKnownName="Allouer à un professeur" />
+            <elementDefinition Id="4190959a-0939-4b0d-9b4c-5d22b5f5e180" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="83e540c6-7c97-49dd-818b-7ca7e98295ec" name="Gérer le planning de cours" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="618dd4ec-da8b-4779-a4c5-70469f453c26" />
+        <subjects>
+          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="c39e439c-f8a4-4941-9ef8-5cc92efd7642" name="Licencier" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="733cf795-b5ad-4313-b2c7-2b65bea65c0c" />
+        <subjects>
+          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="dc676e7b-c765-4d55-b257-b1e79fcff82b" name="Embaucher" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6418a07d-cc23-4d44-ac1f-eddc858fcb30" />
+        <subjects>
+          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="a77d9316-a94d-4d2c-865f-bebbb317ae0b" name="Ajouter" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e901936d-a1da-43d0-9964-dcb0a2686c3c" />
+        <subjects>
+          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="b929757a-88a2-4f57-a9fa-0e37ccc9c8c5" name="Supprimer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="aa7cf454-5787-4b24-b830-5b6792d51bb4" />
+        <subjects>
+          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="2bc74b42-03ca-4b6b-b10e-4f2f24e2cf60" name="Allouer à un professeur" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a38971f9-5254-452a-bf47-0465502ffa05" />
+        <subjects>
+          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="edd73aa8-5a38-4998-aeda-b20932549259" name="Group">
+    <elementDefinition Id="712dee20-9667-40c6-ab84-fd838f9171b1" />
+  </package>
+</useCaseModelRoot>
