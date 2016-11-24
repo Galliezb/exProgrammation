@@ -32,7 +32,7 @@
             sourceEndRoleName=""
             targetEndRoleName=""
             isLeaf="false"
-            name="est composé de"
+            name="Possède"
             isAbstract="false">
             <classMoniker
               Id="b559fef0-1b70-4cea-8c38-4c095c883aec"
@@ -47,7 +47,7 @@
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
-                  aggregation="Composite"
+                  aggregation="Shared"
                   isComposite="false"
                   isNavigableOwned="false" />
               </associationHasOwnedEnds>
@@ -60,7 +60,7 @@
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="true">
+                  isComposite="false">
                   <lowerValueInternal>
                     <literalString
                       Id="d56abb19-9452-441b-88a6-09e47cabfce5"
@@ -83,7 +83,7 @@
             sourceEndRoleName=""
             targetEndRoleName=""
             isLeaf="false"
-            name="est composé de"
+            name="Possède"
             isAbstract="false">
             <classMoniker
               Id="64391bfc-660b-4303-9168-cab98d8f6b83"
@@ -98,7 +98,7 @@
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
-                  aggregation="Composite"
+                  aggregation="Shared"
                   isComposite="false"
                   isNavigableOwned="false" />
               </associationHasOwnedEnds>
@@ -111,7 +111,58 @@
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="true" />
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="620c1b15-e9e3-44c1-b824-bf6eb71cc433"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            name="est composé de"
+            isAbstract="false">
+            <classMoniker
+              Id="43df1a2e-650f-43a8-b80b-77f45a5e29c0"
+              LastKnownName="Advisor"
+              LastKnownLocation="Group.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="980f1320-6477-41d1-8d11-98289ed27001"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="dface415-7bde-44a0-8ca0-e266463397c0"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="d95832d4-771a-4be5-9b8f-db47261de755"
+                      name="Lower"
+                      value="3" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="932c4c03-a6bf-462d-849c-37a9196e069e"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
@@ -137,65 +188,8 @@
             </type_NamedElement>
           </property>
           <property
-            Id="0f672617-1567-4621-a743-d7a1ad2d8b9e"
-            name="school_"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="b559fef0-1b70-4cea-8c38-4c095c883aec"
-                LastKnownName="School"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="99dfff11-6204-4948-a618-3a0c6167454c"
-            name="address_"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="64391bfc-660b-4303-9168-cab98d8f6b83"
-                LastKnownName="Address"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="b62d3a4c-8715-4771-a2c4-5242d4c8ac63"
-            name="advisor_"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="43df1a2e-650f-43a8-b80b-77f45a5e29c0"
-                LastKnownName="Advisor"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
-          <property
             Id="81a6bfd9-05b1-4f0c-aa76-f91ad2b796ac"
-            name="numberInstance"
+            name="numberInstance_"
             visibility="Private"
             isLeaf="false"
             isStatic="true"
@@ -248,7 +242,7 @@
             isQuery="false" />
           <operation
             Id="40b3d5fe-e9a4-44ff-ba79-e84cdef2fa17"
-            name="display"
+            name="displaySchool"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -271,7 +265,7 @@
             sourceEndRoleName=""
             targetEndRoleName=""
             isLeaf="false"
-            name="est composé de"
+            name="Possède"
             isAbstract="false">
             <classMoniker
               Id="587c682e-e801-4eac-8bf3-da361c3afb07"
@@ -286,7 +280,7 @@
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
-                  aggregation="Composite"
+                  aggregation="Shared"
                   isComposite="false"
                   isNavigableOwned="false" />
               </associationHasOwnedEnds>
@@ -299,7 +293,7 @@
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="true">
+                  isComposite="false">
                   <lowerValueInternal>
                     <literalString
                       Id="478593c9-341d-4174-8816-c59b2f20bbf8"
@@ -322,7 +316,7 @@
             sourceEndRoleName=""
             targetEndRoleName=""
             isLeaf="false"
-            name="est composé de"
+            name="Possède"
             isAbstract="false">
             <classMoniker
               Id="ded0b8bb-44cf-4293-9ac7-082f8e967618"
@@ -337,7 +331,7 @@
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
-                  aggregation="Composite"
+                  aggregation="Shared"
                   isComposite="false"
                   isNavigableOwned="false" />
               </associationHasOwnedEnds>
@@ -350,7 +344,7 @@
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="true">
+                  isComposite="false">
                   <lowerValueInternal>
                     <literalString
                       Id="eea36c03-0c72-42c4-8de4-701d4958445a"
@@ -407,13 +401,13 @@
                     <literalString
                       Id="4a7246e0-a42b-4f0b-8d17-8aa84fe21741"
                       name="Lower"
-                      value="n,m" />
+                      value="*" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
                       Id="03089ce4-3ef5-4083-ada1-133acb25dd71"
                       name="Upper"
-                      value="n,m" />
+                      value="*" />
                   </upperValueInternal>
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -441,65 +435,8 @@
             </type_NamedElement>
           </property>
           <property
-            Id="6fee6271-d244-4728-adcc-8d7a394a6fe0"
-            name="building_"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="587c682e-e801-4eac-8bf3-da361c3afb07"
-                LastKnownName="Building"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="3f6e4c2a-1583-43d4-82f3-ecee3e1a096e"
-            name="director_"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="7d1931b4-ebc6-4298-8303-85d00e55bc56"
-                LastKnownName="Director"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="ab59d083-4fa6-4aa9-9056-18bad9dfcf43"
-            name="secretary"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="8a2d4a4f-40a2-488f-8b2e-5ff60e1d5edd"
-                LastKnownName="Secretary"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
-          <property
             Id="fe2ce138-9000-4493-ac8a-d15b93d8feac"
-            name="numberInstance"
+            name="numberInstance_"
             visibility="Private"
             isLeaf="false"
             isStatic="true"
@@ -551,14 +488,6 @@
             concurrency="Sequential"
             isQuery="false" />
           <operation
-            Id="bbb31a1c-9856-4ecf-b392-389e08f5dca7"
-            name="addStudent"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
             Id="34bedf8e-ff49-46e8-b42f-7f966e8867c7"
             name="delStudent"
             isLeaf="false"
@@ -568,7 +497,7 @@
             isQuery="false" />
           <operation
             Id="b23356a9-ae7b-4f01-aa71-ca34c769ea73"
-            name="displayStudent"
+            name="displayPerson"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -753,7 +682,7 @@
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
-                  aggregation="Composite"
+                  aggregation="Shared"
                   isComposite="false"
                   isNavigableOwned="false" />
               </associationHasOwnedEnds>
@@ -766,7 +695,7 @@
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="true" />
+                  isComposite="false" />
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
@@ -811,27 +740,8 @@
             </type_NamedElement>
           </property>
           <property
-            Id="629458aa-26a1-4fe8-a9e5-8f1249c520be"
-            name="room_"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="60c0d7e3-58d0-41d4-86df-6571b14338da"
-                LastKnownName="Room"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
-          <property
             Id="a64aeb7a-6765-43eb-8766-d969d93e9f7a"
-            name="numberInstance"
+            name="numberInstance_"
             visibility="Private"
             isLeaf="false"
             isStatic="true"
@@ -917,7 +827,7 @@
           </property>
           <property
             Id="b2a41206-ccd1-4d47-ab92-6b1483122497"
-            name="numberInstance"
+            name="numberInstance_"
             visibility="Private"
             isLeaf="false"
             isStatic="true"
@@ -1007,7 +917,7 @@
             sourceEndRoleName=""
             targetEndRoleName=""
             isLeaf="false"
-            name="est composé de"
+            name="Possède"
             isAbstract="false">
             <classMoniker
               Id="64391bfc-660b-4303-9168-cab98d8f6b83"
@@ -1022,7 +932,7 @@
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
-                  aggregation="Composite"
+                  aggregation="Shared"
                   isComposite="false"
                   isNavigableOwned="false" />
               </associationHasOwnedEnds>
@@ -1035,7 +945,7 @@
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="true" />
+                  isComposite="false" />
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
@@ -1080,45 +990,8 @@
             </type_NamedElement>
           </property>
           <property
-            Id="db248cd5-3a30-4bd2-97a4-a392397903a2"
-            name="address"
-            visibility="Protected"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="64391bfc-660b-4303-9168-cab98d8f6b83"
-                LastKnownName="Address"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="5e9394b9-4ddc-4944-b90a-4b08bc033d38"
-            name="barcode_"
-            visibility="Protected"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="b0af67eb-646b-4762-95cb-fe5439d8a590"
-                LastKnownName="Barcode"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
-          <property
             Id="f28b4c9b-911b-4f49-95bb-f31cfbda020a"
-            name="numberInstance"
+            name="numberInstance_"
             visibility="Private"
             isLeaf="false"
             isStatic="true"
@@ -1150,7 +1023,15 @@
             name="~Person"
             isLeaf="false"
             isStatic="false"
-            isAbstract="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="5190c0dd-ac7b-4d9d-869b-7a97b6a4e635"
+            name="display"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
             concurrency="Sequential"
             isQuery="false" />
         </ownedOperationsInternal>
@@ -1166,10 +1047,10 @@
         <ownedAttributesInternal>
           <property
             Id="64edd4c1-3121-47c1-9706-8706df16990c"
-            name="barcode"
+            name="barcode_"
             visibility="Private"
             isLeaf="false"
-            isStatic="false"
+            isStatic="true"
             isReadOnly="false"
             isDerived="false"
             isDerivedUnion="false"
@@ -1184,7 +1065,7 @@
           </property>
           <property
             Id="7fdf6fc4-64dc-45b6-a5e3-d0d40e37b2cc"
-            name="numberInstance"
+            name="numberInstance_"
             visibility="Private"
             isLeaf="false"
             isStatic="true"
@@ -1226,7 +1107,22 @@
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="76af2e4d-a16b-4ec0-b02e-a7644c399243"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1309,8 +1205,8 @@
             isComposite="false">
             <type_NamedElement>
               <primitiveTypeMoniker
-                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
-                LastKnownName="String"
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
                 LastKnownLocation="Group.uml" />
             </type_NamedElement>
           </property>
@@ -1335,7 +1231,7 @@
           </property>
           <property
             Id="caa02c0f-58a2-412b-a13d-1fb54b5dfe3d"
-            name="numberInstance"
+            name="numberInstance_"
             visibility="Private"
             isLeaf="false"
             isStatic="true"
@@ -1365,6 +1261,14 @@
           <operation
             Id="193e9667-2dbf-4c51-b3cb-8510885a03f7"
             name="~Address"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="622b32d2-d943-4828-bea4-a5f0e309be70"
+            name="display"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -1431,7 +1335,7 @@
           </property>
           <property
             Id="8dd17736-7088-4e0a-bd74-c921cbe3ede5"
-            name="numberInstance"
+            name="numberInstance_"
             visibility="Private"
             isLeaf="false"
             isStatic="true"
@@ -1462,6 +1366,14 @@
             Id="96ed4319-5c0f-4f0c-951d-93455de6a207"
             name="Advisor"
             visibility="Package"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="332d07fa-3f08-41ed-bfcd-5b89064c3770"
+            name="display"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -1574,7 +1486,7 @@
           </property>
           <property
             Id="030577b1-c86d-49f5-9fcc-577a98455897"
-            name="numberInstance"
+            name="numberInstance_"
             visibility="Private"
             isLeaf="false"
             isStatic="true"
@@ -1625,6 +1537,14 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
+          <operation
+            Id="29dc4e84-ebab-4270-a45c-256f7fe000e2"
+            name="display"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1667,7 +1587,7 @@
           </property>
           <property
             Id="67e59c2e-54b5-494d-b0dd-bd5a22bfde2c"
-            name="numberInstance"
+            name="numberInstance_"
             visibility="Private"
             isLeaf="false"
             isStatic="true"
@@ -1743,6 +1663,14 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
+          <operation
+            Id="a8b33812-f830-4b81-85c3-d67d3c8ec3f9"
+            name="display"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1793,7 +1721,7 @@
           </property>
           <property
             Id="c4dc81bb-3f14-4f39-83b9-cad461f38b9c"
-            name="numberInstance"
+            name="numberInstance_"
             visibility="Private"
             isLeaf="false"
             isStatic="true"
@@ -1852,7 +1780,7 @@
           <property
             Id="ea12409d-ac08-4a26-8ad0-66aeaa167ed7"
             name="hoursToDo_"
-            visibility="Private"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1871,7 +1799,7 @@
           <property
             Id="4fdf4c74-381c-4bd4-bcaf-0235272115c4"
             name="address_"
-            visibility="Private"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1890,7 +1818,7 @@
           <property
             Id="d7d5f73f-2904-40b7-b817-5d0260691347"
             name="name_"
-            visibility="Private"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1909,7 +1837,7 @@
           <property
             Id="9b8e522f-9f0f-48b3-842d-8307c4251d4e"
             name="firstName_"
-            visibility="Private"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1928,7 +1856,7 @@
           <property
             Id="8a9ed6b4-abe2-4267-a962-593239daabdd"
             name="percentageOfSucces_"
-            visibility="Private"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1946,7 +1874,7 @@
           <property
             Id="dd18b38b-8a2e-4f00-82cb-c771c4561bc5"
             name="percentageOfGlanding_"
-            visibility="Private"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1964,7 +1892,7 @@
           </property>
           <property
             Id="92e039dd-5c75-4842-b5ac-e3d53749f718"
-            name="numberInstance"
+            name="numberInstance_"
             visibility="Private"
             isLeaf="false"
             isStatic="true"
@@ -2001,7 +1929,7 @@
             isQuery="false" />
           <operation
             Id="0f905c46-ae56-472a-8050-6af0d9b200ea"
-            name="displayInfo"
+            name="display"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -2213,7 +2141,7 @@
           <property
             Id="aa75c38b-6562-4aab-aa77-fcebc1c10fd8"
             name="seniority_"
-            visibility="Private"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2231,7 +2159,7 @@
           <property
             Id="e93a3fbb-16f2-444f-bc2f-3b6d6035017b"
             name="skill_"
-            visibility="Private"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2250,7 +2178,7 @@
           <property
             Id="7fb0d0d0-789d-4c5d-b9c9-eadf2d9b6d55"
             name="hoursToDo_"
-            visibility="Private"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2269,7 +2197,7 @@
           <property
             Id="f4532efd-f12b-4b93-a3d7-9cf7ba7c2714"
             name="course_"
-            visibility="Private"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2288,7 +2216,7 @@
           <property
             Id="e2a6a269-b005-47cd-877f-dd2b5b6044f3"
             name="room_"
-            visibility="Private"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2306,7 +2234,7 @@
           </property>
           <property
             Id="a112609a-2904-474d-989a-94d218ed57db"
-            name="numberInstance"
+            name="numberInstance_"
             visibility="Private"
             isLeaf="false"
             isStatic="true"
@@ -2343,7 +2271,7 @@
             isQuery="false" />
           <operation
             Id="f742f9be-57ce-4d72-aeed-db859ae367cc"
-            name="displayInfo"
+            name="display"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -2388,7 +2316,7 @@
         <ownedAttributesInternal>
           <property
             Id="63416a73-060f-479f-a3a8-739f0fcd32a8"
-            name="numberInstance"
+            name="numberInstance_"
             visibility="Private"
             isLeaf="false"
             isStatic="true"
@@ -2424,8 +2352,8 @@
             concurrency="Sequential"
             isQuery="false" />
           <operation
-            Id="53cbd0cd-8455-4635-9314-cec449257f59"
-            name="displayInfo"
+            Id="007fadae-1492-44b5-9e6d-cd12bc197ed6"
+            name="display"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -2477,25 +2405,6 @@
               <primitiveTypeMoniker
                 Id="220a3521-e091-4221-bae9-3ef9018e845c"
                 LastKnownName="Integer"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="49558643-3f6b-4cea-a3fe-6c231b97db83"
-            name="teacher_"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="58a25480-bf18-4cb0-bb6f-c1610070bd74"
-                LastKnownName="Teacher"
                 LastKnownLocation="Group.uml" />
             </type_NamedElement>
           </property>
