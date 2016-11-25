@@ -696,12 +696,6 @@
           </association>
         </targetEnds>
         <ownedAttributesInternal>
-          <property Id="6a285815-13a6-4171-988f-8795966bbe87" name="skill_" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="e0390e12-7a34-4135-8398-75cdccbef046" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="5fe1cf46-1e81-43ca-900e-ea4c2039ec61" LastKnownName="Skill" />
-            </type_NamedElement>
-          </property>
           <property Id="40702ead-7fd6-40db-91ed-f52145b781dc" name="numberInstance_" visibility="Private" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="030577b1-c86d-49f5-9fcc-577a98455897" />
             <type_NamedElement>
@@ -764,9 +758,6 @@
           <operation Id="e2ea9dca-3adc-4b0e-a566-6308701f78a6" name="delStudentToCourse" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="a5982e25-3739-4f33-ae14-27d1fa1d01d3" />
           </operation>
-          <operation Id="756509a4-5e55-41e2-9048-79162f411dc9" name="addStudentToCourse" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="ad5aa694-08b4-4ed8-b5e9-719cc383de5f" />
-          </operation>
           <operation Id="0dd0fd6f-5244-4b7a-942c-baf6e179ed4e" name="Secretary" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="586755e4-1ca9-4b05-85c0-4f9e3039b112" />
           </operation>
@@ -812,13 +803,8 @@
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
-    <packageHasNamedElement>
-      <referencedType Id="5fe1cf46-1e81-43ca-900e-ea4c2039ec61" name="Skill" isAbstract="false" isLeaf="false" cachedFullName="Group::Skill">
-        <elementDefinition Id="b4289d10-8fb3-4ce6-a07a-f828d3b63600" />
-      </referencedType>
-    </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
-      <class Id="b1f24712-4c17-4e74-a641-1935bc512279" name="Student" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="b1f24712-4c17-4e74-a641-1935bc512279" name="Student" isAbstract="true" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="3eaf0a43-3743-42c0-9e87-6c8ba5415742" />
         <generalsInternal>
           <generalization Id="022a7c57-2e08-4e8d-93e1-34adda66ab1b" isSubstitutable="false">
@@ -831,24 +817,6 @@
             <elementDefinition Id="ea12409d-ac08-4a26-8ad0-66aeaa167ed7" />
             <type_NamedElement>
               <referencedTypeMoniker Id="ab940905-d2b0-405c-98ec-db1cc9f58563" LastKnownName="Integer" />
-            </type_NamedElement>
-          </property>
-          <property Id="56e52345-39e0-486a-8170-76fc4e1818c5" name="address_" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="4fdf4c74-381c-4bd4-bcaf-0235272115c4" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="09a58575-1e79-4848-beb0-b276838d9083" LastKnownName="Address" />
-            </type_NamedElement>
-          </property>
-          <property Id="9ebf5341-9b5a-4a3e-816a-656563829331" name="name_" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="d7d5f73f-2904-40b7-b817-5d0260691347" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="58e67cea-e6ee-4eb4-a20f-72addcf823b9" LastKnownName="String" />
-            </type_NamedElement>
-          </property>
-          <property Id="19816bdc-0524-4104-bc7d-19f3c95bcbc2" name="firstName_" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="9b8e522f-9f0f-48b3-842d-8307c4251d4e" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="e80d833d-f513-4299-a568-8b671be22618" LastKnownName="String" />
             </type_NamedElement>
           </property>
           <property Id="468fcb77-c5ed-4b2d-8d3a-67e907b2539d" name="percentageOfSucces_" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -884,11 +852,6 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <packageHasNamedElement>
-      <referencedType Id="09a58575-1e79-4848-beb0-b276838d9083" name="Address" isAbstract="false" isLeaf="false" cachedFullName="Group::Address">
-        <elementDefinition Id="64391bfc-660b-4303-9168-cab98d8f6b83" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="ab940905-d2b0-405c-98ec-db1cc9f58563" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
         <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
       </referencedType>
@@ -896,16 +859,6 @@
     <packageHasNamedElement>
       <referencedType Id="2890c692-9e86-46a0-aaec-500a58c70b7d" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
         <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="e80d833d-f513-4299-a568-8b671be22618" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
-        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="58e67cea-e6ee-4eb4-a20f-72addcf823b9" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
-        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -1029,28 +982,10 @@
               <referencedTypeMoniker Id="7679c533-e3bd-4f65-b9a8-690cbb56fec1" LastKnownName="Integer" />
             </type_NamedElement>
           </property>
-          <property Id="929da9d7-d641-4a8c-85cc-e4335ac5fc5a" name="skill_" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="e93a3fbb-16f2-444f-bc2f-3b6d6035017b" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="fe6609a3-773f-489e-bad5-a1ec06cb5ea4" LastKnownName="Skill" />
-            </type_NamedElement>
-          </property>
           <property Id="c6013ad0-4470-4975-9768-42fa2ea7c2f6" name="hoursToDo_" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="7fb0d0d0-789d-4c5d-b9c9-eadf2d9b6d55" />
             <type_NamedElement>
               <referencedTypeMoniker Id="667a9503-42e8-48b4-aba5-d6d1c900ba92" LastKnownName="Integer" />
-            </type_NamedElement>
-          </property>
-          <property Id="77707959-c9cf-490a-8021-7a1fb228bc40" name="course_" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="f4532efd-f12b-4b93-a3d7-9cf7ba7c2714" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="4dd46b24-387e-4cb6-986a-4fe6ded3d00d" LastKnownName="Course" />
-            </type_NamedElement>
-          </property>
-          <property Id="7fd123f9-d512-420d-bfae-69f4602805c2" name="room_" visibility="Protected" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="e2a6a269-b005-47cd-877f-dd2b5b6044f3" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="da6a821c-f885-4996-ab94-ec2d38fb5fb1" LastKnownName="Room" />
             </type_NamedElement>
           </property>
           <property Id="50851771-ce5f-450b-92be-a5c0634d8672" name="numberInstance_" visibility="Private" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -1178,23 +1113,8 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="4dd46b24-387e-4cb6-986a-4fe6ded3d00d" name="Course" isAbstract="false" isLeaf="false" cachedFullName="Group::Course">
-        <elementDefinition Id="ded0b8bb-44cf-4293-9ac7-082f8e967618" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="667a9503-42e8-48b4-aba5-d6d1c900ba92" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
         <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="da6a821c-f885-4996-ab94-ec2d38fb5fb1" name="Room" isAbstract="false" isLeaf="false" cachedFullName="Group::Room">
-        <elementDefinition Id="60c0d7e3-58d0-41d4-86df-6571b14338da" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="fe6609a3-773f-489e-bad5-a1ec06cb5ea4" name="Skill" isAbstract="false" isLeaf="false" cachedFullName="Group::Skill">
-        <elementDefinition Id="b4289d10-8fb3-4ce6-a07a-f828d3b63600" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>

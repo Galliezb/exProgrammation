@@ -66,6 +66,41 @@ private:
 
 
 
+
+/************************************/
+/********* CLASS BARCODE  ***********/
+/************************************/
+class Barcode {
+public:
+	Barcode();
+	bool checkSingle();
+	~Barcode();
+private:
+	static vector<int> barcode_;
+	static int numberInstance_;
+
+};
+
+
+
+/************************************/
+/*********  CLASS PERSON  ***********/
+/************************************/
+class Person{
+public:
+	Person();
+	virtual void display()=0;
+	virtual ~Person()=0;
+protected:
+	Address address_;
+	Barcode barcode_;
+	string firstname_;
+	string name_;
+};
+
+
+
+
 /************************************/
 /*********  CLASS SCHOOL  ***********/
 /************************************/
@@ -99,6 +134,22 @@ private:
 
 
 /************************************/
+/********* CLASS ADVISOR ***********/
+/************************************/
+class Advisor {
+public:
+	Advisor();
+	void display();
+	~Advisor();
+public:
+	static int numberInstance_;
+	int salary_;
+	string statut_;
+};
+
+
+
+/************************************/
 /*********  CLASS GROUP   ***********/
 /************************************/
 class Group{
@@ -113,27 +164,6 @@ private:
 	Address address_;
 	vector<School> school_;
 	vector<Advisor> advisor_;
-};
-
-/**********************************************************************************************/
-// TODO :
-// Teacher
-// Student
-// Secretary
-// Director
-// Advisor
-/**********************************************************************************************/
-
-/************************************/
-/*********  CLASS HYBRID  ***********/
-/************************************/
-class Hybrid{
-public:
-	Hybrid();
-	void display();
-	~Hybrid();
-private:
-	static int numberInstance_;
 };
 
 
@@ -152,34 +182,84 @@ private:
 };
 
 
+/************************************/
+/********* CLASS DIRECTOR ***********/
+/************************************/
+class Director : public Person {
+public:
+	Director();
+	void display();
+	void hire();
+	void fire();
+	~Director();
+private:
+	static int numberInstance_;
+	vector<Skill> skill_;
+};
+
 
 /************************************/
-/*********  CLASS PERSON  ***********/
+/********* CLASS SECRETARY **********/
 /************************************/
-class Person{
+class Secretary : public Person{
 public:
-	Person();
-	virtual void display()=0;
-	virtual ~Person()=0;
+	Secretary();
+	void addRoomToTeacher();
+	void addStudentToCourse();
+	void delRoomToTeacher();
+	void delStdudentToCourse();
+	void display();
+	~Secretary();
+private:
+	int hoursToDo_;
+	static int numberInstance_;
+};
+
+
+/************************************/
+/*********  CLASS STUDENT ***********/
+/************************************/
+class Student : public Person{
+public:
+	Student();
+	void display();
+	~Student();
+private:
+	static int numberInstance_;
 protected:
-	Address address_;
-	Barcode barcode_;
-	string firstname_;
-	string name_;
+	int hoursToDo_;
+	int percentageOfGlanding_;
+	int percentageOfSucces_;	
 };
 
 
 
 /************************************/
-/********* CLASS BARCODE  ***********/
+/*********  CLASS TEACHER ***********/
 /************************************/
-class Barcode {
+class Teacher : public Person {
 public:
-	Barcode();
-	bool checkSingle();
-	~Barcode();
+	Teacher();
+	void display();
+	~Teacher();
 private:
-	static vector<int> barcode_;
 	static int numberInstance_;
+	vector<Course> course_;
+	vector<Room> room_;
+	vector<Skill> skill_;
+	int hoursToDo_;
+	int seniority_;
+};
 
+
+/************************************/
+/*********  CLASS HYBRID  ***********/
+/************************************/
+class Hybrid{
+public:
+	Hybrid();
+	void display();
+	~Hybrid();
+private:
+	static int numberInstance_;
 };

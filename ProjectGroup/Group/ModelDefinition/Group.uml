@@ -1467,24 +1467,6 @@
         </targetEnds>
         <ownedAttributesInternal>
           <property
-            Id="e0390e12-7a34-4135-8398-75cdccbef046"
-            name="skill_"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="b4289d10-8fb3-4ce6-a07a-f828d3b63600"
-                LastKnownName="Skill"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
-          <property
             Id="030577b1-c86d-49f5-9fcc-577a98455897"
             name="numberInstance_"
             visibility="Private"
@@ -1639,14 +1621,6 @@
             concurrency="Sequential"
             isQuery="false" />
           <operation
-            Id="ad5aa694-08b4-4ed8-b5e9-719cc383de5f"
-            name="addStudentToCourse"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
             Id="586755e4-1ca9-4b05-85c0-4f9e3039b112"
             name="Secretary"
             isLeaf="false"
@@ -1763,7 +1737,7 @@
       <class
         Id="3eaf0a43-3743-42c0-9e87-6c8ba5415742"
         name="Student"
-        isAbstract="false"
+        isAbstract="true"
         isLeaf="false"
         isActiveClass="false">
         <generalsInternal>
@@ -1793,63 +1767,6 @@
               <primitiveTypeMoniker
                 Id="220a3521-e091-4221-bae9-3ef9018e845c"
                 LastKnownName="Integer"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="4fdf4c74-381c-4bd4-bcaf-0235272115c4"
-            name="address_"
-            visibility="Protected"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="64391bfc-660b-4303-9168-cab98d8f6b83"
-                LastKnownName="Address"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="d7d5f73f-2904-40b7-b817-5d0260691347"
-            name="name_"
-            visibility="Protected"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <primitiveTypeMoniker
-                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
-                LastKnownName="String"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="9b8e522f-9f0f-48b3-842d-8307c4251d4e"
-            name="firstName_"
-            visibility="Protected"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <primitiveTypeMoniker
-                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
-                LastKnownName="String"
                 LastKnownLocation="Group.uml" />
             </type_NamedElement>
           </property>
@@ -2157,25 +2074,6 @@
             </type_NamedElement>
           </property>
           <property
-            Id="e93a3fbb-16f2-444f-bc2f-3b6d6035017b"
-            name="skill_"
-            visibility="Protected"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="b4289d10-8fb3-4ce6-a07a-f828d3b63600"
-                LastKnownName="Skill"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
-          <property
             Id="7fb0d0d0-789d-4c5d-b9c9-eadf2d9b6d55"
             name="hoursToDo_"
             visibility="Protected"
@@ -2191,44 +2089,6 @@
               <primitiveTypeMoniker
                 Id="220a3521-e091-4221-bae9-3ef9018e845c"
                 LastKnownName="Integer"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="f4532efd-f12b-4b93-a3d7-9cf7ba7c2714"
-            name="course_"
-            visibility="Protected"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="ded0b8bb-44cf-4293-9ac7-082f8e967618"
-                LastKnownName="Course"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="e2a6a269-b005-47cd-877f-dd2b5b6044f3"
-            name="room_"
-            visibility="Protected"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="60c0d7e3-58d0-41d4-86df-6571b14338da"
-                LastKnownName="Room"
                 LastKnownLocation="Group.uml" />
             </type_NamedElement>
           </property>
