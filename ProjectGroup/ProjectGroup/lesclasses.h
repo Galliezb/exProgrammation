@@ -11,14 +11,13 @@ using namespace std;
 class Address {
 public:
 	Address( int boxnumber, int number, int postalCode, string street, string town );
-	Address ( Address& adr );
 	void display();
 	~Address();
 private:
 	int boxnumber_;
 	static int numberInstance_;
 	int number_;
-	int postalCode;
+	int postalCode_;
 	string street_;
 	string town_;
 };
