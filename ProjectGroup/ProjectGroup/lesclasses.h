@@ -10,7 +10,8 @@ using namespace std;
 /************************************/
 class Address {
 public:
-	Address();
+	Address( int boxnumber, int number, int postalCode, string street, string town );
+	Address ( Address& adr );
 	void display();
 	~Address();
 private:
@@ -18,7 +19,7 @@ private:
 	static int numberInstance_;
 	int number_;
 	int postalCode;
-	string stree_;
+	string street_;
 	string town_;
 };
 
@@ -96,6 +97,8 @@ protected:
 	Barcode barcode_;
 	string firstname_;
 	string name_;
+private:
+	static int numberInstance_;
 };
 
 
@@ -164,6 +167,7 @@ private:
 	Address address_;
 	vector<School> school_;
 	vector<Advisor> advisor_;
+	static int numberInstance_;
 };
 
 
