@@ -28,12 +28,12 @@ private:
 /************************************/
 class Room{
 public:
-	Room();
+	Room( int area , int numberPlace );
 	~Room();
 private:
 	int area_;
+	int numberPlace_;
 	static int numberInstance_;
-	int numberPlace;
 };
 
 
@@ -42,7 +42,9 @@ private:
 /************************************/
 class Building{
 public:
-	Building();
+	Building( int numberFloor, Address& address);
+	void addRoom();
+	void delRoom();
 	~Building();
 private:
 	Address address_;
@@ -67,36 +69,17 @@ private:
 
 
 
-
-/************************************/
-/********* CLASS BARCODE  ***********/
-/************************************/
-class Barcode {
-public:
-	Barcode();
-	bool checkSingle();
-	~Barcode();
-private:
-	static vector<int> barcode_;
-	static int numberInstance_;
-
-};
-
-
-
 /************************************/
 /*********  CLASS PERSON  ***********/
 /************************************/
 class Person{
 public:
-	Person();
+	Person( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town );
 	virtual void display()=0;
-	virtual ~Person()=0;
+	~Person();
 protected:
 	Address address_;
-	Barcode barcode_;
-	string firstname_;
-	string name_;
+	string name_ , firstName_;
 private:
 	static int numberInstance_;
 };
@@ -109,7 +92,7 @@ private:
 /************************************/
 class School{
 public:
-	School();
+	School( string level );
 	void addBuilding();
 	void addDirector();
 	void addRoom();
@@ -139,15 +122,14 @@ private:
 /************************************/
 /********* CLASS ADVISOR ***********/
 /************************************/
-class Advisor {
+class Advisor : public Person {
 public:
-	Advisor();
+	Advisor( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town , string statut , string telefoon , string fax );
 	void display();
 	~Advisor();
 public:
 	static int numberInstance_;
-	int salary_;
-	string statut_;
+	string name_ , firstName_ , statut_ , telefoon_ , fax_ ;
 };
 
 
@@ -157,16 +139,18 @@ public:
 /************************************/
 class Group{
 public:
-	Group();
+	Group(string name, string telefoon, string fax, string mail, string website, Address& address );
 	void addSchool();
 	void delSchool();
+	void displayInfo();
 	void displaySchool();
 	~Group();
 private:
-	string name_;
+	string name_ , telefoon_ , fax_, mail_, website_;
 	Address address_;
 	vector<School> school_;
-	vector<Advisor> advisor_;
+	// pointer for polymorphism
+	vector<Person*> advisor_;
 	static int numberInstance_;
 };
 
@@ -268,15 +252,28 @@ private:
 	static int numberInstance_;
 };
 
+
+
+/************************************/
+/******* CLASS ENUM ERROR  **********/
+/************************************/
+enum class Error {
+	number = 0
+};
+
+
+
 /************************************/
 /*********  CLASS DISPLAY ***********/
 /************************************/
 class Display{
 public:
 	Display();
-	bool checkCinIntValidity(int min, int max, int valueToVerify);
-	void displayMenu();
-	void displayStart();
+	void checkCinIntValidity(int min, int max, int valueToVerify);
+	void emptyBuffer();
+	void error( Error error );
+	void menuStart();
+	void menuGroup();
 	void pauseAtBottom(int cpt);
 	~Display();
 };

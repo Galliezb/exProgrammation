@@ -206,6 +206,82 @@
                 LastKnownLocation="Group.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="26f7cbf6-21e1-4c65-a769-dd66db47bfe7"
+            name="telefoon_"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Group.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="1736949b-0faa-4c97-9589-d87ae559d620"
+            name="fax_"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Group.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="e38b8d08-4e30-4489-b05e-aa93d3483c4e"
+            name="mail_"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Group.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="d7732527-a038-4cd5-898a-5058779d20f7"
+            name="website_"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Group.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -243,6 +319,14 @@
           <operation
             Id="40b3d5fe-e9a4-44ff-ba79-e84cdef2fa17"
             name="displaySchool"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="a4c3e384-7c47-4aaa-bbed-d5958a83a721"
+            name="displayinfo"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -776,6 +860,22 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
+          <operation
+            Id="c87e29a7-e569-4bba-a7db-f4656312805a"
+            name="addRoom"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="20f07189-cac2-4276-ad87-04e74074beb3"
+            name="delRoom"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -912,7 +1012,7 @@
             </relationshipOwnedElementsInternal>
           </association>
           <association
-            Id="33652a40-33ed-4719-a439-6b340f0fb937"
+            Id="0591c842-1581-4428-93c1-d86bb92d72c8"
             isDerived="false"
             sourceEndRoleName=""
             targetEndRoleName=""
@@ -926,26 +1026,26 @@
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="1b406a56-6cf9-4311-9c1e-f930b3b32232"
+                  Id="1db0de1e-7c3a-491c-b258-881a2626b1e0"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
-                  aggregation="Shared"
+                  aggregation="Composite"
                   isComposite="false"
                   isNavigableOwned="false" />
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="b4d1923f-d3c5-44aa-8644-e5a1d9125046"
+                  Id="3f0d6e3b-f16a-402a-aeba-527941b118cb"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="false" />
+                  isComposite="true" />
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
@@ -1315,25 +1415,6 @@
             </type_NamedElement>
           </property>
           <property
-            Id="252465c7-3216-4620-9b5b-7aae385deb63"
-            name="salary_"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <primitiveTypeMoniker
-                Id="220a3521-e091-4221-bae9-3ef9018e845c"
-                LastKnownName="Integer"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
-          <property
             Id="8dd17736-7088-4e0a-bd74-c921cbe3ede5"
             name="numberInstance_"
             visibility="Private"
@@ -1349,6 +1430,44 @@
               <primitiveTypeMoniker
                 Id="220a3521-e091-4221-bae9-3ef9018e845c"
                 LastKnownName="Integer"
+                LastKnownLocation="Group.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="de46dc0d-baad-4b58-842f-7c78158744d9"
+            name="telefoon_"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="Group.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="4e027d78-0ee0-4b03-94d9-edda48ff2383"
+            name="fax_"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
                 LastKnownLocation="Group.uml" />
             </type_NamedElement>
           </property>
@@ -3048,16 +3167,8 @@
         isActiveClass="false">
         <ownedOperationsInternal>
           <operation
-            Id="f5e7d5ad-4f59-4611-8939-6923f83d18e5"
-            name="displayMenu"
-            isLeaf="false"
-            isStatic="true"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
             Id="2033bf8d-39e2-4b15-bbab-afd2e154e735"
-            name="displayStart"
+            name="menuStart"
             isLeaf="false"
             isStatic="true"
             isAbstract="false"
@@ -3099,19 +3210,88 @@
               <operationHasOwnedParameters>
                 <parameter
                   Id="44e3474d-c9db-46f2-b5f2-43f7d0fb3f03"
-                  direction="Return">
-                  <type_NamedElement>
-                    <primitiveTypeMoniker
-                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
-                      LastKnownName="Boolean"
-                      LastKnownLocation="Group.uml" />
-                  </type_NamedElement>
-                </parameter>
+                  direction="Return" />
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="11b01691-6fc0-49f0-aa07-187a6bda32d8"
+            name="error"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="ed5c4bea-1713-4dbe-8647-c2ae5ac62a7b"
+            name="emptyBuffer"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="7264380c-7c66-49b5-ae70-76bc65eee84f"
+            name="menuGroup"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="d27935f4-10db-44b1-a06b-0dc1b0765015"
+        name="error"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="fe03104c-ec72-4863-b157-d62eaef2ca0a"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="ed5a549e-cfbf-4e1a-a5e5-707473dd124d"
+              LastKnownName="Display"
+              LastKnownLocation="Group.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0771ade1-695d-43cb-8d33-954bd5d390ca"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4dcda823-8e86-4877-a639-bb53c53da974"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="ab5e6ceb-3b4f-49ff-9d0c-ca4fbbab89fd"
+            name="number" />
+        </ownedLiterals>
+      </enumeration>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
