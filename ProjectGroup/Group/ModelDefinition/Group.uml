@@ -3039,6 +3039,80 @@
         LastKnownName="Package1"
         LastKnownLocation="Package_1937.uml" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ed5a549e-cfbf-4e1a-a5e5-707473dd124d"
+        name="Display"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedOperationsInternal>
+          <operation
+            Id="f5e7d5ad-4f59-4611-8939-6923f83d18e5"
+            name="displayMenu"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="2033bf8d-39e2-4b15-bbab-afd2e154e735"
+            name="displayStart"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="9f8e7a01-94a1-4b77-a594-a96bf7daa71d"
+            name="Display"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="a1899c5f-a6f9-4674-9eeb-c7b8d90ee927"
+            name="~Display"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="fc0b8943-dfde-4748-990e-177794088097"
+            name="pauseAtBottom"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="5fed443b-6e8e-4a48-98c2-af8e5c3850d2"
+            name="checkCinIntValidity"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="44e3474d-c9db-46f2-b5f2-43f7d0fb3f03"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"

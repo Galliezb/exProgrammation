@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <Windows.h>
 
 using namespace std;
 
@@ -265,4 +266,17 @@ public:
 	~Hybrid();
 private:
 	static int numberInstance_;
+};
+
+/************************************/
+/*********  CLASS DISPLAY ***********/
+/************************************/
+class Display{
+public:
+	Display();
+	bool checkCinIntValidity(int min, int max, int valueToVerify);
+	void displayMenu();
+	void displayStart();
+	void pauseAtBottom(int cpt);
+	~Display();
 };
