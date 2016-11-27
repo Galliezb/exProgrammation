@@ -218,7 +218,7 @@
           </association>
         </targetEnds>
         <ownedAttributesInternal>
-          <property Id="807d2933-8a13-4230-ba46-170a2f84d89a" name="level_" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="807d2933-8a13-4230-ba46-170a2f84d89a" name="type_" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="fc227dca-26a7-43a6-855c-981e98a6394b" />
             <type_NamedElement>
               <referencedTypeMoniker Id="a6045601-6c60-4588-a024-c090658111de" LastKnownName="String" />
@@ -228,6 +228,12 @@
             <elementDefinition Id="fe2ce138-9000-4493-ac8a-d15b93d8feac" />
             <type_NamedElement>
               <referencedTypeMoniker Id="5e43ec9e-1fc8-49b7-8167-9ff295ed976c" LastKnownName="Integer" />
+            </type_NamedElement>
+          </property>
+          <property Id="e08878a2-a061-4fe2-8fa0-dcbae3af2be3" name="name_" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="7a2b8516-c52f-4127-ae38-042206751107" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="40ca066e-bd5a-4d15-aa76-2b3572172f69" LastKnownName="String" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -544,6 +550,13 @@
           </operation>
           <operation Id="cc578190-13b0-4a35-b42d-b3b946c495cd" name="display" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="622b32d2-d943-4828-bea4-a5f0e309be70" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c9f94cfa-2480-4a12-b381-77510b5ed714" direction="Return">
+                  <elementDefinition Id="f2ca9195-c242-4e7e-9578-e983ba1a297b" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -1149,6 +1162,9 @@
           </operation>
           <operation Id="5deca645-7733-4ff0-8c8c-ba649b1a51ea" name="menuGroup" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="7264380c-7c66-49b5-ae70-76bc65eee84f" />
+          </operation>
+          <operation Id="decd017c-2108-4eb0-855a-5de1c80e1f1f" name="centerOutputString" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6047d105-8f04-474f-9066-56c05f4c4a94" />
           </operation>
         </ownedOperationsInternal>
       </class>

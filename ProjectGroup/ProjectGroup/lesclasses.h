@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <iomanip>
+#include <fstream>
 #include <vector>
 #include <Windows.h>
 
@@ -12,7 +14,7 @@ using namespace std;
 class Address {
 public:
 	Address( int boxnumber, int number, int postalCode, string street, string town );
-	void display();
+	string display();
 	~Address();
 private:
 	int boxnumber_;
@@ -92,7 +94,7 @@ private:
 /************************************/
 class School{
 public:
-	School( string level );
+	School( string type , string name );
 	void addBuilding();
 	void addDirector();
 	void addRoom();
@@ -111,7 +113,7 @@ public:
 	void displayTotalPersonPerType();
 	~School();
 private:
-	string level_;
+	string type_, name_;
 	static int numberInstance_;
 	vector<Building> building_;
 	vector<Person> person_;
@@ -129,7 +131,7 @@ public:
 	~Advisor();
 public:
 	static int numberInstance_;
-	string name_ , firstName_ , statut_ , telefoon_ , fax_ ;
+	string statut_ , telefoon_ , fax_ ;
 };
 
 
@@ -269,11 +271,13 @@ enum class Error {
 class Display{
 public:
 	Display();
-	void checkCinIntValidity(int min, int max, int valueToVerify);
-	void emptyBuffer();
-	void error( Error error );
-	void menuStart();
-	void menuGroup();
-	void pauseAtBottom(int cpt);
+	static void checkCinIntValidity(int min, int max, int valueToVerify);
+	static void centerOutputString( string str );
+	static void emptyBuffer();
+	static void error( Error error );
+	static void fillFullLine( const char c);
+	static void menuStart();
+	static void menuGroup();
+	static void pauseAtBottom(int cpt);
 	~Display();
 };

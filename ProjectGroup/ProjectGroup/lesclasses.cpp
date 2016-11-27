@@ -34,16 +34,23 @@ Address::Address(int boxnumber=0, int number=0, int postalCode=0, string street=
 
 
 
-void Address::display(){
+string Address::display(){
 
-	cout << street_ << "," << number_;
-
+	string stringReturn;
+	stringReturn += to_string(number_);
+	stringReturn +=  " ";
+	stringReturn += street_;
+	stringReturn += ", ";
 	if ( boxnumber_ != NULL ){
-		cout << "( BP " << boxnumber_ << " )";
+		stringReturn += "( BP ";
+		stringReturn += to_string(boxnumber_);
+		stringReturn += " )";
 	}
+	stringReturn += to_string(postalCode_);
+	stringReturn += " ";
+	stringReturn += town_;
 
-	cout << endl;
-	cout << postalCode_ << " " << town_ << endl;
+	return stringReturn;
 
 }
 
@@ -102,7 +109,6 @@ void Display::error( Error error ){
 	switch ( error ){
 
 		case Error::number :
-			cout << "Test check apres number" << endl;
 			cout << "*******************************************************************************************************************************************************" << endl;
 			cout << "***                                             You need to enter a number in the good range please                                                 ***" << endl;
 			cout << "*******************************************************************************************************************************************************" << endl;
@@ -115,14 +121,36 @@ void Display::error( Error error ){
 
 }
 
+void Display::fillFullLine(const char c){
+	cout << c << setw(150) << setfill(c) << c << endl;
+}
+
+void Display::centerOutputString( string str ){
+
+	int width = 150 - str.length();
+	int first,sec;
+
+	// espace avant et après
+	first =  width / 2;
+	sec =  width / 2;
+	if ( !(width % 2 == 0) ) {
+		// impair
+		first++;
+	}
+	// J'adore l'espace nécessare au fonctionnement de setw et setFill
+	cout << "-" << setw(first) << setfill(' ') << " " << str << setw(sec) << setfill(' ') << "-"<< endl;
+
+}
+
 
 
 void Display::menuStart(){
-	
-	cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
-	cout << "-                                                              TEST DU LOGICIEL,                                                                      -" << endl;
-	cout << "-                                                           CHOISSISSEZ UN ROLE SVP                                                                   -" << endl;
-	cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+
+	fillFullLine('-');
+	centerOutputString( string("TEST DU LOGICIEL,") );
+	centerOutputString( string("CHOISSISSEZ UN ROLE SVP") );
+	fillFullLine('-');
+
 	pauseAtBottom(2);
 	cout << "   ----------------------------\t\t ----------------------------\t\t -----------------------------\t\t ----------------------" << endl;
 	cout << "  ---                        ---\t---                        ---\t\t---                         ---\t\t---                  ---" << endl;
@@ -136,24 +164,31 @@ void Display::menuStart(){
 }
 
 void Display::menuGroup(){
-	cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+
+	fillFullLine('-');
 	cout << "-                                                              GESTION DU GROUPE                                                                      -" << endl;
-	cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+	fillFullLine('-');
+
 	pauseAtBottom(2);
+
 	cout << "   ----------------------------\t\t ----------------------------\t\t -----------------------------\t\t ----------------------" << endl;
 	cout << "  ---                        ---\t---                        ---\t\t---                         ---\t\t---                  ---" << endl;
 	cout << "  ---  0 : QUITTER           ---\t---  1 : AFFICHER INFO     ---\t\t---                         ---\t\t---                  ---" << endl;
 	cout << "  ---                        ---\t---                        ---\t\t---                         ---\t\t---                  ---" << endl;
 	cout << "   ----------------------------\t\t ----------------------------\t\t -----------------------------\t\t ----------------------" << endl;
+	
 	pauseAtBottom(24);
+
 }
 
 
 
 void Display::pauseAtBottom(int cpt=0){
+
 	for (int i = 0; i<cpt; i++){
 		cout << endl;
 	}
+
 }
 
 
@@ -174,26 +209,99 @@ Group::Group(string name, string telefoon, string fax, string mail, string websi
 
 	numberInstance_++;
 
-	// Advisor
-	/******************* !!!!!!!!!!!!!!!! *******************/
-	// pointer for polymorphism
+	
+	ofstream f;
+	// file open in binary mode and app ( or app ? )
+	
+	f.open("advisor.txt", ios::binary | ios::out | ios::trunc);
+	if(f.fail()){
+		cerr<<"Fail _ Impossible de créer le fichier advisor.txt\n";
+		exit(8);
+	}
+	if(f.bad()){
+		cerr<<"Bad _ Impossible de créer le fichier pers.txt\n";
+		exit(8);
+	}
+	f << setw(50) << "Bernard"<< setw(50) << "RIGUELLE"<< setw(50) << 0<< setw(50) << 159 << setw(50) << 7000<< setw(30) << "Chaussee de Binche"<< setw(50) << "Mons"<< setw(30) << "Secretaire academique"<< setw(50) << "+32 (0)65 40 41 81"<< setw(50) << "+32 (0)65 34 04 52" << endl;
+	f << setw(50) << "Stephanie" << setw(50) << "DEHOUCK" << setw(50) << 0 << setw(50) << 159 << setw(50) << 7000 << setw(50) << "Chaussee de Binche" << setw(50) << "Mons" << setw(50) << "Secretaire academique" << setw(50) << "+32 (0)65 40 41 76 (ou +32 (0)477 75 97 83)" << setw(50) << "+32 (0)65 34 04 52" << endl;
+	f << setw(50) << "Maryse" << setw(50) << "LAMBERT" << setw(50) << 0 << setw(50) << 159 << setw(50) << 7000 << setw(50) << "Chaussee de Binche" << setw(50) << "Mons" << setw(50) << "Gestionnaire financiere et comptable" << setw(50) << "+32 (0)65 40 41 63" << setw(50) << "+32 (0)65 34 04 52" << endl;
+	f << setw(50) << "Catherine" << setw(50) << "PREAT" << setw(50) << 0 << setw(50) << 159 << setw(50) << 7000 << setw(50) << "Chaussee de Binche" << setw(50) << "Mons" << setw(50) << "Gestionnaire administrative et juridique" << setw(50) << "+32 (0)65 40 41 80" << setw(50) << "+32 (0)65 34 04 52" << endl;
+	f << setw(50) << "Michel" << setw(50) << "PETTEAU" << setw(50) << 0 << setw(50) << 159 << setw(50) << 7000 << setw(50) << "Chaussee de Binche" << setw(50) << "Mons" << setw(50) << "Directeur categorie Arts Appliques" << setw(50) << "+32 (0)65 40 41 43" << setw(50) << "inconnu" << endl;
+	f << setw(50) << "Jean-Philippe" << setw(50) << "PINGOT" << setw(50) << 0 << setw(50) << 159 << setw(50) << 7000 << setw(50) << "Chaussee de Binche" << setw(50) << "Mons" << setw(50) << "Conseiller en prevention HELHa" << setw(50) << "+32 (0)496 12 55 74" << setw(50) << "+32 (0)65 34 04 52" << endl;
+	f.close();
+	
+
+	ifstream fi;
+	fi.open("advisor.txt", ios::binary | ios::in);
+	if ( fi.fail() ){
+		cerr<<"Fail _ Impossible de créer le fichier advisor.txt\n";
+		exit(9);
+	}
+	if ( fi.bad() ){
+		cerr<<"Bad _ Impossible de créer le fichier advisor.txt\n";
+		exit(9);
+	}
+
+	string line;
+	while( getline( fi, line ) ){
+
+		cout << "LIGNE : " << line << endl; 
+
+		string firstName,name,street,town,statut,tel,fax;
+		int boxNumber,number,codePostal;
+		
+		firstName = line.substr(0,50);
+		name = line.substr(50,50);
+		boxNumber = stoi(line.substr(100,50));
+		number = stoi(line.substr(150,50));
+		codePostal = stoi(line.substr(200,50));
+		street = line.substr(250,50);
+		town = line.substr(350,50);
+		statut = line.substr(400,50);
+		tel = line.substr(450,50);
+		fax = line.substr(500,50);
+		
+		
+		
+		
+		//fi >> firstName >> name >> boxNumber >> number >> codePostal >> street >> town >> tel >> fax;
+
+		/*
+		cout << "prenom : " << firstName << endl; 
+		cout << "name : " << name << endl; 
+		cout << "boxNumber : " << boxNumber << endl; 
+		cout << "number : " << number << endl; 
+		cout << "codePostal : " << codePostal << endl; 
+		cout << "street : " << street << endl; 
+		cout << "town : " << town << endl; 
+		cout << "tel : " << tel << endl; 
+		cout << "fax : " << fax << endl; 
+		*/
+
+	}
+	fi.close();
+
+	// Pour gagner du temps pendant la présentation, enregisrement auto.
+	// pointer for polymorphism ( Person is abstract )
+	/*
 	Person* a = new Advisor("Bernard","RIGUELLE",NULL,159,7000,"Chaussee de Binche","Mons","Secretaire academique","+32 (0)65 40 41 81","+32 (0)65 34 04 52");
 	advisor_.push_back(a);
 
-	Person* b = new Advisor("Stephanie","DEHOUCK",NULL,159,7000,"Chaussee de Binche","Mons","Secretaire academique","+32 (0)65 40 41 76 (ou +32 (0)477 75 97 83)","+32 (0)65 34 04 52");
-	advisor_.push_back(b);
+	a = new Advisor("Stephanie","DEHOUCK",NULL,159,7000,"Chaussee de Binche","Mons","Secretaire academique","+32 (0)65 40 41 76 (ou +32 (0)477 75 97 83)","+32 (0)65 34 04 52");
+	advisor_.push_back(a);
 
-	Person* c = new Advisor("Maryse","LAMBERT",NULL,159,7000,"Chaussee de Binche","Mons","Gestionnaire financiere et comptable","+32 (0)65 40 41 63","+32 (0)65 34 04 52");
-	advisor_.push_back(c);
+	a = new Advisor("Maryse","LAMBERT",NULL,159,7000,"Chaussee de Binche","Mons","Gestionnaire financiere et comptable","+32 (0)65 40 41 63","+32 (0)65 34 04 52");
+	advisor_.push_back(a);
 
-	Person* d = new Advisor("Catherine","PREAT",NULL,159,7000,"Chaussee de Binche","Mons","Gestionnaire administrative et juridique","+32 (0)65 40 41 80","+32 (0)65 34 04 52");
-	advisor_.push_back(d);
+	a = new Advisor("Catherine","PREAT",NULL,159,7000,"Chaussee de Binche","Mons","Gestionnaire administrative et juridique","+32 (0)65 40 41 80","+32 (0)65 34 04 52");
+	advisor_.push_back(a);
 
-	Person* e = new Advisor("Michel","PETTEAU",NULL,159,7000,"Chaussee de Binche","Mons","Directeur categorie Arts Appliques","+32 (0)65 40 41 43","inconnu");
-	advisor_.push_back(e);
+	a= new Advisor("Michel","PETTEAU",NULL,159,7000,"Chaussee de Binche","Mons","Directeur categorie Arts Appliques","+32 (0)65 40 41 43","inconnu");
+	advisor_.push_back(a);
 
-	Person* f = new Advisor("Jean-Philippe","PINGOT",NULL,159,7000,"Chaussee de Binche","Mons","Conseiller en prevention HELHa","+32 (0)496 12 55 74","+32 (0)65 34 04 52");
-	advisor_.push_back(f);
+	a = new Advisor("Jean-Philippe","PINGOT",NULL,159,7000,"Chaussee de Binche","Mons","Conseiller en prevention HELHa","+32 (0)496 12 55 74","+32 (0)65 34 04 52");
+	advisor_.push_back(a);
+	*/
 }
 
 void Group::displayInfo(){
@@ -209,7 +317,9 @@ void Group::displayInfo(){
 	cout << "* Fax : \t\t" << fax_ << endl;
 	cout << "* Mail : \t\t" << mail_ << endl;
 	cout << "* Site Web : \t\t" << website_ << endl;
-	
+
+	Display::pauseAtBottom(26);
+
 	system("pause");
 	system("cls");
 
@@ -220,6 +330,7 @@ void Group::displayInfo(){
 		cout << "-                                                         INFORMATION GROUP HELHA                                                                     -" << endl;
 		cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
 		a->display();
+		Display::pauseAtBottom(25);
 		system("pause");
 
 	}
@@ -237,33 +348,6 @@ Group::~Group(){
 
 }
 
-Advisor::Advisor( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town , string statut, string telefoon, string fax)
-		: Person( name , firstName , boxNumber , number , postalCode , street , town ){
-
-	statut_ = statut;
-	telefoon_ = telefoon;
-	fax_ = fax;
-
-	numberInstance_++;
-
-}
-
-void Advisor::display(){
-
-	cout << "* Nom :\t\t " << name_ << endl;
-	cout << "* Prenom : \t\t" << firstName_ << endl;
-	cout << "* Statut :\t\t " << statut_ << endl;
-	cout << "* Telephone :\t\t" << telefoon_ << endl;
-	cout << "* Fax : \t\t" << fax_ << endl;
-	cout << "* Adresse : \t\t" << endl;
-	address_.display();
-
-}
-
-Advisor::~Advisor(){
-	// debug
-	// cout << "Deconstruct instance Advisor" << endl;
-}
 
 Person::Person( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town ){
 	// debug
@@ -283,13 +367,42 @@ Person::~Person(){
 	// cout << "Deconstruct instance Person" << endl;
 }
 
+Advisor::Advisor( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town , string statut, string telefoon, string fax)
+		: Person( name , firstName , boxNumber , number , postalCode , street , town ){
+
+	statut_ = statut;
+	telefoon_ = telefoon;
+	fax_ = fax;
+
+	numberInstance_++;
+
+}
+
+void Advisor::display(){
+
+	cout << "* Nom :\t\t\t" << name_ << endl;
+	cout << "* Prenom : \t\t" << firstName_ << endl;
+	cout << "* Statut :\t\t" << statut_ << endl;
+	cout << "* Telephone :\t\t" << telefoon_ << endl;
+	cout << "* Fax : \t\t" << fax_ << endl;
+	cout << "* Adresse : \t\t" << address_.display() << endl;
+	
+
+}
+
+Advisor::~Advisor(){
+	// debug
+	// cout << "Deconstruct instance Advisor" << endl;
+}
+
 School::~School(){
 	// debug
 	// cout << "Deconstruct instance School" << endl;
 }
 
-School::School( string level ){
-	level_ = level;
+School::School( string type , string name ){
+	type_ = type;
+	name_ = name;
 }
 
 Building::Building(int numberFloor, Address & address){

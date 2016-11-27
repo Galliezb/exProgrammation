@@ -501,7 +501,7 @@
         <ownedAttributesInternal>
           <property
             Id="fc227dca-26a7-43a6-855c-981e98a6394b"
-            name="level_"
+            name="type_"
             visibility="Private"
             isLeaf="false"
             isStatic="false"
@@ -534,6 +534,24 @@
               <primitiveTypeMoniker
                 Id="220a3521-e091-4221-bae9-3ef9018e845c"
                 LastKnownName="Integer"
+                LastKnownLocation="Group.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="7a2b8516-c52f-4127-ae38-042206751107"
+            name="name_"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
                 LastKnownLocation="Group.uml" />
             </type_NamedElement>
           </property>
@@ -1373,7 +1391,15 @@
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f2ca9195-c242-4e7e-9578-e983ba1a297b"
+                  direction="Return" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -3238,6 +3264,14 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
+          <operation
+            Id="6047d105-8f04-474f-9066-56c05f4c4a94"
+            name="centerOutputString"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -3292,6 +3326,11 @@
             name="number" />
         </ownedLiterals>
       </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="03485aa6-6574-422f-8019-1be978a15df5"
+        name="iostream" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
