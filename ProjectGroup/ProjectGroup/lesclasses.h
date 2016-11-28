@@ -5,6 +5,7 @@
 #include <fstream>
 #include <vector>
 #include <Windows.h>
+#include <algorithm>
 
 using namespace std;
 

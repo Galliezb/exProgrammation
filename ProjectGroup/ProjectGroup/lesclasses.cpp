@@ -209,7 +209,7 @@ Group::Group(string name, string telefoon, string fax, string mail, string websi
 
 	numberInstance_++;
 
-	
+	/*
 	ofstream f;
 	// file open in binary mode and app ( or app ? )
 	
@@ -222,16 +222,17 @@ Group::Group(string name, string telefoon, string fax, string mail, string websi
 		cerr<<"Bad _ Impossible de créer le fichier pers.txt\n";
 		exit(8);
 	}
-	f << setw(50) << "Bernard"<< setw(50) << "RIGUELLE"<< setw(50) << 0<< setw(50) << 159 << setw(50) << 7000<< setw(30) << "Chaussee de Binche"<< setw(50) << "Mons"<< setw(30) << "Secretaire academique"<< setw(50) << "+32 (0)65 40 41 81"<< setw(50) << "+32 (0)65 34 04 52" << endl;
+	f << setw(50) << "Bernard" << setw(50) << "RIGUELLE"<< setw(50) << 0<< setw(50) << 159 << setw(50) << 7000<< setw(50) << "Chaussee de Binche"<< setw(50) << "Mons"<< setw(50) << "Secretaire academique"<< setw(50) << "+32 (0)65 40 41 81"<< setw(50) << "+32 (0)65 34 04 52" << endl;
 	f << setw(50) << "Stephanie" << setw(50) << "DEHOUCK" << setw(50) << 0 << setw(50) << 159 << setw(50) << 7000 << setw(50) << "Chaussee de Binche" << setw(50) << "Mons" << setw(50) << "Secretaire academique" << setw(50) << "+32 (0)65 40 41 76 (ou +32 (0)477 75 97 83)" << setw(50) << "+32 (0)65 34 04 52" << endl;
 	f << setw(50) << "Maryse" << setw(50) << "LAMBERT" << setw(50) << 0 << setw(50) << 159 << setw(50) << 7000 << setw(50) << "Chaussee de Binche" << setw(50) << "Mons" << setw(50) << "Gestionnaire financiere et comptable" << setw(50) << "+32 (0)65 40 41 63" << setw(50) << "+32 (0)65 34 04 52" << endl;
 	f << setw(50) << "Catherine" << setw(50) << "PREAT" << setw(50) << 0 << setw(50) << 159 << setw(50) << 7000 << setw(50) << "Chaussee de Binche" << setw(50) << "Mons" << setw(50) << "Gestionnaire administrative et juridique" << setw(50) << "+32 (0)65 40 41 80" << setw(50) << "+32 (0)65 34 04 52" << endl;
 	f << setw(50) << "Michel" << setw(50) << "PETTEAU" << setw(50) << 0 << setw(50) << 159 << setw(50) << 7000 << setw(50) << "Chaussee de Binche" << setw(50) << "Mons" << setw(50) << "Directeur categorie Arts Appliques" << setw(50) << "+32 (0)65 40 41 43" << setw(50) << "inconnu" << endl;
 	f << setw(50) << "Jean-Philippe" << setw(50) << "PINGOT" << setw(50) << 0 << setw(50) << 159 << setw(50) << 7000 << setw(50) << "Chaussee de Binche" << setw(50) << "Mons" << setw(50) << "Conseiller en prevention HELHa" << setw(50) << "+32 (0)496 12 55 74" << setw(50) << "+32 (0)65 34 04 52" << endl;
 	f.close();
+	*/
 	
 
-	ifstream fi;
+	ifstream fi;	
 	fi.open("advisor.txt", ios::binary | ios::in);
 	if ( fi.fail() ){
 		cerr<<"Fail _ Impossible de créer le fichier advisor.txt\n";
@@ -241,32 +242,43 @@ Group::Group(string name, string telefoon, string fax, string mail, string websi
 		cerr<<"Bad _ Impossible de créer le fichier advisor.txt\n";
 		exit(9);
 	}
+	
 
 	string line;
 	while( getline( fi, line ) ){
 
-		cout << "LIGNE : " << line << endl; 
+		//cout << "LIGNE : " << line << endl; 
 
 		string firstName,name,street,town,statut,tel,fax;
 		int boxNumber,number,codePostal;
+
+		/*
+		cout << "**************************" << endl;
+		cout << "Longueur : " << line.length();
+		cout << "**************************" << endl;
+		*/
+		
 		
 		firstName = line.substr(0,50);
+		// vire les espaces blancs avant la chaine de caractere
+		firstName.erase(remove_if(firstName.begin(), firstName.end(), isspace), firstName.end());
 		name = line.substr(50,50);
+		name.erase(remove_if(name.begin(), name.end(), isspace), name.end());
 		boxNumber = stoi(line.substr(100,50));
 		number = stoi(line.substr(150,50));
 		codePostal = stoi(line.substr(200,50));
 		street = line.substr(250,50);
-		town = line.substr(350,50);
-		statut = line.substr(400,50);
-		tel = line.substr(450,50);
-		fax = line.substr(500,50);
+		street.erase(remove_if(street.begin(), street.end(), isspace), street.end());
+		town = line.substr(300,50);
+		town.erase(remove_if(town.begin(), town.end(), isspace), town.end());
+		statut = line.substr(350,50);
+		statut.erase(remove_if(statut.begin(), statut.end(), isspace), statut.end());
+		tel = line.substr(400,50);
+		tel.erase(remove_if(tel.begin(), tel.end(), isspace), tel.end());
+		fax = line.substr(450,50);
+		fax.erase(remove_if(fax.begin(), fax.end(), isspace), fax.end());
 		
 		
-		
-		
-		//fi >> firstName >> name >> boxNumber >> number >> codePostal >> street >> town >> tel >> fax;
-
-		/*
 		cout << "prenom : " << firstName << endl; 
 		cout << "name : " << name << endl; 
 		cout << "boxNumber : " << boxNumber << endl; 
@@ -275,8 +287,12 @@ Group::Group(string name, string telefoon, string fax, string mail, string websi
 		cout << "street : " << street << endl; 
 		cout << "town : " << town << endl; 
 		cout << "tel : " << tel << endl; 
-		cout << "fax : " << fax << endl; 
-		*/
+		cout << "fax : " << fax << endl;
+
+		Person* a = new Advisor("Bernard","RIGUELLE",NULL,159,7000,"Chaussee de Binche","Mons","Secretaire academique","+32 (0)65 40 41 81","+32 (0)65 34 04 52");
+		advisor_.push_back(a);
+
+		
 
 	}
 	fi.close();
