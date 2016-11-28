@@ -332,6 +332,22 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
+          <operation
+            Id="d36a8c06-3666-490c-b4fa-eb24f4db008e"
+            name="addAdvisor"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="2b9f1fd9-1022-4de2-a290-4ed934bf7bd0"
+            name="delAdvisor"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -3272,6 +3288,30 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
+          <operation
+            Id="c8aac24e-9d33-40fa-9a8f-1ec5099effdd"
+            name="deleteWhiteSpace"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ad8e2b50-1bb6-4013-87da-513052921ba9"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -3331,6 +3371,33 @@
       <undefinedType
         Id="03485aa6-6574-422f-8019-1be978a15df5"
         name="iostream" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a76a21bd-42b1-4877-a491-b7deaf743f1a"
+        name="treatment"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedOperationsInternal>
+          <operation
+            Id="fd48a0c1-7ebd-4fee-bc15-e55a889384f9"
+            name="deleteWhiteSpace"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="fd80f27f-0f4a-4073-9408-863928697086"
+            name="writeToFile"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

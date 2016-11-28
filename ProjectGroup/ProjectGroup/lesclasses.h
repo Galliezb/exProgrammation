@@ -127,12 +127,12 @@ private:
 /************************************/
 class Advisor : public Person {
 public:
-	Advisor( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town , string statut , string telefoon , string fax );
+	Advisor( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town , string status , string telefoon , string fax );
 	void display();
 	~Advisor();
 public:
 	static int numberInstance_;
-	string statut_ , telefoon_ , fax_ ;
+	string status_ , telefoon_ , fax_ ;
 };
 
 
@@ -143,7 +143,9 @@ public:
 class Group{
 public:
 	Group(string name, string telefoon, string fax, string mail, string website, Address& address );
+	void addAdvisor();
 	void addSchool();
+	void delAdvisor();
 	void delSchool();
 	void displayInfo();
 	void displaySchool();
@@ -273,7 +275,7 @@ class Display{
 public:
 	Display();
 	static void checkCinIntValidity(int min, int max, int valueToVerify);
-	static void centerOutputString( string str );
+	static void centerOutputString( string str);
 	static void emptyBuffer();
 	static void error( Error error );
 	static void fillFullLine( const char c);
@@ -281,4 +283,17 @@ public:
 	static void menuGroup();
 	static void pauseAtBottom(int cpt);
 	~Display();
+};
+
+
+
+/************************************/
+/********  CLASS TREATEMENT *********/
+/************************************/
+class Treatment{
+public:
+	Treatment();
+	static string deleteWhiteSpace( string str, int start, int end);
+	static void writeToFile( string str );
+	~Treatment();
 };

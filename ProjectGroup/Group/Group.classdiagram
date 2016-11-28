@@ -131,6 +131,12 @@
           <operation Id="391b9e35-c416-4226-8682-743e230a3661" name="displayinfo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="a4c3e384-7c47-4aaa-bbed-d5958a83a721" />
           </operation>
+          <operation Id="cecc2d0e-daec-4ff7-8a61-cb73c40a8b2a" name="addAdvisor" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d36a8c06-3666-490c-b4fa-eb24f4db008e" />
+          </operation>
+          <operation Id="9b9cfdf5-e467-4940-84b4-335aeb46cccf" name="delAdvisor" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="2b9f1fd9-1022-4de2-a290-4ed934bf7bd0" />
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -1166,6 +1172,19 @@
           <operation Id="decd017c-2108-4eb0-855a-5de1c80e1f1f" name="centerOutputString" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="6047d105-8f04-474f-9066-56c05f4c4a94" />
           </operation>
+          <operation Id="2ad909ac-2a10-41b6-adac-7b9c9fda33e0" name="deleteWhiteSpace" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c8aac24e-9d33-40fa-9a8f-1ec5099effdd" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="97a0938d-164f-4494-896c-b3f5cd118ab3" direction="Return" isUnique="false">
+                  <elementDefinition Id="ad8e2b50-1bb6-4013-87da-513052921ba9" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="40ca066e-bd5a-4d15-aa76-2b3572172f69" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -1196,6 +1215,19 @@
           </enumerationLiteral>
         </ownedLiterals>
       </enumeration>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="fcf61280-74aa-40cd-a392-ff48bd097e76" name="treatment" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a76a21bd-42b1-4877-a491-b7deaf743f1a" />
+        <ownedOperationsInternal>
+          <operation Id="36978fc8-755c-481e-94cb-96b2673f3d5a" name="deleteWhiteSpace" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="fd48a0c1-7ebd-4fee-bc15-e55a889384f9" />
+          </operation>
+          <operation Id="4a341749-2514-4f54-8f53-05f8419f2d66" name="writeToFile" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="fd80f27f-0f4a-4073-9408-863928697086" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
     </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="b43b70e5-71a9-4324-a298-99ccac0cb4bd" name="Group">
