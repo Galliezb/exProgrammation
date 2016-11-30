@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 #include <fstream>
 #include <vector>
 #include <Windows.h>
@@ -16,6 +17,7 @@ class Address {
 public:
 	Address( int boxnumber, int number, int postalCode, string street, string town );
 	string display();
+	string getAddressForStream();
 	~Address();
 private:
 	int boxnumber_;
@@ -79,6 +81,8 @@ class Person{
 public:
 	Person( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town );
 	virtual void display()=0;
+	string getFullName();
+	virtual string stringForWriteFile()=0;
 	~Person();
 protected:
 	Address address_;
@@ -129,6 +133,7 @@ class Advisor : public Person {
 public:
 	Advisor( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town , string status , string telefoon , string fax );
 	void display();
+	string stringForWriteFile();
 	~Advisor();
 public:
 	static int numberInstance_;
@@ -143,10 +148,12 @@ public:
 class Group{
 public:
 	Group(string name, string telefoon, string fax, string mail, string website, Address& address );
-	void addAdvisor();
+	void addAdvisor( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town , string status , string telefoon , string fax );
 	void addSchool();
-	void delAdvisor();
+	void delAdvisor( int numberOfLine );
+	
 	void delSchool();
+	int displayAdvisorForDelete();
 	void displayInfo();
 	void displaySchool();
 	~Group();
@@ -184,6 +191,7 @@ public:
 	void display();
 	void hire();
 	void fire();
+	string stringForWriteFile();
 	~Director();
 private:
 	static int numberInstance_;
@@ -202,6 +210,7 @@ public:
 	void delRoomToTeacher();
 	void delStdudentToCourse();
 	void display();
+	string stringForWriteFile();
 	~Secretary();
 private:
 	int hoursToDo_;
@@ -216,6 +225,7 @@ class Student : public Person{
 public:
 	Student();
 	void display();
+	string stringForWriteFile();
 	~Student();
 private:
 	static int numberInstance_;
@@ -234,6 +244,7 @@ class Teacher : public Person {
 public:
 	Teacher();
 	void display();
+	string stringForWriteFile();
 	~Teacher();
 private:
 	static int numberInstance_;
@@ -274,7 +285,7 @@ enum class Error {
 class Display{
 public:
 	Display();
-	static void checkCinIntValidity(int min, int max, int valueToVerify);
+	static bool checkCinIntValidity(int min, int max, int valueToVerify);
 	static void centerOutputString( string str);
 	static void emptyBuffer();
 	static void error( Error error );
@@ -294,6 +305,7 @@ class Treatment{
 public:
 	Treatment();
 	static string deleteWhiteSpace( string str, int start, int end);
+	static void makeMenu(vector<string> vect);
 	static void writeToFile( string str );
 	~Treatment();
 };

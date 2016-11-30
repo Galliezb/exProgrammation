@@ -348,6 +348,29 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
+          <operation
+            Id="838a7791-387a-4cb9-ad9c-10c7596a9339"
+            name="displayAdvisorForDelete"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1e526817-b8f7-4aaa-850d-eac424620f63"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1168,6 +1191,38 @@
             isAbstract="true"
             concurrency="Sequential"
             isQuery="false" />
+          <operation
+            Id="c06b7de4-6acc-45cd-975e-af17b6a57675"
+            name="getFullName"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="345faa1b-71dc-4ed2-9deb-90a57b883d15"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="35251254-cad8-44a0-99ad-82f711b759e6"
+            name="stringForWriteFile"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1416,6 +1471,29 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="cca61672-e8f8-45e4-9105-8d9a3757bc92"
+            name="getAddressForStream"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="32595141-17cf-4bc5-8529-374be3232ad2"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1535,6 +1613,14 @@
           <operation
             Id="332d07fa-3f08-41ed-bfcd-5b89064c3770"
             name="display"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="fb253ec7-a3ed-4e5d-bd4d-048299952ec8"
+            name="stringForWriteFile"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -1688,6 +1774,14 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
+          <operation
+            Id="707628c9-d86c-4e60-bb99-dc94532ff283"
+            name="stringForWriteFile"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1801,6 +1895,14 @@
           <operation
             Id="a8b33812-f830-4b81-85c3-d67d3c8ec3f9"
             name="display"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="4a02ffda-a23b-4365-999d-dd903c9e6892"
+            name="stringForWriteFile"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -2008,6 +2110,14 @@
           <operation
             Id="0f905c46-ae56-472a-8050-6af0d9b200ea"
             name="display"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="f72e5c25-c9cb-48f3-bde4-00ec655751c1"
+            name="stringForWriteFile"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -2306,6 +2416,14 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="56928765-fca9-46a2-a379-63752c9019d0"
+            name="stringForWriteFile"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -2544,6 +2662,45 @@
                 <memberEnd
                   Id="974bc745-1ff8-4874-af22-75249d144c6b"
                   name="Supprimer une école"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="6e4f8c3d-ac69-489a-8dee-70eae5cbc971"
+            isDerived="false"
+            sourceEndRoleName="Gérant du groupe"
+            targetEndRoleName="Gérer les écoles1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="46f8f4a0-6fc3-4b67-853f-b857b8e193d9"
+              LastKnownName="Gérer les membre du conseil"
+              LastKnownLocation="Group.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fe742559-59b2-46b0-b2e4-5cba7c503a2d"
+                  name="Gérant du groupe"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c11ec408-d80b-48a9-8215-4ffbcad64310"
+                  name="Gérer les écoles1"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -3252,7 +3409,14 @@
               <operationHasOwnedParameters>
                 <parameter
                   Id="44e3474d-c9db-46f2-b5f2-43f7d0fb3f03"
-                  direction="Return" />
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -3396,8 +3560,145 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
+          <operation
+            Id="f8b4eb62-7787-4ec7-83c8-56bed15eb4cb"
+            name="makeMenu"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="37e5491e-542a-4086-ac80-0d7591931a75"
+            name="displayProgramStatistics"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="46f8f4a0-6fc3-4b67-853f-b857b8e193d9"
+        name="Gérer les membre du conseil"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="3b0b4405-3200-4912-a7db-6dc6b7580df6">
+            <useCaseMoniker
+              Id="0040914b-a17b-4dc5-8b38-01cc5ef8c5b4"
+              LastKnownName="Ajouter"
+              LastKnownLocation="Group.uml" />
+          </extend>
+          <extend
+            Id="a9ac5177-141e-4ddd-b45e-30855b64ed26">
+            <useCaseMoniker
+              Id="a53b09a7-1a1c-4ae4-84f2-ff708f1f74ea"
+              LastKnownName="Supprimer"
+              LastKnownLocation="Group.uml" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker
+            Id="4e37c126-0ac4-4e31-8468-b5a34f53fdf0"
+            LastKnownName="Gestion du groupe"
+            LastKnownLocation="Group.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a53b09a7-1a1c-4ae4-84f2-ff708f1f74ea"
+        name="Supprimer"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="4e37c126-0ac4-4e31-8468-b5a34f53fdf0"
+            LastKnownName="Gestion du groupe"
+            LastKnownLocation="Group.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="0040914b-a17b-4dc5-8b38-01cc5ef8c5b4"
+        name="Ajouter"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="4e37c126-0ac4-4e31-8468-b5a34f53fdf0"
+            LastKnownName="Gestion du groupe"
+            LastKnownLocation="Group.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="84e63f07-8392-4489-bdca-87554755a952"
+        name="Administrateur"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="dd65b96a-b3de-4e6d-9685-996b8b3d2f04"
+            isDerived="false"
+            sourceEndRoleName="Actor1"
+            targetEndRoleName="afficher etat du programme"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="8e81484a-992a-4d66-af41-cacb170d3273"
+              LastKnownName="afficher etat du programme"
+              LastKnownLocation="Group.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1f430df0-8576-4c57-988c-bcbee786b555"
+                  name="Actor1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="19159a28-b0f3-4eab-86d3-82ea30ef664b"
+                  name="afficher etat du programme"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8e81484a-992a-4d66-af41-cacb170d3273"
+        name="afficher etat du programme"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="4e37c126-0ac4-4e31-8468-b5a34f53fdf0"
+            LastKnownName="Gestion du groupe"
+            LastKnownLocation="Group.uml" />
+        </subjects>
+      </useCase>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

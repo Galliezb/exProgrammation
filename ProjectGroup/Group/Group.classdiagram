@@ -137,6 +137,19 @@
           <operation Id="9b9cfdf5-e467-4940-84b4-335aeb46cccf" name="delAdvisor" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="2b9f1fd9-1022-4de2-a290-4ed934bf7bd0" />
           </operation>
+          <operation Id="467f97e9-fd22-43d6-816b-8447283a24a0" name="displayAdvisorForDelete" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="838a7791-387a-4cb9-ad9c-10c7596a9339" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3535b91b-cccd-4d43-b9b3-b457af8d6459" direction="Return">
+                  <elementDefinition Id="1e526817-b8f7-4aaa-850d-eac424620f63" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="66bc15ee-8c7e-4010-a346-53f67efcba2c" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -493,6 +506,22 @@
           <operation Id="ae8c624d-afd7-4821-90ff-d5abe95c5b3e" name="display" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="5190c0dd-ac7b-4d9d-869b-7a97b6a4e635" />
           </operation>
+          <operation Id="12562eb9-09d5-4ac5-80c9-0c85b88b151e" name="getFullName" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c06b7de4-6acc-45cd-975e-af17b6a57675" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6af5405b-5a81-46d9-b2a6-ba385aca13c6" direction="Return" isUnique="false">
+                  <elementDefinition Id="345faa1b-71dc-4ed2-9deb-90a57b883d15" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="40ca066e-bd5a-4d15-aa76-2b3572172f69" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="e3dc53af-bdee-44c2-aa2c-f04f6dc2dbb6" name="stringForWriteFile" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="35251254-cad8-44a0-99ad-82f711b759e6" />
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -564,6 +593,19 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="deef84d7-577b-4587-b86b-5201647d900c" name="getAddressForStream" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cca61672-e8f8-45e4-9105-8d9a3757bc92" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="79297814-cc1c-4aff-8a41-8633ad5d66a6" direction="Return">
+                  <elementDefinition Id="32595141-17cf-4bc5-8529-374be3232ad2" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="130441b7-aefc-49c6-93c4-ba3ff5335d81" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -631,6 +673,9 @@
           </operation>
           <operation Id="f4d60f3e-5756-4038-8f94-18e28bcf9cd8" name="display" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="332d07fa-3f08-41ed-bfcd-5b89064c3770" />
+          </operation>
+          <operation Id="0af1b068-869f-4694-93ee-68e67946d11f" name="stringForWriteFile" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="fb253ec7-a3ed-4e5d-bd4d-048299952ec8" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -711,6 +756,9 @@
           <operation Id="8c06ad86-a02f-424c-8ee7-9fd7bdf112b7" name="display" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="29dc4e84-ebab-4270-a45c-256f7fe000e2" />
           </operation>
+          <operation Id="ed561f24-1c42-4e4a-b542-d47281b5a6b0" name="stringForWriteFile" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="707628c9-d86c-4e60-bb99-dc94532ff283" />
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -758,6 +806,9 @@
           </operation>
           <operation Id="7d93c78c-e3bc-4e2a-95c4-be44a87dbaaf" name="display" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="a8b33812-f830-4b81-85c3-d67d3c8ec3f9" />
+          </operation>
+          <operation Id="630984a1-696a-4e5a-8cec-da264af8fced" name="stringForWriteFile" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4a02ffda-a23b-4365-999d-dd903c9e6892" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -839,6 +890,9 @@
           </operation>
           <operation Id="4cc3c878-9330-42ab-90c4-470a91be672d" name="display" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="0f905c46-ae56-472a-8050-6af0d9b200ea" />
+          </operation>
+          <operation Id="d154fcda-350d-4d39-82f7-dcb4b9bae6cc" name="stringForWriteFile" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f72e5c25-c9cb-48f3-bde4-00ec655751c1" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -1004,6 +1058,9 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="1731b9bd-272e-4661-9e3b-0c01a7ec729b" name="stringForWriteFile" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="56928765-fca9-46a2-a379-63752c9019d0" />
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -1156,6 +1213,9 @@
               <operationHasOwnedParameters>
                 <parameter Id="cd060a98-dcd0-4b25-a07e-64d2800bc4d9" direction="Return">
                   <elementDefinition Id="44e3474d-c9db-46f2-b5f2-43f7d0fb3f03" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="405f3091-0d8d-4620-a0be-fc760b7214f8" LastKnownName="Boolean" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -1226,9 +1286,30 @@
           <operation Id="4a341749-2514-4f54-8f53-05f8419f2d66" name="writeToFile" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="fd80f27f-0f4a-4073-9408-863928697086" />
           </operation>
+          <operation Id="c6f4b5b2-9147-47d6-a1a9-793bdce80275" name="makeMenu" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f8b4eb62-7787-4ec7-83c8-56bed15eb4cb" />
+          </operation>
+          <operation Id="a442c9f2-eeaa-40b3-a580-76e9f3e6e6ba" name="displayProgramStatistics" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="37e5491e-542a-4086-ac80-0d7591931a75" />
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="405f3091-0d8d-4620-a0be-fc760b7214f8" name="Boolean" isAbstract="false" isLeaf="false" cachedFullName="Boolean">
+        <elementDefinition Id="8943dc84-709e-4f62-b15a-a3273aa6f165" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="66bc15ee-8c7e-4010-a346-53f67efcba2c" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
+        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="130441b7-aefc-49c6-93c4-ba3ff5335d81" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="b43b70e5-71a9-4324-a298-99ccac0cb4bd" name="Group">
     <elementDefinition Id="712dee20-9667-40c6-ab84-fd838f9171b1" />

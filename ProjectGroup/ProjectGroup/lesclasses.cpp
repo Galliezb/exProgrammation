@@ -54,6 +54,17 @@ string Address::display(){
 
 }
 
+string Address::getAddressForStream(){
+	ostringstream stream;
+	stream	<< setw(50) << boxnumber_ 
+			<< setw(50) << number_ 
+			<< setw(50) << postalCode_ 
+			<< setw(50) << street_
+			<< setw(50) << town_;
+
+	return stream.str();
+}
+
 Address::~Address(){
 	// debug
 	//cout << "Deconstruct instance Address" << endl;
@@ -78,14 +89,19 @@ Display::Display(){
 
 
 
-void Display::checkCinIntValidity(int min, int max, int valueToVerify){
+bool Display::checkCinIntValidity(int min, int max, int valueToVerify){
 
 	// debug
 	//cout << "Min : " << min << endl << "Max :" << max << endl << "Valeur : " << valueToVerify << endl;
-	
+	//system("pause");
+
 	emptyBuffer();
+
 	if ( valueToVerify < min || valueToVerify > max ){
 		error( Error::number );
+		return false;
+	} else {
+		return true;
 	}
 
 }
@@ -109,9 +125,9 @@ void Display::error( Error error ){
 	switch ( error ){
 
 		case Error::number :
-			cout << "*******************************************************************************************************************************************************" << endl;
-			cout << "***                                             You need to enter a number in the good range please                                                 ***" << endl;
-			cout << "*******************************************************************************************************************************************************" << endl;
+			fillFullLine('*');
+			centerOutputString("You need to enter a number in the good range please");
+			fillFullLine('*');
 			pauseAtBottom(31);
 			break;
 			
@@ -142,10 +158,8 @@ void Display::centerOutputString( string str ){
 
 }
 
-
-
 void Display::menuStart(){
-
+	system("cls");
 	fillFullLine('-');
 	centerOutputString( string("TEST DU LOGICIEL,") );
 	centerOutputString( string("CHOISSISSEZ UN ROLE SVP") );
@@ -165,19 +179,26 @@ void Display::menuStart(){
 
 void Display::menuGroup(){
 
+	// clean console
+	system("cls");
+	// title window
 	fillFullLine('-');
-	cout << "-                                                              GESTION DU GROUPE                                                                      -" << endl;
+	centerOutputString( string("GESTION DU GROUPE") );
 	fillFullLine('-');
-
+	// space between title and menu
 	pauseAtBottom(2);
 
-	cout << "   ----------------------------\t\t ----------------------------\t\t -----------------------------\t\t ----------------------" << endl;
-	cout << "  ---                        ---\t---                        ---\t\t---                         ---\t\t---                  ---" << endl;
-	cout << "  ---  0 : QUITTER           ---\t---  1 : AFFICHER INFO     ---\t\t---                         ---\t\t---                  ---" << endl;
-	cout << "  ---                        ---\t---                        ---\t\t---                         ---\t\t---                  ---" << endl;
-	cout << "   ----------------------------\t\t ----------------------------\t\t -----------------------------\t\t ----------------------" << endl;
-	
-	pauseAtBottom(24);
+	// build menu
+	vector<string> vector;
+	vector.push_back( string("QUITTER") );
+	vector.push_back( string("AFFICHER INFORMATION") );
+	vector.push_back( string("AJOUTER UN CONSEILLER") );
+	vector.push_back( string("SUPPRIMER UN CONSEILLER") );
+	vector.push_back( string("AJOUTER UNE ECOLE") );
+	vector.push_back( string("SUPPRIMER UNE ECOLE") );
+	// push menu to build and display
+	Treatment::makeMenu(vector);
+	Display::pauseAtBottom(23);
 
 }
 
@@ -210,7 +231,7 @@ Group::Group(string name, string telefoon, string fax, string mail, string websi
 	numberInstance_++;
 
 	ifstream fi;	
-	fi.open("advisor.txt", ios::binary | ios::in);
+	fi.open("advisor.txt", ios::in);
 	if ( fi.fail() ){
 		cerr<<"Fail _ Impossible de créer le fichier advisor.txt\n";
 		exit(9);
@@ -253,13 +274,78 @@ Group::Group(string name, string telefoon, string fax, string mail, string websi
 	fi.close();
 }
 
+void Group::addAdvisor( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town , string status , string telefoon , string fax ){
+
+	// Add to vector
+	Person* advisor = new Advisor(name,firstName,boxNumber,number,postalCode,street,town,status,telefoon,fax);
+	advisor_.push_back(advisor);
+
+	// save in file
+	ofstream f;
+	// file open in binary mode and app
+
+	f.open("advisor.txt", ios::in | ios::app);
+	if(f.fail()){
+		cerr<<"Fail _ Ouverture du fichier advisor.txt impossible\n";
+		exit(8);
+	}
+	if(f.bad()){
+		cerr<<"Bad _ Ouverture du fichier advisor.txt impossible\n";
+		exit(8);
+	}
+	  f << setw(50) << firstName 
+		<< setw(50) << name 
+		<< setw(50) << boxNumber 
+		<< setw(50) << number 
+		<< setw(50) << postalCode 
+		<< setw(50) << street
+		<< setw(50) << town
+		<< setw(50) << status
+		<< setw(50) << telefoon
+		<< setw(50) << fax
+		<< endl;
+	f.close();
+
+}
+
+void Group::delAdvisor(int numberOfLine){
+
+	advisor_.erase( advisor_.begin() + numberOfLine );
+
+	// save in file
+	ofstream f;
+	// file open in binary mode and TRUNC for empty the file
+	f.open("advisor.txt", ios::in | ios::trunc);
+	if(f.fail()){
+		cerr<<"Fail _ Ouverture du fichier advisor.txt impossible\n";
+		exit(8);
+	}
+	if(f.bad()){
+		cerr<<"Bad _ Ouverture du fichier advisor.txt impossible\n";
+		exit(8);
+	}
+
+	for each (Person *pers in advisor_){
+		f << pers->stringForWriteFile();
+	}
+	f.close();
+
+	system("cls");
+	Display::fillFullLine('*');
+	Display::centerOutputString("CONSEILLER SUPPRIME");
+	Display::fillFullLine('*');
+	Display::pauseAtBottom(31);
+	system("pause");
+
+}
+
 void Group::displayInfo(){
 	
 	system("cls");
 	
-	cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
-	cout << "-                                                         INFORMATION GROUP HELHA                                                                     -" << endl;
-	cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+	Display::fillFullLine('-');
+	Display::centerOutputString("INFORMATION GROUP HELHA");
+	Display::fillFullLine('-');
 
 	cout << "* Nom : \t\t" << name_ << endl;
 	cout << "* Telephone : \t\t" << telefoon_ << endl;
@@ -275,9 +361,9 @@ void Group::displayInfo(){
 	for each (Person *a in advisor_){
 
 		system("cls");
-		cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
-		cout << "-                                                         INFORMATION GROUP HELHA                                                                     -" << endl;
-		cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+		Display::fillFullLine('-');
+		Display::centerOutputString("INFORMATION GROUP HELHA");
+		Display::fillFullLine('-');
 		a->display();
 		Display::pauseAtBottom(25);
 		system("pause");
@@ -297,6 +383,45 @@ Group::~Group(){
 
 }
 
+int Group::displayAdvisorForDelete(){
+
+	int numberToDelete;
+	bool goodOrRetry = false;
+
+	system("cls");
+
+	Display::fillFullLine('-');
+	Display::centerOutputString("CHOISSISSEZ LE NUMERO DU CONSEILLER A SUPPRIMER");
+	Display::fillFullLine('-');
+	Display::pauseAtBottom(2);
+	
+	// build menu
+	vector<string> vector;
+
+	int i=0;
+	
+	for each (Person *pers in advisor_){
+
+		// return string, and save for build menu
+		vector.push_back( pers->getFullName() );
+
+		i++;
+	}
+	
+	// push menu to build and display
+	Treatment::makeMenu(vector);
+	Display::pauseAtBottom(35-6-i);
+
+	// Tss you can't troll !
+	do {
+		cin >> numberToDelete;
+		goodOrRetry = Display::checkCinIntValidity(0,i,numberToDelete);
+	} while ( !goodOrRetry );
+
+	return numberToDelete;
+
+
+}
 
 Person::Person( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town ){
 	// debug
@@ -309,6 +434,10 @@ Person::Person( string name , string firstName , int boxNumber , int number , in
 
 	address_ = Address( boxNumber , number , postalCode , street , town );
 
+}
+
+string Person::getFullName(){
+	return string(firstName_ + " " + name_);
 }
 
 Person::~Person(){
@@ -336,6 +465,21 @@ void Advisor::display(){
 	cout << "* Fax : \t\t" << fax_ << endl;
 	cout << "* Adresse : \t\t" << address_.display() << endl;
 	
+
+}
+
+string Advisor::stringForWriteFile(){
+
+	ostringstream stream;
+	stream << setw(50) << firstName_ 
+		<< setw(50) << name_ 
+		<< setw(50) << address_.getAddressForStream()
+		<< setw(50) << status_
+		<< setw(50) << telefoon_
+		<< setw(50) << fax_
+		<< endl;
+
+	return stream.str();
 
 }
 
@@ -397,6 +541,49 @@ string Treatment::deleteWhiteSpace(string str, int start, int end){
 
 }
 
+void Treatment::makeMenu(vector<string> vect){
+
+	int max = 0, i = 0;
+
+	for each (string myStr in vect){
+
+		if ( max < myStr.length() ){ max = myStr.length(); }
+
+	}
+
+
+	int width = 150 - max - 13;
+	for each (string myStr in vect){
+
+		int difference = max - myStr.length();
+		string display;
+		// debug
+		//cout << "Max : " << max << endl;
+		// debug
+		//cout << "myStr.length() : " << myStr.length() << endl;
+		// debug
+		//cout << "difference : " << difference << endl;
+
+		display.append("**   ");
+		display.append( to_string(i) );
+		display.append(" : ");
+		display.append(myStr);
+
+		for (int i = 0; i<difference; i++){
+			display.append(" ");
+		}
+
+		display.append("   **");
+
+		Display::centerOutputString(display);
+		i++;
+
+	}
+
+
+}
+
+
 void Treatment::writeToFile(string str){
 
 
@@ -404,7 +591,7 @@ void Treatment::writeToFile(string str){
 	ofstream f;
 	// file open in binary mode and app ( or app ? )
 
-	f.open("advisor.txt", ios::binary | ios::out | ios::trunc);
+	f.open("advisor.txt", ios::out | ios::trunc);
 	if(f.fail()){
 	cerr<<"Fail _ Impossible de créer le fichier advisor.txt\n";
 	exit(8);
