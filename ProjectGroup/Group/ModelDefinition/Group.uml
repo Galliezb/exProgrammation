@@ -121,7 +121,7 @@
             sourceEndRoleName=""
             targetEndRoleName=""
             isLeaf="false"
-            name="est composé de"
+            name="est constitué de"
             isAbstract="false">
             <classMoniker
               Id="43df1a2e-650f-43a8-b80b-77f45a5e29c0"
@@ -317,14 +317,6 @@
             concurrency="Sequential"
             isQuery="false" />
           <operation
-            Id="40b3d5fe-e9a4-44ff-ba79-e84cdef2fa17"
-            name="displaySchool"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
             Id="a4c3e384-7c47-4aaa-bbed-d5958a83a721"
             name="displayinfo"
             isLeaf="false"
@@ -405,7 +397,20 @@
                   isDerivedUnion="false"
                   aggregation="Shared"
                   isComposite="false"
-                  isNavigableOwned="false" />
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="51b6af82-2de3-4c06-b3a1-ca98ed998f80"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="0550053a-a74e-4927-b02b-01915bd4949c"
+                      name="Upper"
+                      value="0" />
+                  </upperValueInternal>
+                </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
@@ -456,7 +461,20 @@
                   isDerivedUnion="false"
                   aggregation="Shared"
                   isComposite="false"
-                  isNavigableOwned="false" />
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="df6603ac-eed2-4313-bc49-a6dce77e05a8"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="ee4a80ef-1228-434c-a332-0e1100142953"
+                      name="Upper"
+                      value="0" />
+                  </upperValueInternal>
+                </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
@@ -487,9 +505,10 @@
           <association
             Id="fa5aabba-8ac8-4daf-bd72-4ae9ffac9160"
             isDerived="false"
-            sourceEndRoleName="School"
-            targetEndRoleName="Person"
+            sourceEndRoleName=""
+            targetEndRoleName=""
             isLeaf="false"
+            name="Contient des"
             isAbstract="false">
             <classMoniker
               Id="d5de4905-1bb2-41f8-9cd6-1327e1fa69d4"
@@ -499,20 +518,30 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="f2ef8f9e-be88-4d13-8ffb-362c3623de1b"
-                  name="School"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
+                  aggregation="Shared"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="d2a3c310-c5f7-4f6a-977f-22dc25fa87b8"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="a008c8db-abe9-4f06-be7b-864ebb4f0243"
+                      name="Upper"
+                      value="0" />
+                  </upperValueInternal>
+                </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="406bc71d-8096-4109-a1c1-70ca8b4b660c"
-                  name="Person"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -597,24 +626,8 @@
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="b50adee7-f625-455d-a0ab-fafafb15f44f"
-            name="addDirector"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
             Id="2eac7d54-39ea-4910-9823-0829c75effe0"
-            name="delDeirector"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="14e599f8-a5c4-4cfe-be56-8327ab8c7d85"
-            name="displayDirector"
+            name="delDirector"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -737,6 +750,30 @@
             name="displayNumberInstance"
             isLeaf="false"
             isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="befdf709-8743-4bd4-aecf-0a085be72bcf"
+            name="addTeacher"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="22676d07-c4ed-49ff-89d1-d10a773a0586"
+            name="delTeacher"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="f4c33e41-74c4-41ea-bcdb-87d4a4687481"
+            name="stringForWriteFile"
+            isLeaf="false"
+            isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
@@ -1625,7 +1662,22 @@
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3f866c68-db66-4d14-bf86-5b3d916f6aa0"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1781,7 +1833,22 @@
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0c2ac982-7824-4956-8bc6-3cbc3f3a7d98"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1861,7 +1928,7 @@
             isQuery="false" />
           <operation
             Id="be5eb280-33ab-47e5-af6b-f012f8e8a708"
-            name="addStudentToCourse"
+            name="addListStudentToCourse"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -1869,7 +1936,7 @@
             isQuery="false" />
           <operation
             Id="a5982e25-3739-4f33-ae14-27d1fa1d01d3"
-            name="delStudentToCourse"
+            name="delListStudentToCourse"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -1907,7 +1974,22 @@
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d472fbec-b910-4dc0-b896-a824094fd591"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -2013,26 +2095,60 @@
               LastKnownLocation="Group.uml" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property
-            Id="ea12409d-ac08-4a26-8ad0-66aeaa167ed7"
-            name="hoursToDo_"
-            visibility="Protected"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
+        <targetEnds>
+          <association
+            Id="9e3c8d87-fe18-4583-a4ca-f236740d82a4"
             isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <primitiveTypeMoniker
-                Id="220a3521-e091-4221-bae9-3ef9018e845c"
-                LastKnownName="Integer"
-                LastKnownLocation="Group.uml" />
-            </type_NamedElement>
-          </property>
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            name="attribué à"
+            isAbstract="false">
+            <classMoniker
+              Id="ded0b8bb-44cf-4293-9ac7-082f8e967618"
+              LastKnownName="Course"
+              LastKnownLocation="Group.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0793f72f-2955-4377-b21f-d3bd23b98eb0"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="dcf8316f-9d05-43d3-a8b3-01378294e38d"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="a05022c1-6ec8-405b-ab00-a59eb3158484"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="074ea9db-510b-4ae8-869a-46b6f6e41b7d"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
           <property
             Id="8a9ed6b4-abe2-4267-a962-593239daabdd"
             name="percentageOfSucces_"
@@ -2122,7 +2238,22 @@
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4f9cd170-6fa8-45d7-abee-72e4cffbaad0"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -2172,13 +2303,13 @@
                     <literalString
                       Id="6ff3e62b-4216-40eb-8447-b8a2177c8caf"
                       name="Lower"
-                      value="1,n" />
+                      value="1" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
                       Id="c8037ca3-0340-4a5d-8b2b-5843e262ae4e"
                       name="Upper"
-                      value="1,n" />
+                      value="1" />
                   </upperValueInternal>
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -2191,14 +2322,27 @@
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="false" />
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="e3d95300-dde3-49f4-8673-67c3d219ba91"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="0c9109a3-f54e-4199-b508-7ed1610f4aee"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
           <association
             Id="14c6863c-d69d-4707-a263-49b34079d844"
             isDerived="false"
-            sourceEndRoleName="Teacher"
+            sourceEndRoleName=""
             targetEndRoleName=""
             isLeaf="false"
             name="être affecté à"
@@ -2211,13 +2355,12 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="e2c887ff-769a-442e-9f65-108344048447"
-                  name="Teacher"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
-                  aggregation="None"
+                  aggregation="Shared"
                   isComposite="false"
                   isNavigableOwned="false">
                   <lowerValueInternal>
@@ -2248,7 +2391,7 @@
                     <literalString
                       Id="a4c4fb7d-6080-4160-9822-58629827848b"
                       name="Lower"
-                      value="1" />
+                      value="0" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
@@ -2281,7 +2424,7 @@
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
-                  aggregation="None"
+                  aggregation="Shared"
                   isComposite="false"
                   isNavigableOwned="false">
                   <lowerValueInternal>
@@ -2312,7 +2455,7 @@
                     <literalString
                       Id="66824971-2c6c-4aee-8d9f-7acab039b07c"
                       name="Lower"
-                      value="1" />
+                      value="0" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
@@ -2423,7 +2566,22 @@
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5d4d3a6b-37bc-4ad3-a645-598c0bd55435"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -3476,6 +3634,30 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="335a15bb-13c4-45b1-a634-54223aed7e0e"
+            name="instruction"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="18117f09-0ede-4832-ab98-57dc28f45b64"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -3699,6 +3881,11 @@
             LastKnownLocation="Group.uml" />
         </subjects>
       </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="39cc8938-bc1d-4cc3-a339-288fcad070c3"
+        name="str" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

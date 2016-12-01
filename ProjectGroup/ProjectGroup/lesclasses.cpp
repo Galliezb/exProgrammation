@@ -158,6 +158,16 @@ void Display::centerOutputString( string str ){
 
 }
 
+void Display::instruction(string str){
+
+	fillFullLine('-');
+	centerOutputString( str );
+	fillFullLine('-');
+	pauseAtBottom(31);
+
+
+}
+
 void Display::menuStart(){
 	system("cls");
 	fillFullLine('-');
@@ -305,6 +315,36 @@ void Group::addAdvisor( string name , string firstName , int boxNumber , int num
 		<< setw(50) << fax
 		<< endl;
 	f.close();
+
+}
+
+void Group::addSchool(School sch){
+
+	school_.push_back( sch );
+
+	system("cls");
+	Display::fillFullLine('*');
+	Display::centerOutputString("ECOLE ENREGISTREE");
+	Display::fillFullLine('*');
+	Display::pauseAtBottom(31);
+
+	// save in file
+	ofstream f;
+	// file open in binary mode and app
+
+	f.open("school.txt", ios::in | ios::app);
+	if(f.fail()){
+		cerr<<"Fail _ Ouverture du fichier school.txt impossible\n";
+		exit(8);
+	}
+	if(f.bad()){
+		cerr<<"Bad _ Ouverture du fichier school.txt impossible\n";
+		exit(8);
+	}
+	f << sch.stringForWriteFile() << endl;
+	f.close();
+
+	system("pause");
 
 }
 
@@ -486,6 +526,15 @@ string Advisor::stringForWriteFile(){
 Advisor::~Advisor(){
 	// debug
 	// cout << "Deconstruct instance Advisor" << endl;
+}
+
+string School::stringForWriteFile(){
+
+	ostringstream stream;
+	stream << setw(50) << name_ << setw(50) << type_;
+
+	return stream.str();
+
 }
 
 School::~School(){

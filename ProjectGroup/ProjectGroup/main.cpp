@@ -39,7 +39,7 @@ void main(){
 				// register choiceMenuGroup
 				cin >> choiceMenuGroup;
 				// check validity and clean buffer
-				if ( !display.checkCinIntValidity(0,3,choiceMenuGroup) ){
+				if ( !display.checkCinIntValidity(0,5,choiceMenuGroup) ){
 					
 					// default for restart START MENU GROUP
 					choiceMenuGroup = -1;
@@ -57,74 +57,50 @@ void main(){
 					string name , firstName , street , town , status , telefoon , fax;
 					int boxNumber , number , postalCode;
 
-					Display::fillFullLine('-');
-					Display::centerOutputString( string ("ENTREZ LE NOM") );
-					Display::fillFullLine('-');
-					Display::pauseAtBottom(31);
-					cin >> name;
+					Display::instruction("ENTREZ LE NOM");
+					getline( cin , name );
 
-					Display::fillFullLine('-');
-					Display::centerOutputString( string ("ENTREZ LE PRENOM") );
-					Display::fillFullLine('-');
-					Display::pauseAtBottom(31);
-					cin >> firstName;
 
-					Display::fillFullLine('-');
-					Display::centerOutputString( string ("ENTREZ LE STATUS") );
-					Display::fillFullLine('-');
-					Display::pauseAtBottom(31);
-					cin >> status;
+					Display::instruction("ENTREZ LE PRENOM");
+					getline( cin , firstName );
 
-					Display::fillFullLine('-');
-					Display::centerOutputString( string ("ENTREZ LA RUE") );
-					Display::fillFullLine('-');
-					Display::pauseAtBottom(31);
-					cin >> street;
+
+					Display::instruction("ENTREZ LE STATUS");
+					getline( cin , status );
+
+
+					Display::instruction("ENTREZ LA RUE");
+					getline( cin , street );
+
 
 					do {
-						Display::fillFullLine('-');
-						Display::centerOutputString( string ("ENTREZ LA BOITE POSTALE ( 0 si aucune )") );
-						Display::fillFullLine('-');
-						Display::pauseAtBottom(31);
+						Display::instruction("ENTREZ LA BOITE POSTALE ( 0 si aucune )");
 						cin >> boxNumber;
 						goodOrRetry = Display::checkCinIntValidity(0,9999,boxNumber);
 					} while ( !goodOrRetry );
 
 					do {
-						Display::fillFullLine('-');
-						Display::centerOutputString( string ("ENTREZ LE NUMERO") );
-						Display::fillFullLine('-');
-						Display::pauseAtBottom(31);
+						Display::instruction("ENTREZ LE NUMERO");
 						cin >> number;
 						goodOrRetry = Display::checkCinIntValidity(0,9999,number);
 					} while ( !goodOrRetry );
 
-					Display::fillFullLine('-');
-					Display::centerOutputString( string ("ENTREZ LA VILLE") );
-					Display::fillFullLine('-');
-					Display::pauseAtBottom(31);
-					cin >> town;
+
+					Display::instruction("ENTREZ LA VILLE");
+					getline( cin , town );
 
 					do {
-						Display::fillFullLine('-');
-						Display::centerOutputString( string ("ENTREZ LE CODE POSTAL") );
-						Display::fillFullLine('-');
-						Display::pauseAtBottom(31);
+						Display::instruction("ENTREZ LE CODE POSTAL");
 						cin >> postalCode;
 						goodOrRetry = Display::checkCinIntValidity(0,9999,postalCode);
 					} while ( !goodOrRetry );
 
-					Display::fillFullLine('-');
-					Display::centerOutputString( string ("ENTREZ LE NUMERO DE TELEPHONE") );
-					Display::fillFullLine('-');
-					Display::pauseAtBottom(31);
-					cin >> telefoon;
+					Display::instruction("ENTREZ LE NUMERO DE TELEPHONE");
+					getline( cin , telefoon );
 
-					Display::fillFullLine('-');
-					Display::centerOutputString( string ("ENTREZ LE NUMERO DE FAX") );
-					Display::fillFullLine('-');
-					Display::pauseAtBottom(31);
-					cin >> fax;
+					Display::instruction("ENTREZ LE NUMERO DE FAX");
+					getline( cin , fax );
+
 
 					helha.addAdvisor(name,firstName,boxNumber,number,postalCode,street,town,status,telefoon,fax);
 
@@ -148,6 +124,24 @@ void main(){
 					// del Advisor and regenerate file
 					helha.delAdvisor(numberOfAdvisorToDelete);
 
+				/*********************************** ADD SCHOOL *************************************/
+				} else if ( choiceMenuGroup == 4 ) {
+					
+					string name, type;
+
+					Display::instruction("ENTREZ LE NOM DE L ECOLE");
+					getline( cin , name );
+
+					Display::instruction("ENTREZ LE TYPE D ECOLE");
+					getline( cin , type );
+
+					School sc = School( type, name );
+					helha.addSchool( sc );
+
+
+
+				/*********************************** DEL SCHOOL *************************************/
+				} else if ( choiceMenuGroup == 5 ) {
 
 				}
 

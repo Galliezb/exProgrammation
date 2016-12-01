@@ -116,12 +116,13 @@ public:
 	void displayRoom();
 	void displayStatistics();
 	void displayTotalPersonPerType();
+	string stringForWriteFile();
 	~School();
 private:
 	string type_, name_;
 	static int numberInstance_;
 	vector<Building> building_;
-	vector<Person> person_;
+	vector<Person>* person_;
 };
 
 
@@ -149,9 +150,8 @@ class Group{
 public:
 	Group(string name, string telefoon, string fax, string mail, string website, Address& address );
 	void addAdvisor( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town , string status , string telefoon , string fax );
-	void addSchool();
+	void addSchool( School sch );
 	void delAdvisor( int numberOfLine );
-	
 	void delSchool();
 	int displayAdvisorForDelete();
 	void displayInfo();
@@ -206,9 +206,9 @@ class Secretary : public Person{
 public:
 	Secretary();
 	void addRoomToTeacher();
-	void addStudentToCourse();
+	void addListStudentToCourse();
 	void delRoomToTeacher();
-	void delStdudentToCourse();
+	void delListStdudentToCourse();
 	void display();
 	string stringForWriteFile();
 	~Secretary();
@@ -230,7 +230,6 @@ public:
 private:
 	static int numberInstance_;
 protected:
-	int hoursToDo_;
 	int percentageOfGlanding_;
 	int percentageOfSucces_;	
 };
@@ -286,7 +285,8 @@ class Display{
 public:
 	Display();
 	static bool checkCinIntValidity(int min, int max, int valueToVerify);
-	static void centerOutputString( string str);
+	static void centerOutputString( string str );
+	static void instruction( string str);
 	static void emptyBuffer();
 	static void error( Error error );
 	static void fillFullLine( const char c);
