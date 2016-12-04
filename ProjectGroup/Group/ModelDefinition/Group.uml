@@ -363,6 +363,39 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="5d75b02b-0799-4f2d-a21a-90cf1bf706e0"
+            name="displaySchoolForDelete"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5f0d0c9d-431f-4df7-bc74-3b45b57d9526"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="0052f4e5-89d9-4ec4-b6c5-903c7c366840"
+            name="regenerateFile"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -777,6 +810,30 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
+          <operation
+            Id="03749d37-c88a-44ef-aa47-6b00210168c1"
+            name="getNameAndStatus"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c3b2bc1a-c95d-4375-ba67-32ea32a6c42f"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1147,7 +1204,7 @@
         <ownedAttributesInternal>
           <property
             Id="854880bb-9a67-4d91-9e52-ba371dee385b"
-            name="name"
+            name="name_"
             visibility="Protected"
             isLeaf="false"
             isStatic="false"
@@ -1166,7 +1223,7 @@
           </property>
           <property
             Id="9d70f21e-814b-4f43-b6f5-c164e4ac3177"
-            name="firstName"
+            name="firstName_"
             visibility="Protected"
             isLeaf="false"
             isStatic="false"
@@ -1199,6 +1256,25 @@
               <primitiveTypeMoniker
                 Id="220a3521-e091-4221-bae9-3ef9018e845c"
                 LastKnownName="Integer"
+                LastKnownLocation="Group.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="882506e1-f622-4e20-8a12-65b04c82132e"
+            name="status_"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
                 LastKnownLocation="Group.uml" />
             </type_NamedElement>
           </property>
@@ -1554,7 +1630,7 @@
         <ownedAttributesInternal>
           <property
             Id="89ec2687-c544-474a-ae25-d5c7b2b14240"
-            name="statut_"
+            name="function_"
             visibility="Private"
             isLeaf="false"
             isStatic="false"
@@ -3556,39 +3632,8 @@
             concurrency="Sequential"
             isQuery="false" />
           <operation
-            Id="5fed443b-6e8e-4a48-98c2-af8e5c3850d2"
-            name="checkCinIntValidity"
-            isLeaf="false"
-            isStatic="true"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="44e3474d-c9db-46f2-b5f2-43f7d0fb3f03"
-                  direction="Return">
-                  <type_NamedElement>
-                    <primitiveTypeMoniker
-                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
-                      LastKnownName="Boolean"
-                      LastKnownLocation="Group.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation
             Id="11b01691-6fc0-49f0-aa07-187a6bda32d8"
             name="error"
-            isLeaf="false"
-            isStatic="true"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="ed5c4bea-1713-4dbe-8647-c2ae5ac62a7b"
-            name="emptyBuffer"
             isLeaf="false"
             isStatic="true"
             isAbstract="false"
@@ -3753,6 +3798,38 @@
           <operation
             Id="37e5491e-542a-4086-ac80-0d7591931a75"
             name="displayProgramStatistics"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="65f6726c-7033-48de-b938-86509493cf9a"
+            name="checkCinIntValidity"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d8234ac1-ed66-4341-8d87-c8a261bd93d7"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2c0a518d-cf2a-4ced-8680-94ce337e97ed"
+            name="emptyBuffer"
             isLeaf="false"
             isStatic="true"
             isAbstract="false"

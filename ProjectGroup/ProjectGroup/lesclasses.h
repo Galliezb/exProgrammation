@@ -1,4 +1,3 @@
-#pragma once
 #include <string>
 #include <iostream>
 #include <iomanip>
@@ -79,14 +78,14 @@ private:
 /************************************/
 class Person{
 public:
-	Person( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town );
+	Person( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town , string status );
 	virtual void display()=0;
 	string getFullName();
 	virtual string stringForWriteFile()=0;
-	~Person();
+	virtual ~Person();
 protected:
 	Address address_;
-	string name_ , firstName_;
+	string name_ , firstName_ , status_;
 private:
 	static int numberInstance_;
 };
@@ -116,6 +115,7 @@ public:
 	void displayRoom();
 	void displayStatistics();
 	void displayTotalPersonPerType();
+	string getNameAndStatus();
 	string stringForWriteFile();
 	~School();
 private:
@@ -132,13 +132,13 @@ private:
 /************************************/
 class Advisor : public Person {
 public:
-	Advisor( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town , string status , string telefoon , string fax );
+	Advisor( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town , string function , string telephone , string fax );
 	void display();
 	string stringForWriteFile();
 	~Advisor();
-public:
+private:
 	static int numberInstance_;
-	string status_ , telefoon_ , fax_ ;
+	string function_ , telephone_ , fax_ ;
 };
 
 
@@ -148,22 +148,25 @@ public:
 /************************************/
 class Group{
 public:
-	Group(string name, string telefoon, string fax, string mail, string website, Address& address );
-	void addAdvisor( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town , string status , string telefoon , string fax );
+	Group(string name, string telephone, string fax, string mail, string website, Address& address );
+	void addAdvisor( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town , string status , string telephone , string fax );
 	void addSchool( School sch );
 	void delAdvisor( int numberOfLine );
-	void delSchool();
+	void delSchool( int numberOfLine );
 	int displayAdvisorForDelete();
+	int displaySchoolForDelete();
 	void displayInfo();
 	void displaySchool();
 	~Group();
 private:
-	string name_ , telefoon_ , fax_, mail_, website_;
+	string name_ , telephone_ , fax_, mail_, website_;
 	Address address_;
 	vector<School> school_;
 	// pointer for polymorphism
 	vector<Person*> advisor_;
 	static int numberInstance_;
+
+	void regenerateFile( string nameTxtFile );
 };
 
 
@@ -284,14 +287,15 @@ enum class Error {
 class Display{
 public:
 	Display();
-	static bool checkCinIntValidity(int min, int max, int valueToVerify);
 	static void centerOutputString( string str );
 	static void instruction( string str);
-	static void emptyBuffer();
 	static void error( Error error );
 	static void fillFullLine( const char c);
 	static void menuStart();
 	static void menuGroup();
+	static int menuDirector();
+	static int menuSecretary();
+	static int menuComputerScientist();
 	static void pauseAtBottom(int cpt);
 	~Display();
 };
@@ -304,7 +308,9 @@ public:
 class Treatment{
 public:
 	Treatment();
+	static bool checkCinIntValidity(int min, int max, int valueToVerify);
 	static string deleteWhiteSpace( string str, int start, int end);
+	static void emptyBuffer();
 	static void makeMenu(vector<string> vect);
 	static void writeToFile( string str );
 	~Treatment();
