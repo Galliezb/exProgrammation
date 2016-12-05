@@ -9,6 +9,8 @@
 
 using namespace std;
 
+class School;
+
 /************************************/
 /********** CLASS ADDRESS ***********/
 /************************************/
@@ -93,14 +95,12 @@ private:
 
 
 
-
 /************************************/
 /*********  CLASS SCHOOL  ***********/
 /************************************/
 class School{
 public:
-	friend class Director;
-
+	School();
 	School( string type , string name );
 	void addBuilding();
 	void addDirector();
@@ -121,13 +121,18 @@ public:
 	string getNameAndStatus();
 	string stringForWriteFile();
 	~School();
+
+	/************************************/
+	/******** OPERATOR OVERLOAD *********/
+	/************************************/
+	friend bool operator==( School a, School b);
+
 private:
 	string type_, name_;
 	static int numberInstance_;
 	vector<Building> building_;
 	vector<Person*> person_;
 };
-
 
 
 /************************************/

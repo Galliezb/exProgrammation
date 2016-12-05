@@ -178,11 +178,12 @@ void main(){
 		/********************************** START MENU DIRECTOR *************************************/
 		} else if ( choiceMenuStart == 2 ){
 
-			School* schoolSelected = nullptr;
+			School schoolSelected;
 			// director from wich school
 			do {
-				schoolSelected = helha.displaySchoolforSelect();		
-			} while ( schoolSelected != nullptr );
+				schoolSelected = helha.displaySchoolForSelect();
+			// object is empty ?
+			} while ( schoolSelected == School() );
 
 
 			int choiceMenuDirector = -1;

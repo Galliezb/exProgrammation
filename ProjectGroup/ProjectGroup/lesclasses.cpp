@@ -723,9 +723,18 @@ School::~School(){
 	// cout << "Deconstruct instance School" << endl;
 }
 
+School::School(){
+	// debug
+	// cout << "Construc School by default" << endl;
+	name_ = "emptyObject";
+	type_ = "emptyObject";
+	numberInstance_++;
+}
+
 School::School( string type , string name ){
 	type_ = type;
 	name_ = name;
+	numberInstance_++;
 }
 
 Building::Building(int numberFloor, Address & address){
@@ -876,5 +885,15 @@ void Director::display(){
 	Display::fillFullLine('-');
 	Display::centerOutputString("PERSONNEL DE L'ECOLE");
 	Display::fillFullLine('-');
+
+}
+
+bool operator==(School a, School b){
+
+	if ( a.name_ == b.name_ ){
+		return true;
+	} else {
+		return false;
+	}
 
 }
