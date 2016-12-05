@@ -178,6 +178,13 @@ void main(){
 		/********************************** START MENU DIRECTOR *************************************/
 		} else if ( choiceMenuStart == 2 ){
 
+			School* schoolSelected = nullptr;
+			// director from wich school
+			do {
+				schoolSelected = helha.displaySchoolforSelect();		
+			} while ( schoolSelected != nullptr );
+
+
 			int choiceMenuDirector = -1;
 
 			do {
@@ -188,8 +195,10 @@ void main(){
 				if ( choiceMenuDirector == 1 ){
 				
 
+
 				// fire employees
 				} else if ( choiceMenuDirector == 2 ){
+
 
 
 				// hire employees

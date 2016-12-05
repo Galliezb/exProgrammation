@@ -86,6 +86,7 @@ public:
 protected:
 	Address address_;
 	string name_ , firstName_ , status_;
+	vector<Course> course_;
 private:
 	static int numberInstance_;
 };
@@ -98,6 +99,8 @@ private:
 /************************************/
 class School{
 public:
+	friend class Director;
+
 	School( string type , string name );
 	void addBuilding();
 	void addDirector();
@@ -122,7 +125,7 @@ private:
 	string type_, name_;
 	static int numberInstance_;
 	vector<Building> building_;
-	vector<Person>* person_;
+	vector<Person*> person_;
 };
 
 
@@ -154,6 +157,7 @@ public:
 	void delAdvisor( int numberOfLine );
 	void delSchool( int numberOfLine );
 	int displayAdvisorForDelete();
+	School displaySchoolForSelect();
 	int displaySchoolForDelete();
 	void displayInfo();
 	void displaySchool();
@@ -273,15 +277,6 @@ private:
 
 
 /************************************/
-/******* CLASS ENUM ERROR  **********/
-/************************************/
-enum class Error {
-	number = 0
-};
-
-
-
-/************************************/
 /*********  CLASS DISPLAY ***********/
 /************************************/
 class Display{
@@ -289,7 +284,7 @@ public:
 	Display();
 	static void centerOutputString( string str );
 	static void instruction( string str);
-	static void error( Error error );
+	static void error();
 	static void fillFullLine( const char c);
 	static void menuStart();
 	static void menuGroup();

@@ -396,6 +396,30 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
+          <operation
+            Id="6f20c302-4ada-4d80-8570-6122f07804f8"
+            name="displaySchoolForSelect"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fd6d2811-23f6-40fa-8305-ba95d819d2d6"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b559fef0-1b70-4cea-8c38-4c095c883aec"
+                      LastKnownName="School"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -3963,6 +3987,16 @@
       <undefinedType
         Id="39cc8938-bc1d-4cc3-a339-288fcad070c3"
         name="str" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="71fed16e-de83-4a1e-bdbe-122de733775d"
+        name="group" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="f8eaebe9-28e3-4390-8aec-a36863c35720"
+        name="Group::School*" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

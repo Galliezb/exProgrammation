@@ -78,20 +78,15 @@ Display::Display(){
 
 
 
-void Display::error( Error error ){
+void Display::error(){
 
 	system("cls");
 
-	switch ( error ){
+	fillFullLine('*');
+	centerOutputString("You need to enter a number in the good range please");
+	fillFullLine('*');
+	pauseAtBottom(31);
 
-		case Error::number :
-			fillFullLine('*');
-			centerOutputString("You need to enter a number in the good range please");
-			fillFullLine('*');
-			pauseAtBottom(31);
-			break;
-			
-	}
 	system("pause");
 	system("cls");
 
@@ -563,6 +558,48 @@ int Group::displayAdvisorForDelete(){
 
 }
 
+School Group::displaySchoolForSelect(){
+
+	School schoolToReturn;
+	int numberSelected = -1;
+	bool goodOrRetry = false;
+
+	system("cls");
+
+	Display::fillFullLine('-');
+	Display::centerOutputString("CHOISSISSEZ LE NUMERO DE L ECOLE A SELECTIONNER");
+	Display::fillFullLine('-');
+	Display::pauseAtBottom(2);
+
+	// build menu
+	vector<string> vector;
+
+	int i=0;
+
+	for each (School sch in school_){
+
+		// return string, and save for build menu
+		vector.push_back( sch.getNameAndStatus() );
+
+		i++;
+	}
+
+	// push menu to build and display
+	Treatment::makeMenu(vector);
+	Display::pauseAtBottom(35-6-i);
+
+	// Tss you can't troll !
+	do {
+		cin >> numberSelected;
+		goodOrRetry = Treatment::checkCinIntValidity(0,i,numberSelected);
+	} while ( !goodOrRetry );
+
+	// return the school for manipulation
+
+	
+
+}
+
 int Group::displaySchoolForDelete(){
 
 	int numberToDelete;
@@ -733,7 +770,7 @@ bool Treatment::checkCinIntValidity(int min, int max, int valueToVerify){
 	emptyBuffer();
 
 	if ( valueToVerify < min || valueToVerify > max ){
-		Display::error( Error::number );
+		Display::error();
 		return false;
 	} else {
 		return true;
@@ -832,4 +869,12 @@ void Treatment::writeToFile(string str){
 Treatment::~Treatment(){
 	// debug
 	// cout << "Deconstruct Treatment" << endl;
+}
+
+void Director::display(){
+
+	Display::fillFullLine('-');
+	Display::centerOutputString("PERSONNEL DE L'ECOLE");
+	Display::fillFullLine('-');
+
 }
