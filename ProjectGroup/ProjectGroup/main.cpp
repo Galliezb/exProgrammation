@@ -185,6 +185,8 @@ void main(){
 			// object is empty ?
 			} while ( schoolSelected == School() );
 
+			cout << "name selected : " << schoolSelected.getNameAndStatus();
+			system("pause");
 
 			int choiceMenuDirector = -1;
 
@@ -209,8 +211,9 @@ void main(){
 
 				}
 
-
-			} while ( choiceMenuDirector < 0 );
+				cout << "choiceMenuDirector : "  << choiceMenuDirector << endl;
+				system("pause");
+			} while ( choiceMenuDirector < 1 );
 
 		/********************************* START MENU SECRETARY *************************************/
 		} else if ( choiceMenuStart == 3 ){

@@ -560,7 +560,7 @@ int Group::displayAdvisorForDelete(){
 
 School Group::displaySchoolForSelect(){
 
-	School schoolToReturn;
+
 	int numberSelected = -1;
 	bool goodOrRetry = false;
 
@@ -595,7 +595,7 @@ School Group::displaySchoolForSelect(){
 	} while ( !goodOrRetry );
 
 	// return the school for manipulation
-
+	return school_[numberSelected];
 	
 
 }
@@ -896,4 +896,14 @@ bool operator==(School a, School b){
 		return false;
 	}
 
+}
+
+Course::Course(){
+	// debug
+	// cout << "Construct by default" << endl;
+}
+
+Course::~Course(){
+	// debug
+	// cout << "Deconstruct by default" << endl;
 }
