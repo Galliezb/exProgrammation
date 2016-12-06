@@ -178,6 +178,8 @@ void main(){
 		/********************************** START MENU DIRECTOR *************************************/
 		} else if ( choiceMenuStart == 2 ){
 
+			int choiceMenuDirector = -1;
+
 			School schoolSelected;
 			// director from wich school
 			do {
@@ -185,16 +187,11 @@ void main(){
 			// object is empty ?
 			} while ( schoolSelected == School() );
 
-			cout << "name selected : " << schoolSelected.getNameAndStatus();
-			system("pause");
-
-			int choiceMenuDirector = -1;
-
 			do {
 
 				choiceMenuDirector = Display::menuDirector();
 
-				// display employees
+				// Leave
 				if ( choiceMenuDirector == 1 ){
 				
 
@@ -211,9 +208,8 @@ void main(){
 
 				}
 
-				cout << "choiceMenuDirector : "  << choiceMenuDirector << endl;
-				system("pause");
-			} while ( choiceMenuDirector < 1 );
+				
+			} while ( choiceMenuDirector > 0 );
 
 		/********************************* START MENU SECRETARY *************************************/
 		} else if ( choiceMenuStart == 3 ){

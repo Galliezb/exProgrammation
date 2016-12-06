@@ -195,7 +195,7 @@ int Display::menuDirector(){
 
 		cin >> valueReturn;
 
-	} while ( Treatment::checkCinIntValidity(0,3,valueReturn) );
+	} while ( !Treatment::checkCinIntValidity(0,3,valueReturn) );
 
 	return valueReturn;
 
