@@ -888,16 +888,6 @@ void Director::display(){
 
 }
 
-bool operator==(School a, School b){
-
-	if ( a.name_ == b.name_ ){
-		return true;
-	} else {
-		return false;
-	}
-
-}
-
 Course::Course(){
 	// debug
 	// cout << "Construct by default" << endl;

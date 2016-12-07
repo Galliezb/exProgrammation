@@ -383,6 +383,12 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="dab8b940-0910-46b0-8367-d7478d1bc5b0" name="hire" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c3a28509-9d87-4bcb-847e-0d156c1b6c8b" />
+          </operation>
+          <operation Id="0e521547-564f-4345-9978-2651e0ab65a0" name="fire" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6f486538-5bc3-4652-af07-8f37d91518b5" />
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -814,12 +820,6 @@
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="984fdb45-e790-468d-8feb-f12999e7df74" name="hire" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="dce6db1d-6444-41b5-be05-7e8f9939ed89" />
-          </operation>
-          <operation Id="b28b5f2b-4f84-4732-80df-d15c7d8c023f" name="fire" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="f84a0a11-654a-4142-b5c3-eecfd2cfa43e" />
-          </operation>
           <operation Id="6d7be529-2487-45ff-a003-093b8776bbdc" name="Director" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="d66ee37a-fc05-4ef1-ac8f-3ecd7de81846" />
           </operation>

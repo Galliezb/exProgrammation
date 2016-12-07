@@ -118,14 +118,11 @@ public:
 	void displayRoom();
 	void displayStatistics();
 	void displayTotalPersonPerType();
+	void fire(Secretary& s);
+	void hire();
 	string getNameAndStatus();
 	string stringForWriteFile();
 	~School();
-
-	/************************************/
-	/******** OPERATOR OVERLOAD *********/
-	/************************************/
-	friend bool operator==( School a, School b);
 
 private:
 	string type_, name_;
@@ -201,8 +198,6 @@ class Director : public Person {
 public:
 	Director();
 	void display();
-	void hire();
-	void fire();
 	string stringForWriteFile();
 	~Director();
 private:

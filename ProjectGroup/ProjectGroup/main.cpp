@@ -180,12 +180,11 @@ void main(){
 
 			int choiceMenuDirector = -1;
 
+			// select school to administrate
 			School schoolSelected;
-			// director from wich school
-			do {
-				schoolSelected = helha.displaySchoolForSelect();
-			// object is empty ?
-			} while ( schoolSelected == School() );
+			schoolSelected = helha.displaySchoolForSelect();
+
+			schoolSelected.
 
 			do {
 

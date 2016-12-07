@@ -858,6 +858,22 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="c3a28509-9d87-4bcb-847e-0d156c1b6c8b"
+            name="hire"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="6f486538-5bc3-4652-af07-8f37d91518b5"
+            name="fire"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1886,22 +1902,6 @@
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation
-            Id="dce6db1d-6444-41b5-be05-7e8f9939ed89"
-            name="hire"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="f84a0a11-654a-4142-b5c3-eecfd2cfa43e"
-            name="fire"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
           <operation
             Id="d66ee37a-fc05-4ef1-ac8f-3ecd7de81846"
             name="Director"
