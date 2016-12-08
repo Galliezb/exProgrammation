@@ -184,8 +184,6 @@ void main(){
 			School schoolSelected;
 			schoolSelected = helha.displaySchoolForSelect();
 
-			schoolSelected.
-
 			do {
 
 				choiceMenuDirector = Display::menuDirector();

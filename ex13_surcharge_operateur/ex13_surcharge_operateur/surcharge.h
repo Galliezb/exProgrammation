@@ -8,12 +8,13 @@ using namespace std;
 
 class Polynome {
 public:
+	Polynome();
 	Polynome(int degre,int tabInt[]);
 	void afficher();
-	friend Polynome operator+(Polynome &a, Polynome &b);
+	friend Polynome operator+( const Polynome &a , const Polynome &b );
 	~Polynome();
 private:
 	int degre_;
-	int* ptrInt_;
+	int* ptrTabInt_;
 };
 

@@ -13,10 +13,6 @@ void main(){
 	
 	a.afficher();
 	b.afficher();
-	
-	system("pause");
-	system("cls");
-
 	c.afficher();
 
 	system("pause");

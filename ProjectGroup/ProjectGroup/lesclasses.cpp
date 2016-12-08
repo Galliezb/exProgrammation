@@ -721,6 +721,15 @@ string School::stringForWriteFile(){
 School::~School(){
 	// debug
 	// cout << "Deconstruct instance School" << endl;
+
+	for each ( Person *pers in person_ ){
+		delete pers;
+	}
+
+	for each(Building *build in building_ ){
+		delete build;
+	}
+
 }
 
 School::School(){

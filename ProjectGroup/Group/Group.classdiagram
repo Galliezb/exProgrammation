@@ -389,6 +389,9 @@
           <operation Id="0e521547-564f-4345-9978-2651e0ab65a0" name="fire" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="6f486538-5bc3-4652-af07-8f37d91518b5" />
           </operation>
+          <operation Id="2c7d31f2-c65d-4775-aaaf-179009d6a6c2" name="reloadFromFile" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="712a26e6-6b8b-456b-a5f6-0d0573193686" />
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>

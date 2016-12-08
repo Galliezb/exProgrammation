@@ -127,8 +127,11 @@ public:
 private:
 	string type_, name_;
 	static int numberInstance_;
-	vector<Building> building_;
+	vector<Building*> building_;
+	// pointer for polymorphism
 	vector<Person*> person_;
+
+	void reloadFromFile();
 };
 
 
