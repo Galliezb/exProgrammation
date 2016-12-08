@@ -187,15 +187,17 @@ int Display::menuDirector(){
 		vector<string> vector;
 		vector.push_back( string("QUITTER") );
 		vector.push_back( string("AFFICHER LES EMPLOYES") );
-		vector.push_back( string("VIRER UN EMPLOYE") );
-		vector.push_back( string("EMBAUCHER UN EMPLOYE") );
+		vector.push_back( string("VIRER UNE SECRETAIRE") );
+		vector.push_back( string("VIRER UN PROFESSEUR") );
+		vector.push_back( string("EMBAUCHER UNE SECRETAIRE") );
+		vector.push_back( string("EMBAUCHER UN PROFESSEUR") );
 		// push menu to build and display
 		Treatment::makeMenu(vector);
 		Display::pauseAtBottom(25);
 
 		cin >> valueReturn;
 
-	} while ( !Treatment::checkCinIntValidity(0,3,valueReturn) );
+	} while ( !Treatment::checkCinIntValidity(0,5,valueReturn) );
 
 	return valueReturn;
 
@@ -491,9 +493,10 @@ Group::~Group(){
 void Group::regenerateFile( string nameTxtFile ){
 
 	// save in file
+	// ofstream  -> ios::out set by default
 	ofstream f;
 	// file open in binary mode and TRUNC for empty the file
-	f.open( nameTxtFile, ios::in | ios::trunc);
+	f.open( nameTxtFile , ios::trunc);
 
 	if(f.fail()){
 		cerr<<"Fail _ Ouverture du fichier advisor.txt impossible\n";
@@ -594,6 +597,15 @@ School Group::displaySchoolForSelect(){
 		goodOrRetry = Treatment::checkCinIntValidity(0,i,numberSelected);
 	} while ( !goodOrRetry );
 
+	system("cls");
+	Display::fillFullLine('*');
+	Display::centerOutputString("VOUS ETES DESORMAIS LE DIRECTEUR DE CETTE ECOLE");
+	Display::fillFullLine('*');
+	Display::pauseAtBottom(31);
+
+	// is realy essential ?
+	//school_[numberSelected].displayDirector();
+	
 	// return the school for manipulation
 	return school_[numberSelected];
 	
@@ -656,6 +668,10 @@ string Person::getFullName(){
 	return string(firstName_ + " " + name_);
 }
 
+string Person::getStatus(){
+	return string(status_);
+}
+
 Person::~Person(){
 	// debug
 	// cout << "Deconstruct instance Person" << endl;
@@ -709,6 +725,20 @@ string School::getNameAndStatus(){
 	return string(name_ + " ( " + type_ + " ) ");
 }
 
+Person* School::getYourDirector(){
+
+	for each (Person* pers in person_){
+		
+		if ( pers->getStatus() == "director" ){
+		
+			return pers;
+			break;
+
+		}
+
+	}
+}
+
 string School::stringForWriteFile(){
 
 	ostringstream stream;
@@ -729,6 +759,135 @@ School::~School(){
 	for each(Building *build in building_ ){
 		delete build;
 	}
+
+}
+
+void School::reloadFromFile(){
+
+	// save in file
+	// ifstream  -> ios::int set by default ( read activate by default )
+	ifstream fileDirector , fileSecretary , fileStudent ,  fileTeacher , fileHybrid;
+
+	string filename = "person_director_"+this->name_+'_'+this->type_;
+	fileDirector.open( filename );
+	if(fileDirector.fail()){ cerr<<"Fail _ ERROR 00001\n"; exit(8); }
+	if(fileDirector.bad()){ cerr<<"Bad _ ERROR 00001\n"; exit(8); }
+
+	string line;
+	while( getline( fileDirector, line ) ){
+
+		//cout << "LIGNE : " << line << endl; 
+
+		string firstName,name,street,town,status;
+		int boxNumber,number,codePostal;		
+
+		firstName = Treatment::deleteWhiteSpace( line, 0, 50);
+		name = Treatment::deleteWhiteSpace( line, 50, 50);
+
+		boxNumber = stoi(line.substr(100,50));
+		number = stoi(line.substr(150,50));
+		codePostal = stoi(line.substr(200,50));
+
+		street = Treatment::deleteWhiteSpace( line, 250, 50);
+		town = Treatment::deleteWhiteSpace( line, 300, 50);
+		status = Treatment::deleteWhiteSpace( line, 350, 50);
+
+		// pointer for polymorphism ( Person is abstract )
+		Person* a = new Director( name, firstName, boxNumber, number, codePostal, street, town, status );
+		person_.push_back(a);
+
+
+
+	}
+	fi.close();
+
+
+
+	filename = "person_secretary_"+this->name_+'_'+this->type_;
+	fileSecretary.open( filename );
+	if(fileSecretary.fail()){ cerr<<"Fail _ ERROR 00002\n"; exit(8); }
+	if(fileSecretary.bad()){ cerr<<"Bad _ ERROR 00002\n"; exit(8); }
+
+	filename = "person_student_"+this->name_+'_'+this->type_;
+	fileStudent.open( filename );
+	if(fileStudent.fail()){ cerr<<"Fail _ ERROR 00003\n"; exit(8); }
+	if(fileStudent.bad()){ cerr<<"Bad _ ERROR 00003\n"; exit(8); }
+
+	filename = "person_teacher_"+this->name_+'_'+this->type_;
+	fileTeacher.open( filename );
+	if(fileTeacher.fail()){ cerr<<"Fail _ ERROR 00004\n"; exit(8); }
+	if(fileTeacher.bad()){ cerr<<"Bad _ ERROR 00004\n"; exit(8); }
+
+	filename = "person_hybrid_"+this->name_+'_'+this->type_;
+	fileHybrid.open( filename );
+	if(fileHybrid.fail()){ cerr<<"Fail _ ERROR 00005\n"; exit(8); }
+	if(fileHybrid.bad()){ cerr<<"Bad _ ERROR 00005\n"; exit(8); }
+
+
+}
+
+void School::regenerateFilePerson(){
+
+	// save in file
+	ofstream fileDirector , fileSecretary , fileStudent ,  fileTeacher , fileHybrid;
+	// file open in binary mode and TRUNC for empty the file
+
+	string filename = "person_director_"+this->name_+'_'+this->type_;
+	fileDirector.open( filename , ios::trunc);
+	if(fileDirector.fail()){ cerr<<"Fail _ ERROR 00001\n"; exit(8); }
+	if(fileDirector.bad()){ cerr<<"Bad _ ERROR 00001\n"; exit(8); }
+
+	filename = "person_secretary_"+this->name_+'_'+this->type_;
+	fileSecretary.open( filename , ios::trunc);
+	if(fileSecretary.fail()){ cerr<<"Fail _ ERROR 00002\n"; exit(8); }
+	if(fileSecretary.bad()){ cerr<<"Bad _ ERROR 00002\n"; exit(8); }
+
+	filename = "person_student_"+this->name_+'_'+this->type_;
+	fileStudent.open( filename , ios::trunc);
+	if(fileStudent.fail()){ cerr<<"Fail _ ERROR 00003\n"; exit(8); }
+	if(fileStudent.bad()){ cerr<<"Bad _ ERROR 00003\n"; exit(8); }
+
+	filename = "person_teacher_"+this->name_+'_'+this->type_;
+	fileTeacher.open( filename , ios::trunc);
+	if(fileTeacher.fail()){ cerr<<"Fail _ ERROR 00004\n"; exit(8); }
+	if(fileTeacher.bad()){ cerr<<"Bad _ ERROR 00004\n"; exit(8); }
+
+	filename = "person_hybrid_"+this->name_+'_'+this->type_;
+	fileHybrid.open( filename , ios::trunc);
+	if(fileHybrid.fail()){ cerr<<"Fail _ ERROR 00005\n"; exit(8); }
+	if(fileHybrid.bad()){ cerr<<"Bad _ ERROR 00005\n"; exit(8); }
+
+	for each (Person *pers in person_){
+
+		if ( pers->getStatus() == "director" ){
+		
+			fileDirector << pers->stringForWriteFile();
+
+		} else if ( pers->getStatus() == "secretary" ){
+
+			fileSecretary << pers->stringForWriteFile();
+
+		} else if ( pers->getStatus() == "student" ){
+
+			fileStudent << pers->stringForWriteFile();
+
+		} else if ( pers->getStatus() == "teacher" ){
+
+			fileTeacher << pers->stringForWriteFile();
+
+		} else if ( pers->getStatus() == "hybrid" ){
+
+			fileHybrid << pers->stringForWriteFile();
+
+		}
+
+	}
+
+	fileDirector.close();
+	fileSecretary.close();
+	fileStudent.close();
+	fileTeacher.close();
+	fileHybrid.close();
 
 }
 
@@ -889,20 +1048,57 @@ Treatment::~Treatment(){
 	// cout << "Deconstruct Treatment" << endl;
 }
 
+Director::Director(string name, string firstName, int boxNumber, int number, int codePostal, string street, string town, string status = "director")
+		 :Person( name , firstName , boxNumber , number , codePostal , street , town , status){
+
+	numberInstance_++;
+
+}
+
 void Director::display(){
 
 	Display::fillFullLine('-');
 	Display::centerOutputString("PERSONNEL DE L'ECOLE");
 	Display::fillFullLine('-');
 
+	Display::centerOutputString("**** TO DO ****");
+
+}
+
+string Director::stringForWriteFile(){
+	
+	ostringstream ios;	
+	ios << setw(50) << firstName_
+		<< setw(50) << name_
+		<< setw(50) << address_.getAddressForStream()
+		<< setw(50) << status_
+		<< endl;
+	return ios.str();
+}
+
+Director::~Director(){
+	// debug
+	// cout << "Deconstruct director by default" << endl;
 }
 
 Course::Course(){
 	// debug
-	// cout << "Construct by default" << endl;
+	// cout << "Construct Course by default" << endl;
 }
 
 Course::~Course(){
 	// debug
-	// cout << "Deconstruct by default" << endl;
+	// cout << "Deconstruct course by default" << endl;
+}
+
+void School::displayDirector(){
+
+	for each(Person* pers in person_ ){
+	
+		if ( pers->getStatus() == "director "){
+			cout << "Nom : " << pers->getFullName() << endl;
+		}
+
+	}
+
 }

@@ -859,22 +859,6 @@
             </ownedParameters>
           </operation>
           <operation
-            Id="c3a28509-9d87-4bcb-847e-0d156c1b6c8b"
-            name="hire"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="6f486538-5bc3-4652-af07-8f37d91518b5"
-            name="fire"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
             Id="712a26e6-6b8b-456b-a5f6-0d0573193686"
             name="reloadFromFile"
             visibility="Private"
@@ -883,6 +867,38 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
+          <operation
+            Id="3812c795-92d6-46ae-b0a1-11f04bc5fcbd"
+            name="regenerateFilePerson"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="6121a63d-1a31-4619-b29c-2f674805d6be"
+            name="getYourDirector"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4720d297-322b-4ef3-9f44-b00e5f588f66"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="7d1931b4-ebc6-4298-8303-85d00e55bc56"
+                      LastKnownName="Director"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1385,6 +1401,29 @@
             isAbstract="true"
             concurrency="Sequential"
             isQuery="false" />
+          <operation
+            Id="01b9465b-0111-448a-9665-aae4c9005014"
+            name="getStatus"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f41be248-65d0-49fb-93e8-0c6e2a95761d"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1958,6 +1997,22 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="954cae2c-d190-4b05-bc86-1065a74900f6"
+            name="hire"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="53cc34de-5d4e-48f0-816f-dd7b1a7d8e2e"
+            name="fire"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>

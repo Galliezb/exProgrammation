@@ -83,6 +83,7 @@ public:
 	Person( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town , string status );
 	virtual void display()=0;
 	string getFullName();
+	string getStatus();
 	virtual string stringForWriteFile()=0;
 	virtual ~Person();
 protected:
@@ -118,9 +119,8 @@ public:
 	void displayRoom();
 	void displayStatistics();
 	void displayTotalPersonPerType();
-	void fire(Secretary& s);
-	void hire();
 	string getNameAndStatus();
+	Person* getYourDirector();
 	string stringForWriteFile();
 	~School();
 
@@ -132,6 +132,7 @@ private:
 	vector<Person*> person_;
 
 	void reloadFromFile();
+	void regenerateFilePerson();
 };
 
 
@@ -199,8 +200,10 @@ private:
 /************************************/
 class Director : public Person {
 public:
-	Director();
+	Director(string name, string firstName, int boxNumber, int number, int codePostal, string street, string town, string status );
 	void display();
+	void fire();
+	void hire();
 	string stringForWriteFile();
 	~Director();
 private:

@@ -184,22 +184,45 @@ void main(){
 			School schoolSelected;
 			schoolSelected = helha.displaySchoolForSelect();
 
+			
+
+			//Person* directorSelected = schoolSelected.getYourDirector();
+			Person* directorTest = new Director("testnom","testfirstname",56,69,59652,"rue imaginaire","imagineTown","director");
+			directorTest->
+
+
+			Director directorTest2("testnom","testfirstname",56,69,59652,"rue imaginaire","imagineTown","director");
+			
+			
+
+		
+
 			do {
 
 				choiceMenuDirector = Display::menuDirector();
 
-				// Leave
+				// display employees
 				if ( choiceMenuDirector == 1 ){
 				
+					directorSelected->
 
-
-				// fire employees
+				// fire secretary
 				} else if ( choiceMenuDirector == 2 ){
 
 
 
-				// hire employees
+				// fire teacher
 				} else if ( choiceMenuDirector == 3 ){
+
+
+
+				// hire secretary
+				} else if ( choiceMenuDirector == 4 ){
+
+
+
+				// hire teacher
+				} else if ( choiceMenuDirector == 5 ){
 
 
 
