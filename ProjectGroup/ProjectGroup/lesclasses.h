@@ -105,11 +105,15 @@ public:
 	School( string type , string name );
 	void addBuilding();
 	void addDirector();
+	void addListStudentToCourse();
 	void addRoom();
+	void addRoomToTeacher();
 	void addStudent();
 	void delBuilding();
 	void delDirector();
+	void delListStdudentToCourse();
 	void delRoom();
+	void delRoomToTeacher();
 	void delStudent();
 	void displayBuilding();
 	void displayCourses();
@@ -119,6 +123,7 @@ public:
 	void displayRoom();
 	void displayStatistics();
 	void displayTotalPersonPerType();
+	
 	string getNameAndStatus();
 	Person* getYourDirector();
 	string stringForWriteFile();
@@ -202,8 +207,6 @@ class Director : public Person {
 public:
 	Director(string name, string firstName, int boxNumber, int number, int codePostal, string street, string town, string status );
 	void display();
-	void fire();
-	void hire();
 	string stringForWriteFile();
 	~Director();
 private:
@@ -218,10 +221,6 @@ private:
 class Secretary : public Person{
 public:
 	Secretary();
-	void addRoomToTeacher();
-	void addListStudentToCourse();
-	void delRoomToTeacher();
-	void delListStdudentToCourse();
 	void display();
 	string stringForWriteFile();
 	~Secretary();

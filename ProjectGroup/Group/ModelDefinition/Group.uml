@@ -899,6 +899,54 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="55abf738-e5a6-427c-b569-26404c752a4c"
+            name="hire"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="ff1c81af-3bcd-495d-b14f-fbea367be422"
+            name="fire"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="076ba412-1032-496a-86a1-1e2c97fa22b3"
+            name="addListStudentToCourse"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="e48ea719-7567-47f9-ab15-ea94367f9cb1"
+            name="addRoomToTeacher"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="be85e0b0-cc8c-4e67-b217-49a43bfcd880"
+            name="delListStudentToCourse"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="4e662220-c31e-4c26-942b-591cb9a2ff8e"
+            name="delRoomToTeacher"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1997,22 +2045,6 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation
-            Id="954cae2c-d190-4b05-bc86-1065a74900f6"
-            name="hire"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="53cc34de-5d4e-48f0-816f-dd7b1a7d8e2e"
-            name="fire"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -2074,38 +2106,6 @@
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation
-            Id="589b44f0-385f-4368-9bee-e032fe9deb4e"
-            name="addRoomToTeacher"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="63c79b60-2a30-4f12-98cf-7751e5eb8f91"
-            name="delRoomToTeacher"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="be5eb280-33ab-47e5-af6b-f012f8e8a708"
-            name="addListStudentToCourse"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="a5982e25-3739-4f33-ae14-27d1fa1d01d3"
-            name="delListStudentToCourse"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
           <operation
             Id="586755e4-1ca9-4b05-85c0-4f9e3039b112"
             name="Secretary"

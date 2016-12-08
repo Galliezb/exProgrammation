@@ -402,6 +402,24 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="ef702bd0-815c-40fc-b1c0-ad4e8c6aba36" name="hire" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="55abf738-e5a6-427c-b569-26404c752a4c" />
+          </operation>
+          <operation Id="2e79c0f7-e3f3-45cf-af7e-27b7bf6010dd" name="fire" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ff1c81af-3bcd-495d-b14f-fbea367be422" />
+          </operation>
+          <operation Id="f6c78e45-8d4f-41c6-b327-f13f1b813464" name="addListStudentToCourse" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="076ba412-1032-496a-86a1-1e2c97fa22b3" />
+          </operation>
+          <operation Id="1b6c8343-63c5-4a41-aa6a-a26419fea5b6" name="addRoomToTeacher" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e48ea719-7567-47f9-ab15-ea94367f9cb1" />
+          </operation>
+          <operation Id="97cba673-41f3-4e6c-bbc0-57ba947a2c21" name="delListStudentToCourse" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="be85e0b0-cc8c-4e67-b217-49a43bfcd880" />
+          </operation>
+          <operation Id="40e57e12-74d6-46cb-a2fe-42283cf7e918" name="delRoomToTeacher" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4e662220-c31e-4c26-942b-591cb9a2ff8e" />
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -868,12 +886,6 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="2c19f3ac-8bf5-4ee1-9c50-1f9feaccc217" name="hire" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="954cae2c-d190-4b05-bc86-1065a74900f6" />
-          </operation>
-          <operation Id="381da481-6430-4560-af29-33ac8fb8f60e" name="fire" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="53cc34de-5d4e-48f0-816f-dd7b1a7d8e2e" />
-          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -901,18 +913,6 @@
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="cf535974-fe19-4e9e-80c9-37b35e1254f7" name="addRoomToTeacher" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="589b44f0-385f-4368-9bee-e032fe9deb4e" />
-          </operation>
-          <operation Id="b770b30f-e310-479a-9bbc-301ff3c4e82d" name="delRoomToTeacher" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="63c79b60-2a30-4f12-98cf-7751e5eb8f91" />
-          </operation>
-          <operation Id="0c04ca02-6b13-4cda-b12e-561761d60e42" name="addListStudentToCourse" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="be5eb280-33ab-47e5-af6b-f012f8e8a708" />
-          </operation>
-          <operation Id="e2ea9dca-3adc-4b0e-a566-6308701f78a6" name="delListStudentToCourse" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="a5982e25-3739-4f33-ae14-27d1fa1d01d3" />
-          </operation>
           <operation Id="0dd0fd6f-5244-4b7a-942c-baf6e179ed4e" name="Secretary" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="586755e4-1ca9-4b05-85c0-4f9e3039b112" />
           </operation>

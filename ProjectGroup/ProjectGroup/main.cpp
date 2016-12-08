@@ -185,14 +185,16 @@ void main(){
 			schoolSelected = helha.displaySchoolForSelect();
 
 			
-
-			//Person* directorSelected = schoolSelected.getYourDirector();
-			Person* directorTest = new Director("testnom","testfirstname",56,69,59652,"rue imaginaire","imagineTown","director");
-			directorTest->
-
-
-			Director directorTest2("testnom","testfirstname",56,69,59652,"rue imaginaire","imagineTown","director");
+			/*
 			
+			Ce n'est pas à la classe du directeur de gérer les actions de l'école
+			* Il faut remonter les méthodes sur la classe school
+			* Il faut le faire pour le director et pour la secretary
+			
+			
+			
+			
+			*/
 			
 
 		
@@ -204,7 +206,7 @@ void main(){
 				// display employees
 				if ( choiceMenuDirector == 1 ){
 				
-					directorSelected->
+					
 
 				// fire secretary
 				} else if ( choiceMenuDirector == 2 ){
