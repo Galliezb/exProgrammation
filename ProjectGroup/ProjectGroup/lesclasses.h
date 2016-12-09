@@ -105,7 +105,6 @@ public:
 	School( string type , string name );
 	void addBuilding();
 	void addDirector();
-	void addListStudentToCourse();
 	void addRoom();
 	void addRoomToTeacher();
 	void addStudent();
@@ -191,7 +190,8 @@ private:
 /************************************/
 class Skill{
 public:
-	Skill();
+	Skill( string entiteld , int salaryBonus );
+	void display();
 	~Skill();
 private:
 	string entiteld_;
@@ -211,7 +211,7 @@ public:
 	~Director();
 private:
 	static int numberInstance_;
-	vector<Skill> skill_;
+	vector<Skill*> skill_;
 };
 
 
@@ -253,15 +253,15 @@ protected:
 /************************************/
 class Teacher : public Person {
 public:
-	Teacher();
+	Teacher( string name, string firstName, int hoursTodo , int seniority , int boxNumber, int number, int codePostal, string street, string town, string status );
 	void display();
 	string stringForWriteFile();
 	~Teacher();
 private:
 	static int numberInstance_;
-	vector<Course> course_;
-	vector<Room> room_;
-	vector<Skill> skill_;
+	vector<Course*> course_;
+	vector<Room*> room_;
+	vector<Skill*> skill_;
 	int hoursToDo_;
 	int seniority_;
 };

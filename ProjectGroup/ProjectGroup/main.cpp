@@ -215,7 +215,7 @@ void main(){
 				// hire teacher
 				} else if ( choiceMenuDirector == 5 ){
 
-
+					Teacher t();
 
 				}
 

@@ -916,14 +916,6 @@
             concurrency="Sequential"
             isQuery="false" />
           <operation
-            Id="076ba412-1032-496a-86a1-1e2c97fa22b3"
-            name="addListStudentToCourse"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
             Id="e48ea719-7567-47f9-ab15-ea94367f9cb1"
             name="addRoomToTeacher"
             isLeaf="false"
@@ -2234,6 +2226,14 @@
           <operation
             Id="ee47ae80-1b3a-428a-a656-e58f4cab2c2d"
             name="~Skill"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="3d86d3f8-7632-4b2b-917e-90bb715d8d66"
+            name="display"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"

@@ -1057,10 +1057,16 @@ Director::Director(string name, string firstName, int boxNumber, int number, int
 void Director::display(){
 
 	Display::fillFullLine('-');
-	Display::centerOutputString("PERSONNEL DE L'ECOLE");
+	Display::centerOutputString("DIRECTEUR DE L'ECOLE");
 	Display::fillFullLine('-');
 
-	Display::centerOutputString("**** TO DO ****");
+	cout << "Nom : \t\t\t" << name_ << endl;
+	cout << "Prenom : \t\t" << firstName_ << endl;
+	cout << "Adresse : \t\t" << address_.display() << endl;
+	cout << "****** COMPETENCE(S) ******" << endl;
+	for each (Skill* s in skill_){
+		s->display();
+	}
 
 }
 
@@ -1100,4 +1106,57 @@ void School::displayDirector(){
 
 	}
 
+}
+
+string Teacher::stringForWriteFile(){
+
+	ostringstream ios;	
+	ios << setw(50) << firstName_
+		<< setw(50) << name_
+		<< setw(50) << hoursToDo_
+		<< setw(50) << seniority_
+		<< setw(50) << address_.getAddressForStream()
+		<< setw(50) << status_
+		<< endl;
+	return ios.str();
+
+}
+
+Teacher::~Teacher(){
+
+	// debug
+	// cout << "Deconstruct Teacher" << endl;
+
+	for each (Course* c in course_){
+		delete c;
+	}
+
+	for each (Room* r in room_){
+		delete r;
+	}
+
+	for each (Skill* s in skill_){
+		delete s;
+	}
+
+}
+
+
+Skill::Skill(string entiteld, int salaryBonus){
+
+	entiteld_ = entiteld;
+	salaryBonus_ = salaryBonus;
+	numberInstance_++;
+
+}
+
+void Skill::display(){
+
+	cout << "' " << entiteld_ << " ' pour un bonus salarial de " << salaryBonus_ << endl;
+
+}
+
+Skill::~Skill(){
+	// debug
+	// cout << "Deconstruct Skill" << endl;
 }
