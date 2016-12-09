@@ -408,9 +408,6 @@
           <operation Id="2e79c0f7-e3f3-45cf-af7e-27b7bf6010dd" name="fire" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="ff1c81af-3bcd-495d-b14f-fbea367be422" />
           </operation>
-          <operation Id="f6c78e45-8d4f-41c6-b327-f13f1b813464" name="addListStudentToCourse" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="076ba412-1032-496a-86a1-1e2c97fa22b3" />
-          </operation>
           <operation Id="1b6c8343-63c5-4a41-aa6a-a26419fea5b6" name="addRoomToTeacher" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="e48ea719-7567-47f9-ab15-ea94367f9cb1" />
           </operation>
@@ -967,6 +964,9 @@
           </operation>
           <operation Id="c01548d7-f5c4-44fe-9943-0b28b42f09ed" name="~Skill" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="ee47ae80-1b3a-428a-a656-e58f4cab2c2d" />
+          </operation>
+          <operation Id="6649ec79-f9be-494f-8776-7c0931aa4ecb" name="display" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="3d86d3f8-7632-4b2b-917e-90bb715d8d66" />
           </operation>
         </ownedOperationsInternal>
       </class>
