@@ -185,17 +185,6 @@ void main(){
 			schoolSelected = helha.displaySchoolForSelect();
 
 			
-			/*
-			
-			Ce n'est pas à la classe du directeur de gérer les actions de l'école
-			* Il faut remonter les méthodes sur la classe school
-			* Il faut le faire pour le director et pour la secretary
-			
-			
-			
-			
-			*/
-			
 
 		
 

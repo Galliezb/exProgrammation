@@ -468,7 +468,6 @@ void Group::displaySchool(){
 
 	int i = 0;
 	for each (School sch in school_){
-
 		cout << "* " << sch.getNameAndStatus() << endl;
 		i++;
 
