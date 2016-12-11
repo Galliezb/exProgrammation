@@ -122,6 +122,8 @@ public:
 	void displayRoom();
 	void displayStatistics();
 	void displayTotalPersonPerType();
+	void hire(Teacher* t);
+	void hire(Secretary* s);
 	
 	string getNameAndStatus();
 	Person* getYourDirector();
@@ -220,7 +222,7 @@ private:
 /************************************/
 class Secretary : public Person{
 public:
-	Secretary();
+	Secretary( string name, string firstName, int hourToDo, int boxNumber, int number, int postalCode, string street, string town );
 	void display();
 	string stringForWriteFile();
 	~Secretary();
@@ -253,7 +255,7 @@ protected:
 /************************************/
 class Teacher : public Person {
 public:
-	Teacher( string name, string firstName, int hoursTodo , int seniority , int boxNumber, int number, int codePostal, string street, string town, string status );
+	Teacher( string name, string firstName, int hoursTodo , int seniority , int boxNumber, int number, int postalCode, string street, string town );
 	void display();
 	string stringForWriteFile();
 	~Teacher();
