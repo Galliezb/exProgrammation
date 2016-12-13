@@ -468,7 +468,6 @@ void Group::displaySchool(){
 
 	int i = 0;
 	for each (School sch in school_){
-
 		cout << "* " << sch.getNameAndStatus() << endl;
 		i++;
 
@@ -661,7 +660,7 @@ Person::Person( string name , string firstName , int boxNumber , int number , in
 	status_ = status;
 
 	address_ = Address( boxNumber , number , postalCode , street , town );
-
+	numberInstance_++;
 }
 
 string Person::getFullName(){
@@ -799,7 +798,7 @@ void School::reloadFromFile(){
 
 
 	}
-	fi.close();
+	fileDirector.close();
 
 
 
@@ -1107,6 +1106,13 @@ void School::displayDirector(){
 
 	}
 
+}
+
+Teacher::Teacher(string name, string firstName, int hoursTodo, int seniority, int boxNumber, int number, int postalCode, string street, string town)
+		:Person( name , firstName , boxNumber , number , postalCode , street , town, string("teacher") ){
+	hoursToDo_ = hoursTodo;
+	seniority_ = seniority;
+	numberInstance_++;
 }
 
 string Teacher::stringForWriteFile(){

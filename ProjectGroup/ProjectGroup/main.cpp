@@ -184,6 +184,9 @@ void main(){
 			School schoolSelected;
 			schoolSelected = helha.displaySchoolForSelect();
 
+			
+
+		
 
 			do {
 
@@ -207,12 +210,113 @@ void main(){
 				// hire secretary
 				} else if ( choiceMenuDirector == 4 ){
 
+					string name , firstName , street , town;
+					int hourToDo, boxNumber , number , postalCode;
 
+					Display::instruction("ENTREZ LE NOM");
+					getline( cin , name );
+
+
+					Display::instruction("ENTREZ LE PRENOM");
+					getline( cin , firstName );
+
+
+					Display::instruction("ENTREZ LA RUE");
+					getline( cin , street );
+
+					do {
+						Display::instruction("ENTREZ LE NOMBRE D'HEURE A PRESTER PAR SEMAINE");
+						cin >> hourToDo;
+						goodOrRetry = Treatment::checkCinIntValidity(0,50,hourToDo);
+					} while ( !goodOrRetry );
+
+
+					do {
+						Display::instruction("ENTREZ LA BOITE POSTALE ( 0 si aucune )");
+						cin >> boxNumber;
+						goodOrRetry = Treatment::checkCinIntValidity(0,9999,boxNumber);
+					} while ( !goodOrRetry );
+
+					do {
+						Display::instruction("ENTREZ LE NUMERO");
+						cin >> number;
+						goodOrRetry = Treatment::checkCinIntValidity(0,9999,number);
+					} while ( !goodOrRetry );
+
+
+					Display::instruction("ENTREZ LA VILLE");
+					getline( cin , town );
+
+					do {
+						Display::instruction("ENTREZ LE CODE POSTAL");
+						cin >> postalCode;
+						goodOrRetry = Treatment::checkCinIntValidity(0,9999,postalCode);
+					} while ( !goodOrRetry );
+
+
+					Secretary* secretary = new Secretary( name, firstName, hourToDo, boxNumber, number, postalCode, street, town );
+					schoolSelected.hire(secretary);
+
+					system("cls");
+					Display::centerOutputString("NOUVELLE SECRETAIRE ENREGISTREE");
 
 				// hire teacher
 				} else if ( choiceMenuDirector == 5 ){
 
-					Teacher t();
+					string name , firstName , street , town;
+					int hourToDo, seniority, boxNumber , number , postalCode;
+
+					Display::instruction("ENTREZ LE NOM");
+					getline( cin , name );
+
+
+					Display::instruction("ENTREZ LE PRENOM");
+					getline( cin , firstName );
+
+
+					Display::instruction("ENTREZ LA RUE");
+					getline( cin , street );
+
+					do {
+						Display::instruction("ENTREZ LE NOMBRE D'HEURE DE COURS A DONNER PAR SEMAINE");
+						cin >> hourToDo;
+						goodOrRetry = Treatment::checkCinIntValidity(0,50,hourToDo);
+					} while ( !goodOrRetry );
+
+					do {
+						Display::instruction("ENTREZ SON ANCIENNETE ( EN ANNEE )");
+						cin >> seniority;
+						goodOrRetry = Treatment::checkCinIntValidity(0,50,seniority);
+					} while ( !goodOrRetry );
+
+					do {
+						Display::instruction("ENTREZ LA BOITE POSTALE ( 0 si aucune )");
+						cin >> boxNumber;
+						goodOrRetry = Treatment::checkCinIntValidity(0,9999,boxNumber);
+					} while ( !goodOrRetry );
+
+					do {
+						Display::instruction("ENTREZ LE NUMERO");
+						cin >> number;
+						goodOrRetry = Treatment::checkCinIntValidity(0,9999,number);
+					} while ( !goodOrRetry );
+
+
+					Display::instruction("ENTREZ LA VILLE");
+					getline( cin , town );
+
+					do {
+						Display::instruction("ENTREZ LE CODE POSTAL");
+						cin >> postalCode;
+						goodOrRetry = Treatment::checkCinIntValidity(0,9999,postalCode);
+					} while ( !goodOrRetry );
+
+
+					Teacher* teacher = new Teacher( name, firstName, hourToDo, seniority, boxNumber, number, postalCode, street, town );
+					schoolSelected.hire(teacher);
+
+					system("cls");
+					Display::centerOutputString("NOUVEL ENSEIGNANT ENREGISTRE");
 
 				}
 
