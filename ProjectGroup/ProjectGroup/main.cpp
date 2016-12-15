@@ -20,6 +20,14 @@ void main(){
 	Group helha = Group("HELHA","+ 32 (0)65 40 41 41","+ 32 (0)65 34 04 52","info@helha.be","www.helha.be",addressHelha);
 
 
+	ifstream fi;
+	fi.open("test.txt",ios::in);
+	string myStr;
+	while ( getline(fi,myStr) ){
+		cout << "size :" << myStr.size() << endl;
+		cout << "size - chaine base :" << myStr.size()-150 << endl;
+	}
+
 	
 	/*********************************** START MENU *************************************/
 	do {
@@ -194,8 +202,56 @@ void main(){
 
 				// display employees
 				if ( choiceMenuDirector == 1 ){
-				
 					
+					vector<string> menu;
+					menu.push_back( string("TOUT LE MONDE") );
+					menu.push_back( string("DIRECTEUR") );
+					menu.push_back( string("SECRETAIRE") );
+					menu.push_back( string("ENSEIGNANTS") );
+					menu.push_back( string("ETUDIANT") );
+					menu.push_back( string("HYBRID") );
+					menu.push_back( string("NOMBRE DE PERSONE PAR TYPE") );
+
+					int choiceUserPersonToDisplay = -1;
+					do{
+
+						Display::fillFullLine('-');
+						Display::centerOutputString("CHOISISSEZ QUI AFFICHER");
+						Display::fillFullLine('-');
+
+						Treatment::makeMenu(menu);
+						Display::pauseAtBottom( 35-4-menu.size() );
+
+						cin >> choiceUserPersonToDisplay;
+					
+					} while ( !Treatment::checkCinIntValidity( 0,6,choiceUserPersonToDisplay ) );
+
+					system("cls");
+					switch ( choiceUserPersonToDisplay ){
+						case 0 :
+							// display all
+							schoolSelected.displayPerson();
+						case 1 :
+							schoolSelected.displayPerson( string("director") );
+							break;
+						case 2 :
+							schoolSelected.displayPerson( string("secretary") );
+							break;
+						case 3 :
+							schoolSelected.displayPerson( string("teacher") );
+							break;
+						case 4 :
+							schoolSelected.displayPerson( string("student") );
+							break;
+						case 5 :
+							schoolSelected.displayPerson( string("hybrid") );
+							break;
+						case 6 :
+							// display statistics
+							schoolSelected.displayTotalPersonPerType();
+					}
+					system("pause");
+					system("cls");
 
 				// fire secretary
 				} else if ( choiceMenuDirector == 2 ){
@@ -220,15 +276,15 @@ void main(){
 					Display::instruction("ENTREZ LE PRENOM");
 					getline( cin , firstName );
 
-
-					Display::instruction("ENTREZ LA RUE");
-					getline( cin , street );
-
 					do {
 						Display::instruction("ENTREZ LE NOMBRE D'HEURE A PRESTER PAR SEMAINE");
 						cin >> hourToDo;
 						goodOrRetry = Treatment::checkCinIntValidity(0,50,hourToDo);
 					} while ( !goodOrRetry );
+
+
+					Display::instruction("ENTREZ LA RUE");
+					getline( cin , street );
 
 
 					do {
@@ -255,10 +311,12 @@ void main(){
 
 
 					Secretary* secretary = new Secretary( name, firstName, hourToDo, boxNumber, number, postalCode, street, town );
-					schoolSelected.hire(secretary);
+					schoolSelected.hire( secretary );
 
 					system("cls");
-					Display::centerOutputString("NOUVELLE SECRETAIRE ENREGISTREE");
+					Display::instruction("NOUVELLE SECRETAIRE ENREGISTREE");
+					system("pause");
+
 
 				// hire teacher
 				} else if ( choiceMenuDirector == 5 ){
@@ -280,7 +338,7 @@ void main(){
 					do {
 						Display::instruction("ENTREZ LE NOMBRE D'HEURE DE COURS A DONNER PAR SEMAINE");
 						cin >> hourToDo;
-						goodOrRetry = Treatment::checkCinIntValidity(0,50,hourToDo);
+						goodOrRetry = Treatment::checkCinIntValidity(0,100,hourToDo);
 					} while ( !goodOrRetry );
 
 					do {
@@ -313,10 +371,12 @@ void main(){
 
 
 					Teacher* teacher = new Teacher( name, firstName, hourToDo, seniority, boxNumber, number, postalCode, street, town );
-					schoolSelected.hire(teacher);
+					schoolSelected.hire( teacher );
 
 					system("cls");
-					Display::centerOutputString("NOUVEL ENSEIGNANT ENREGISTRE");
+
+					Display::instruction("NOUVEL ENSEIGNANT ENREGISTRE");
+					system("pause");
 
 				}
 

@@ -69,6 +69,7 @@ string Address::getAddressForStream(){
 Address::~Address(){
 	// debug
 	//cout << "Deconstruct instance Address" << endl;
+	numberInstance_--;
 }
 
 
@@ -193,7 +194,7 @@ int Display::menuDirector(){
 		vector.push_back( string("EMBAUCHER UN PROFESSEUR") );
 		// push menu to build and display
 		Treatment::makeMenu(vector);
-		Display::pauseAtBottom(25);
+		Display::pauseAtBottom(23);
 
 		cin >> valueReturn;
 
@@ -287,7 +288,7 @@ Group::Group(string name, string telephone, string fax, string mail, string webs
 
 	/****************** LOAD ADVISOR FROM FILE *********************/
 	ifstream fi;	
-	fi.open("advisor.txt", ios::in);
+	fi.open( string("fileSave/advisor.txt"), ios::in);
 	if ( fi.fail() ){
 		cerr<<"Fail _ Impossible de créer le fichier advisor.txt\n";
 		exit(9);
@@ -329,7 +330,7 @@ Group::Group(string name, string telephone, string fax, string mail, string webs
 	}
 	fi.close();
 	/****************** LOAD SCHOOL FROM FILE *********************/
-	fi.open("school.txt", ios::in);
+	fi.open("fileSave/school.txt", ios::in);
 	if ( fi.fail() ){
 		cerr<<"Fail _ Impossible de créer le fichier school.txt\n";
 		exit(9);
@@ -487,6 +488,8 @@ Group::~Group(){
 		delete(a);
 	}
 
+	numberInstance_--;
+
 }
 
 void Group::regenerateFile( string nameTxtFile ){
@@ -495,7 +498,7 @@ void Group::regenerateFile( string nameTxtFile ){
 	// ofstream  -> ios::out set by default
 	ofstream f;
 	// file open in binary mode and TRUNC for empty the file
-	f.open( nameTxtFile , ios::trunc);
+	f.open( "fileSave"+nameTxtFile , ios::trunc);
 
 	if(f.fail()){
 		cerr<<"Fail _ Ouverture du fichier advisor.txt impossible\n";
@@ -509,11 +512,11 @@ void Group::regenerateFile( string nameTxtFile ){
 
 	if ( nameTxtFile == "advisor.txt" ){
 		for each (Person *pers in advisor_){
-			f << pers->stringForWriteFile();
+			f << pers->stringForWriteFile() << endl;
 		}
 	} else if ( nameTxtFile == "school.txt" ){
 		for each (School sch in school_){
-			f << sch.stringForWriteFile();
+			f << sch.stringForWriteFile() << endl;
 		}
 	}
 
@@ -674,6 +677,7 @@ string Person::getStatus(){
 Person::~Person(){
 	// debug
 	// cout << "Deconstruct instance Person" << endl;
+	numberInstance_--;
 }
 
 Advisor::Advisor( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town , string function, string telephone, string fax )
@@ -718,6 +722,56 @@ string Advisor::stringForWriteFile(){
 Advisor::~Advisor(){
 	// debug
 	// cout << "Deconstruct instance Advisor" << endl;
+
+	numberInstance_--;
+}
+
+void School::displayTotalPersonPerType(){
+
+	int director=0,secretary=0,student=0,teacher=0,hybrid=0;
+
+	for each (Person* p in person_){
+
+		if ( p->getStatus() == "director" ){
+			director++;
+		} else if ( p->getStatus() == "secretary" ){
+			secretary++;
+		} else if ( p->getStatus() == "teacher" ){
+			teacher++;
+		} else if ( p->getStatus() == "student" ){
+			student++;
+		} else if ( p->getStatus() == "hybrid" ){
+			hybrid++;
+		}
+
+	}
+
+	Display::fillFullLine('-');
+	Display::centerOutputString( string("LISTE DES PERSONNES OCCUPANTS L'ECOLE") );
+	Display::fillFullLine('-');
+
+	cout << "Directeur :\t" << director << endl;
+	cout << "Secretaire :\t" << secretary << endl;
+	cout << "Enseignants :\t" << teacher << endl;
+	cout << "Etudiant :\t" << student << endl;
+	cout << "hybrid :\t" << hybrid << endl;
+	Display::pauseAtBottom(26);
+}
+
+void School::hire(Teacher * t){
+
+	// teacher in save in Person vector
+	Person* p = t;
+	person_.push_back(p);
+
+}
+
+void School::hire(Secretary * s){
+
+	// Secretary in save in Person vector
+	Person* p = s;
+	person_.push_back(p);
+
 }
 
 string School::getNameAndStatus(){
@@ -726,16 +780,21 @@ string School::getNameAndStatus(){
 
 Person* School::getYourDirector(){
 
+	Person* ptrPerson = NULL;
+
 	for each (Person* pers in person_){
 		
 		if ( pers->getStatus() == "director" ){
 		
-			return pers;
+			ptrPerson = pers;
 			break;
 
 		}
 
 	}
+
+	return ptrPerson;
+
 }
 
 string School::stringForWriteFile(){
@@ -759,6 +818,8 @@ School::~School(){
 		delete build;
 	}
 
+	numberInstance_--;
+
 }
 
 void School::reloadFromFile(){
@@ -767,7 +828,7 @@ void School::reloadFromFile(){
 	// ifstream  -> ios::int set by default ( read activate by default )
 	ifstream fileDirector , fileSecretary , fileStudent ,  fileTeacher , fileHybrid;
 
-	string filename = "person_director_"+this->name_+'_'+this->type_;
+	string filename = "fileSave/person_director_"+this->name_+'_'+this->type_;
 	fileDirector.open( filename );
 	if(fileDirector.fail()){ cerr<<"Fail _ ERROR 00001\n"; exit(8); }
 	if(fileDirector.bad()){ cerr<<"Bad _ ERROR 00001\n"; exit(8); }
@@ -916,6 +977,7 @@ Building::Building(int numberFloor, Address & address){
 Building::~Building(){
 	// debug
 	// cout << "Deconstruct instance Building" << endl;
+	numberInstance_--;
 }
 
 Room::Room(int area, int numberPlace){
@@ -930,6 +992,7 @@ Room::Room(int area, int numberPlace){
 Room::~Room(){
 	// debug
 	// cout << "Deconstruct instance Room" << endl;
+	numberInstance_--;
 }
 
 Treatment::Treatment(){
@@ -1014,34 +1077,6 @@ void Treatment::makeMenu(vector<string> vect){
 
 }
 
-
-void Treatment::writeToFile(string str){
-
-
-	/*
-	ofstream f;
-	// file open in binary mode and app ( or app ? )
-
-	f.open("advisor.txt", ios::out | ios::trunc);
-	if(f.fail()){
-	cerr<<"Fail _ Impossible de créer le fichier advisor.txt\n";
-	exit(8);
-	}
-	if(f.bad()){
-	cerr<<"Bad _ Impossible de créer le fichier pers.txt\n";
-	exit(8);
-	}
-	f << setw(50) << "Bernard" << setw(50) << "RIGUELLE"<< setw(50) << 0<< setw(50) << 159 << setw(50) << 7000<< setw(50) << "Chaussee de Binche"<< setw(50) << "Mons"<< setw(50) << "Secretaire academique"<< setw(50) << "+32 (0)65 40 41 81"<< setw(50) << "+32 (0)65 34 04 52" << endl;
-	f << setw(50) << "Stephanie" << setw(50) << "DEHOUCK" << setw(50) << 0 << setw(50) << 159 << setw(50) << 7000 << setw(50) << "Chaussee de Binche" << setw(50) << "Mons" << setw(50) << "Secretaire academique" << setw(50) << "+32 (0)65 40 41 76 (ou +32 (0)477 75 97 83)" << setw(50) << "+32 (0)65 34 04 52" << endl;
-	f << setw(50) << "Maryse" << setw(50) << "LAMBERT" << setw(50) << 0 << setw(50) << 159 << setw(50) << 7000 << setw(50) << "Chaussee de Binche" << setw(50) << "Mons" << setw(50) << "Gestionnaire financiere et comptable" << setw(50) << "+32 (0)65 40 41 63" << setw(50) << "+32 (0)65 34 04 52" << endl;
-	f << setw(50) << "Catherine" << setw(50) << "PREAT" << setw(50) << 0 << setw(50) << 159 << setw(50) << 7000 << setw(50) << "Chaussee de Binche" << setw(50) << "Mons" << setw(50) << "Gestionnaire administrative et juridique" << setw(50) << "+32 (0)65 40 41 80" << setw(50) << "+32 (0)65 34 04 52" << endl;
-	f << setw(50) << "Michel" << setw(50) << "PETTEAU" << setw(50) << 0 << setw(50) << 159 << setw(50) << 7000 << setw(50) << "Chaussee de Binche" << setw(50) << "Mons" << setw(50) << "Directeur categorie Arts Appliques" << setw(50) << "+32 (0)65 40 41 43" << setw(50) << "inconnu" << endl;
-	f << setw(50) << "Jean-Philippe" << setw(50) << "PINGOT" << setw(50) << 0 << setw(50) << 159 << setw(50) << 7000 << setw(50) << "Chaussee de Binche" << setw(50) << "Mons" << setw(50) << "Conseiller en prevention HELHa" << setw(50) << "+32 (0)496 12 55 74" << setw(50) << "+32 (0)65 34 04 52" << endl;
-	f.close();
-	*/
-
-}
-
 Treatment::~Treatment(){
 	// debug
 	// cout << "Deconstruct Treatment" << endl;
@@ -1091,9 +1126,21 @@ Course::Course(){
 	// cout << "Construct Course by default" << endl;
 }
 
+string Course::display(){
+
+	string ret;
+	ret += entiteld_;
+	ret += " ( ";
+	ret += hoursRequire_;
+	ret += " heures )";
+
+	return ret;
+}
+
 Course::~Course(){
 	// debug
 	// cout << "Deconstruct course by default" << endl;
+	numberInstance_--;
 }
 
 void School::displayDirector(){
@@ -1108,11 +1155,42 @@ void School::displayDirector(){
 
 }
 
+void School::displayPerson( string who ){
+
+	for each(Person* pers in person_ ){
+
+		if ( pers->getStatus() == who || who == "" ){
+			cout << "[ " << pers->getStatus() << " ] : " << pers->getFullName() << endl;
+		}
+
+	}
+
+}
+
 Teacher::Teacher(string name, string firstName, int hoursTodo, int seniority, int boxNumber, int number, int postalCode, string street, string town)
 		:Person( name , firstName , boxNumber , number , postalCode , street , town, string("teacher") ){
 	hoursToDo_ = hoursTodo;
 	seniority_ = seniority;
 	numberInstance_++;
+}
+
+void Teacher::display(){
+
+	cout << "Nom : \t\t\t" << name_ << endl;
+	cout << "Prenom : \t\t" << firstName_ << endl;
+	cout << "Adresse : \t\t" << address_.display() << endl;
+	cout << "Prestation semaine : " << hoursToDo_ << endl;
+	cout << "Anciennete : " << seniority_ << endl;
+	cout << endl;
+	cout << "Competences possedees :" << endl;
+	for each (Skill* s in skill_){
+		s->display();
+	}
+	cout << endl;
+	cout << "Attribué aux cours suivant : " << endl;
+	for each (Course* c in course_){
+		c->display();
+	}
 }
 
 string Teacher::stringForWriteFile(){
@@ -1146,6 +1224,8 @@ Teacher::~Teacher(){
 		delete s;
 	}
 
+	numberInstance_--;
+
 }
 
 
@@ -1166,4 +1246,87 @@ void Skill::display(){
 Skill::~Skill(){
 	// debug
 	// cout << "Deconstruct Skill" << endl;
+
+	numberInstance_--;
+}
+
+Secretary::Secretary(string name, string firstName, int hourToDo, int boxNumber, int number, int postalCode, string street, string town)
+		  :Person( name , firstName , boxNumber , number , postalCode , street , town, string("secretary") ){
+
+	hoursToDo_ = hourToDo;
+	numberInstance_++;
+
+}
+
+void Secretary::display(){
+
+	cout << "Nom : \t\t\t" << name_ << endl;
+	cout << "Prenom : \t\t" << firstName_ << endl;
+	cout << "Adresse : \t\t" << address_.display() << endl;
+	cout << "Prestation semaine : " << hoursToDo_ << endl;
+
+}
+
+string Secretary::stringForWriteFile(){
+	
+	ostringstream ios;	
+	ios << setw(50) << firstName_
+		<< setw(50) << name_
+		<< setw(50) << hoursToDo_
+		<< setw(50) << address_.getAddressForStream()
+		<< setw(50) << status_
+		<< endl;
+	return ios.str();
+
+}
+
+Secretary::~Secretary(){
+
+	numberInstance_--;
+
+}
+
+Student::Student(string name, string firstName, int percentageOfGlanding, int percentageOfSucces, int boxNumber, int number, int postalCode, string street, string town)
+		:Person( name , firstName , boxNumber , number , postalCode , street , town, string("student") ){
+
+	percentageOfGlanding_ = percentageOfGlanding;
+	percentageOfSucces_ = percentageOfSucces;
+
+	numberInstance_++;
+}
+
+void Student::display(){
+
+	cout << "Nom : \t\t\t" << name_ << endl;
+	cout << "Prenom : \t\t" << firstName_ << endl;
+	cout << "Adresse : \t\t" << address_.display() << endl;
+	cout << "% de glandage : " << percentageOfGlanding_ << "%" << endl;
+	cout << "% de reussite : " << percentageOfSucces_ << "%" << endl;
+
+	for each (Course* c in course_){
+		c->display();
+	}
+
+}
+
+string Student::stringForWriteFile(){
+	
+	ostringstream ios;	
+	ios << setw(50) << firstName_
+		<< setw(50) << name_
+		<< setw(50) << percentageOfGlanding_
+		<< setw(50) << percentageOfSucces_
+		<< setw(50) << address_.getAddressForStream()
+		<< setw(50) << status_
+		<< endl;
+	return ios.str();
+
+}
+
+Student::~Student(){
+	numberInstance_--;
+}
+
+Hybrid::~Hybrid(){
+	numberInstance_--;
 }

@@ -9,6 +9,8 @@
 
 using namespace std;
 
+class Teacher;
+class Secretary;
 class School;
 
 /************************************/
@@ -66,6 +68,7 @@ private:
 class Course{
 public:
 	Course();
+	string display();
 	~Course();
 private:
 	string entiteld_;
@@ -118,7 +121,7 @@ public:
 	void displayCourses();
 	void displayDirector();
 	static void displayNumberInstance();
-	void displayPerson();
+	void displayPerson( string who = "");
 	void displayRoom();
 	void displayStatistics();
 	void displayTotalPersonPerType();
@@ -237,7 +240,7 @@ private:
 /************************************/
 class Student : public Person{
 public:
-	Student();
+	Student( string name, string firstName, int percentageOfGlanding , int percentageOfSucces , int boxNumber, int number, int postalCode, string street, string town );
 	void display();
 	string stringForWriteFile();
 	~Student();
@@ -245,7 +248,8 @@ private:
 	static int numberInstance_;
 protected:
 	int percentageOfGlanding_;
-	int percentageOfSucces_;	
+	int percentageOfSucces_;
+	vector<Course*> course_;
 };
 
 

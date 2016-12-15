@@ -1022,7 +1022,7 @@
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
-                  aggregation="Shared"
+                  aggregation="Composite"
                   isComposite="false"
                   isNavigableOwned="false" />
               </associationHasOwnedEnds>
@@ -1035,7 +1035,7 @@
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="false" />
+                  isComposite="true" />
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
@@ -2906,6 +2906,14 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
+          <operation
+            Id="82d0a681-5515-40e8-9fe2-d83f69bfb92b"
+            name="display"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -3862,14 +3870,6 @@
           <operation
             Id="fd48a0c1-7ebd-4fee-bc15-e55a889384f9"
             name="deleteWhiteSpace"
-            isLeaf="false"
-            isStatic="true"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="fd80f27f-0f4a-4073-9408-863928697086"
-            name="writeToFile"
             isLeaf="false"
             isStatic="true"
             isAbstract="false"

@@ -454,12 +454,12 @@
             <classMoniker Id="86589014-f02c-4586-a1db-12924e8a6703" LastKnownName="Address" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="0bb1cc27-723d-434d-9c45-18d93a8deb24" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                <memberEnd Id="0bb1cc27-723d-434d-9c45-18d93a8deb24" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
                   <elementDefinition Id="b66491fd-5383-4b61-8070-980ade8df895" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="2065faae-1763-4221-bee8-d93727dcbe9a" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                <memberEnd Id="2065faae-1763-4221-bee8-d93727dcbe9a" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
                   <elementDefinition Id="6116bd54-bf5c-418b-b4d1-061bac1634ea" />
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -1305,6 +1305,9 @@
           <operation Id="c9e1b071-8b19-403b-8ea3-e168799dc798" name="~Course" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="45579729-2af3-4abb-94d5-864ba8efc1f5" />
           </operation>
+          <operation Id="ab56d68c-9807-453c-86f0-ea07838de1c1" name="display" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="82d0a681-5515-40e8-9fe2-d83f69bfb92b" />
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -1423,9 +1426,6 @@
         <ownedOperationsInternal>
           <operation Id="36978fc8-755c-481e-94cb-96b2673f3d5a" name="deleteWhiteSpace" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="fd48a0c1-7ebd-4fee-bc15-e55a889384f9" />
-          </operation>
-          <operation Id="4a341749-2514-4f54-8f53-05f8419f2d66" name="writeToFile" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="fd80f27f-0f4a-4073-9408-863928697086" />
           </operation>
           <operation Id="c6f4b5b2-9147-47d6-a1a9-793bdce80275" name="makeMenu" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="f8b4eb62-7787-4ec7-83c8-56bed15eb4cb" />
