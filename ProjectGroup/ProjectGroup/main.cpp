@@ -19,33 +19,6 @@ void main(){
 	Address& addressHelha = Address(NULL,159,7000,"Chaussée de Binche","Mons");
 	Group helha = Group("HELHA","+ 32 (0)65 40 41 41","+ 32 (0)65 34 04 52","info@helha.be","www.helha.be",addressHelha);
 
-
-	ifstream fi;
-	fi.open("test.txt",ios::in);
-	string myStr;
-	while ( getline(fi,myStr) ){
-
-		cout << "size :" << myStr.size() << endl;
-		cout << "size - chaine base :" << myStr.size()-100 << endl;
-
-		stringstream ss;
-		string subClassReturn;
-		ss.str(myStr);
-		cout << "Sous routune : " << endl;
-		while ( getline( ss, subClassReturn, ';') ){
-
-			cout << subClassReturn << endl;
-
-		}
-
-
-		system("pause");
-
-
-
-	}
-	exit(0);
-
 	
 	/*********************************** START MENU *************************************/
 	do {
@@ -175,7 +148,7 @@ void main(){
 					Display::instruction("ENTREZ LE TYPE D ECOLE");
 					getline( cin , type );
 
-					School sc = School( name, name );
+					School* sc = new School( name, type );
 					helha.addSchool( sc );
 
 
@@ -207,7 +180,7 @@ void main(){
 			int choiceMenuDirector = -1;
 
 			// select school to administrate
-			School schoolSelected;
+			School* schoolSelected;
 			schoolSelected = helha.displaySchoolForSelect();
 
 			
@@ -248,25 +221,25 @@ void main(){
 					switch ( choiceUserPersonToDisplay ){
 						case 0 :
 							// display all
-							schoolSelected.displayPerson();
+							schoolSelected->displayPerson();
 						case 1 :
-							schoolSelected.displayPerson( string("director") );
+							schoolSelected->displayPerson( string("director") );
 							break;
 						case 2 :
-							schoolSelected.displayPerson( string("secretary") );
+							schoolSelected->displayPerson( string("secretary") );
 							break;
 						case 3 :
-							schoolSelected.displayPerson( string("teacher") );
+							schoolSelected->displayPerson( string("teacher") );
 							break;
 						case 4 :
-							schoolSelected.displayPerson( string("student") );
+							schoolSelected->displayPerson( string("student") );
 							break;
 						case 5 :
-							schoolSelected.displayPerson( string("hybrid") );
+							schoolSelected->displayPerson( string("hybrid") );
 							break;
 						case 6 :
 							// display statistics
-							schoolSelected.displayTotalPersonPerType();
+							schoolSelected->displayTotalPersonPerType();
 					}
 					system("pause");
 					system("cls");
@@ -329,7 +302,7 @@ void main(){
 
 
 					Secretary* secretary = new Secretary( name, firstName, hourToDo, boxNumber, number, postalCode, street, town );
-					schoolSelected.hire( secretary );
+					schoolSelected->addPerson( secretary );
 
 					system("cls");
 					Display::instruction("NOUVELLE SECRETAIRE ENREGISTREE");
@@ -389,7 +362,7 @@ void main(){
 
 
 					Teacher* teacher = new Teacher( name, firstName, hourToDo, seniority, boxNumber, number, postalCode, street, town );
-					schoolSelected.hire( teacher );
+					schoolSelected->addPerson( teacher );
 
 					system("cls");
 

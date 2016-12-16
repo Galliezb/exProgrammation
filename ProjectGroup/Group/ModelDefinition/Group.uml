@@ -691,22 +691,6 @@
             concurrency="Sequential"
             isQuery="false" />
           <operation
-            Id="73ccba56-b336-4a80-a201-cf03b3ea88c7"
-            name="addStudent"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="34bedf8e-ff49-46e8-b42f-7f966e8867c7"
-            name="delStudent"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
             Id="b23356a9-ae7b-4f01-aa71-ca34c769ea73"
             name="displayPerson"
             isLeaf="false"
@@ -807,22 +791,6 @@
             name="displayNumberInstance"
             isLeaf="false"
             isStatic="true"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="befdf709-8743-4bd4-aecf-0a085be72bcf"
-            name="addTeacher"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="22676d07-c4ed-49ff-89d1-d10a773a0586"
-            name="delTeacher"
-            isLeaf="false"
-            isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
@@ -2060,7 +2028,7 @@
         <ownedAttributesInternal>
           <property
             Id="6262ede0-a11c-4448-af58-cbe1c07e08e0"
-            name="hourToDo_"
+            name="hourToWork_"
             visibility="Private"
             isLeaf="false"
             isStatic="false"

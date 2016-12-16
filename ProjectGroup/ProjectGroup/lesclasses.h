@@ -6,8 +6,10 @@
 #include <vector>
 #include <Windows.h>
 #include <algorithm>
+#include <experimental/filesystem> // file exists ?
 
 using namespace std;
+namespace fs = std::experimental::filesystem; 
 
 class Teacher;
 class Secretary;
@@ -107,26 +109,22 @@ public:
 	School();
 	School( string type , string name );
 	void addBuilding();
-	void addDirector();
 	void addRoom();
 	void addRoomToTeacher();
-	void addStudent();
 	void delBuilding();
-	void delDirector();
 	void delListStdudentToCourse();
 	void delRoom();
 	void delRoomToTeacher();
-	void delStudent();
 	void displayBuilding();
 	void displayCourses();
 	void displayDirector();
 	static void displayNumberInstance();
-	void displayPerson( string who = "");
+	void displayPerson( string who = "" );
 	void displayRoom();
 	void displayStatistics();
 	void displayTotalPersonPerType();
-	void hire(Teacher* t);
-	void hire(Secretary* s);
+	void addPerson(Teacher* t);
+	void addPerson(Secretary* s);
 	
 	string getNameAndStatus();
 	Person* getYourDirector();
@@ -168,11 +166,11 @@ class Group{
 public:
 	Group(string name, string telephone, string fax, string mail, string website, Address& address );
 	void addAdvisor( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town , string status , string telephone , string fax );
-	void addSchool( School sch );
+	void addSchool( School* sch );
 	void delAdvisor( int numberOfLine );
 	void delSchool( int numberOfLine );
 	int displayAdvisorForDelete();
-	School displaySchoolForSelect();
+	School* displaySchoolForSelect();
 	int displaySchoolForDelete();
 	void displayInfo();
 	void displaySchool();
@@ -180,8 +178,7 @@ public:
 private:
 	string name_ , telephone_ , fax_, mail_, website_;
 	Address address_;
-	vector<School> school_;
-	// pointer for polymorphism
+	vector<School*> school_;
 	vector<Person*> advisor_;
 	static int numberInstance_;
 
@@ -226,12 +223,12 @@ private:
 /************************************/
 class Secretary : public Person{
 public:
-	Secretary( string name, string firstName, int hourToDo, int boxNumber, int number, int postalCode, string street, string town );
+	Secretary( string name, string firstName, int hoursToWork, int boxNumber, int number, int postalCode, string street, string town );
 	void display();
 	string stringForWriteFile();
 	~Secretary();
 private:
-	int hoursToDo_;
+	int hoursToWork_;
 	static int numberInstance_;
 };
 
@@ -320,6 +317,7 @@ public:
 	static string deleteWhiteSpace( string str, int start, int end);
 	static void emptyBuffer();
 	static void makeMenu(vector<string> vect);
-	static void writeToFile( string str );
+	static void displayProgramStatistics();
+	static string getAlphaNumeric( string str ); 
 	~Treatment();
 };
