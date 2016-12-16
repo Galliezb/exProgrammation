@@ -69,6 +69,7 @@ class Course{
 public:
 	Course();
 	string display();
+	string stringForWriteFile();
 	~Course();
 private:
 	string entiteld_;
@@ -92,7 +93,6 @@ public:
 protected:
 	Address address_;
 	string name_ , firstName_ , status_;
-	vector<Course> course_;
 private:
 	static int numberInstance_;
 };
@@ -196,6 +196,7 @@ private:
 class Skill{
 public:
 	Skill( string entiteld , int salaryBonus );
+	string stringForWriteFile();
 	void display();
 	~Skill();
 private:
@@ -241,15 +242,15 @@ private:
 class Student : public Person{
 public:
 	Student( string name, string firstName, int percentageOfGlanding , int percentageOfSucces , int boxNumber, int number, int postalCode, string street, string town );
-	void display();
-	string stringForWriteFile();
+	virtual void display();
+	virtual string stringForWriteFile();
 	~Student();
 private:
 	static int numberInstance_;
 protected:
 	int percentageOfGlanding_;
 	int percentageOfSucces_;
-	vector<Course*> course_;
+	vector<Course*> courseToFollow_;
 };
 
 
@@ -259,14 +260,14 @@ protected:
 /************************************/
 class Teacher : public Person {
 public:
-	Teacher( string name, string firstName, int hoursTodo , int seniority , int boxNumber, int number, int postalCode, string street, string town );
-	void display();
-	string stringForWriteFile();
+	Teacher( string name, string firstName, int hoursTodo , int seniority , int boxNumber, int number, int postalCode, string street, string town ); 
+	virtual void display();
+	virtual string stringForWriteFile();
 	~Teacher();
 private:
 	static int numberInstance_;
-	vector<Course*> course_;
-	vector<Room*> room_;
+protected:
+	vector<Course*> courseToGive_;
 	vector<Skill*> skill_;
 	int hoursToDo_;
 	int seniority_;
@@ -276,10 +277,11 @@ private:
 /************************************/
 /*********  CLASS HYBRID  ***********/
 /************************************/
-class Hybrid{
+class Hybrid : public Teacher, public Student{
 public:
-	Hybrid();
+	Hybrid( string name, string firstName, int hoursTodo , int seniority , int boxNumber, int number, int postalCode, string street, string town , int percentageOfGlanding , int percentageOfSucces );
 	void display();
+	string stringForWriteFile();
 	~Hybrid();
 private:
 	static int numberInstance_;

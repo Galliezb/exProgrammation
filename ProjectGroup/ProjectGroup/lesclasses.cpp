@@ -826,9 +826,9 @@ void School::reloadFromFile(){
 
 	// save in file
 	// ifstream  -> ios::int set by default ( read activate by default )
-	ifstream fileDirector , fileSecretary , fileStudent ,  fileTeacher , fileHybrid;
+	ifstream fileDirector;
 
-	string filename = "fileSave/person_director_"+this->name_+'_'+this->type_;
+	string filename = "fileSave/person_school_"+this->name_+'_'+this->type_;
 	fileDirector.open( filename );
 	if(fileDirector.fail()){ cerr<<"Fail _ ERROR 00001\n"; exit(8); }
 	if(fileDirector.bad()){ cerr<<"Bad _ ERROR 00001\n"; exit(8); }
@@ -836,24 +836,28 @@ void School::reloadFromFile(){
 	string line;
 	while( getline( fileDirector, line ) ){
 
-		//cout << "LIGNE : " << line << endl; 
+		// DATA PERSON + TYPE ( director, secretary etc...
+		
 
 		string firstName,name,street,town,status;
 		int boxNumber,number,codePostal;		
 
-		firstName = Treatment::deleteWhiteSpace( line, 0, 50);
-		name = Treatment::deleteWhiteSpace( line, 50, 50);
 
-		boxNumber = stoi(line.substr(100,50));
-		number = stoi(line.substr(150,50));
-		codePostal = stoi(line.substr(200,50));
+		status = Treatment::deleteWhiteSpace( line, 0, 50);
+
+		firstName = Treatment::deleteWhiteSpace( line, 50, 50);
+		name = Treatment::deleteWhiteSpace( line, 100, 50);
+
+		boxNumber = stoi(line.substr(150,50));
+		number = stoi(line.substr(200,50));
+		codePostal = stoi(line.substr(250,50));
 
 		street = Treatment::deleteWhiteSpace( line, 250, 50);
 		town = Treatment::deleteWhiteSpace( line, 300, 50);
-		status = Treatment::deleteWhiteSpace( line, 350, 50);
+		
 
 		// pointer for polymorphism ( Person is abstract )
-		Person* a = new Director( name, firstName, boxNumber, number, codePostal, street, town, status );
+		Person* a = new Director( name, firstName, boxNumber, number, codePostal, street, town );
 		person_.push_back(a);
 
 
@@ -862,92 +866,48 @@ void School::reloadFromFile(){
 	fileDirector.close();
 
 
-
-	filename = "person_secretary_"+this->name_+'_'+this->type_;
-	fileSecretary.open( filename );
-	if(fileSecretary.fail()){ cerr<<"Fail _ ERROR 00002\n"; exit(8); }
-	if(fileSecretary.bad()){ cerr<<"Bad _ ERROR 00002\n"; exit(8); }
-
-	filename = "person_student_"+this->name_+'_'+this->type_;
-	fileStudent.open( filename );
-	if(fileStudent.fail()){ cerr<<"Fail _ ERROR 00003\n"; exit(8); }
-	if(fileStudent.bad()){ cerr<<"Bad _ ERROR 00003\n"; exit(8); }
-
-	filename = "person_teacher_"+this->name_+'_'+this->type_;
-	fileTeacher.open( filename );
-	if(fileTeacher.fail()){ cerr<<"Fail _ ERROR 00004\n"; exit(8); }
-	if(fileTeacher.bad()){ cerr<<"Bad _ ERROR 00004\n"; exit(8); }
-
-	filename = "person_hybrid_"+this->name_+'_'+this->type_;
-	fileHybrid.open( filename );
-	if(fileHybrid.fail()){ cerr<<"Fail _ ERROR 00005\n"; exit(8); }
-	if(fileHybrid.bad()){ cerr<<"Bad _ ERROR 00005\n"; exit(8); }
-
-
 }
 
 void School::regenerateFilePerson(){
 
+	/**************** SAVE VECTOR PERSON ****************/
+
 	// save in file
-	ofstream fileDirector , fileSecretary , fileStudent ,  fileTeacher , fileHybrid;
+	ofstream file;
 	// file open in binary mode and TRUNC for empty the file
 
-	string filename = "person_director_"+this->name_+'_'+this->type_;
-	fileDirector.open( filename , ios::trunc);
-	if(fileDirector.fail()){ cerr<<"Fail _ ERROR 00001\n"; exit(8); }
-	if(fileDirector.bad()){ cerr<<"Bad _ ERROR 00001\n"; exit(8); }
-
-	filename = "person_secretary_"+this->name_+'_'+this->type_;
-	fileSecretary.open( filename , ios::trunc);
-	if(fileSecretary.fail()){ cerr<<"Fail _ ERROR 00002\n"; exit(8); }
-	if(fileSecretary.bad()){ cerr<<"Bad _ ERROR 00002\n"; exit(8); }
-
-	filename = "person_student_"+this->name_+'_'+this->type_;
-	fileStudent.open( filename , ios::trunc);
-	if(fileStudent.fail()){ cerr<<"Fail _ ERROR 00003\n"; exit(8); }
-	if(fileStudent.bad()){ cerr<<"Bad _ ERROR 00003\n"; exit(8); }
-
-	filename = "person_teacher_"+this->name_+'_'+this->type_;
-	fileTeacher.open( filename , ios::trunc);
-	if(fileTeacher.fail()){ cerr<<"Fail _ ERROR 00004\n"; exit(8); }
-	if(fileTeacher.bad()){ cerr<<"Bad _ ERROR 00004\n"; exit(8); }
-
-	filename = "person_hybrid_"+this->name_+'_'+this->type_;
-	fileHybrid.open( filename , ios::trunc);
-	if(fileHybrid.fail()){ cerr<<"Fail _ ERROR 00005\n"; exit(8); }
-	if(fileHybrid.bad()){ cerr<<"Bad _ ERROR 00005\n"; exit(8); }
+	string filename = "person_school_"+this->name_+'_'+this->type_+"";
+	file.open( filename , ios::trunc);
+	if(file.fail()){ cerr<<"Fail _ ERROR 00001\n"; exit(8); }
+	if(file.bad()){ cerr<<"Bad _ ERROR 00001\n"; exit(8); }
 
 	for each (Person *pers in person_){
 
 		if ( pers->getStatus() == "director" ){
 		
-			fileDirector << pers->stringForWriteFile();
+			file << pers->stringForWriteFile();
 
 		} else if ( pers->getStatus() == "secretary" ){
 
-			fileSecretary << pers->stringForWriteFile();
+			file << pers->stringForWriteFile();
 
 		} else if ( pers->getStatus() == "student" ){
 
-			fileStudent << pers->stringForWriteFile();
+			file << pers->stringForWriteFile();
 
 		} else if ( pers->getStatus() == "teacher" ){
 
-			fileTeacher << pers->stringForWriteFile();
+			file << pers->stringForWriteFile();
 
 		} else if ( pers->getStatus() == "hybrid" ){
 
-			fileHybrid << pers->stringForWriteFile();
+			file << pers->stringForWriteFile();
 
 		}
 
 	}
 
-	fileDirector.close();
-	fileSecretary.close();
-	fileStudent.close();
-	fileTeacher.close();
-	fileHybrid.close();
+	file.close();
 
 }
 
@@ -1108,11 +1068,21 @@ void Director::display(){
 string Director::stringForWriteFile(){
 	
 	ostringstream ios;	
-	ios << setw(50) << firstName_
+	// data from director
+	ios << setw(50) << status_ 
+		<< setw(50) << firstName_
 		<< setw(50) << name_
 		<< setw(50) << address_.getAddressForStream()
-		<< setw(50) << status_
-		<< endl;
+		<< ';';
+	// data from skill
+	for each (Skill* s in skill_){
+		ios << s->stringForWriteFile();
+	}
+	ios << ';' ;
+	// data from course to follow = none
+	ios << ';' ;
+	// data from course to give = none
+	ios << ';' ;
 	return ios.str();
 }
 
@@ -1135,6 +1105,15 @@ string Course::display(){
 	ret += " heures )";
 
 	return ret;
+}
+
+string Course::stringForWriteFile(){
+
+	string str('|' + entiteld_ + '&');
+	str += hoursRequire_;
+
+	return str;
+
 }
 
 Course::~Course(){
@@ -1174,6 +1153,7 @@ Teacher::Teacher(string name, string firstName, int hoursTodo, int seniority, in
 	numberInstance_++;
 }
 
+
 void Teacher::display(){
 
 	cout << "Nom : \t\t\t" << name_ << endl;
@@ -1188,7 +1168,7 @@ void Teacher::display(){
 	}
 	cout << endl;
 	cout << "Attribué aux cours suivant : " << endl;
-	for each (Course* c in course_){
+	for each (Course* c in courseToGive_){
 		c->display();
 	}
 }
@@ -1196,13 +1176,26 @@ void Teacher::display(){
 string Teacher::stringForWriteFile(){
 
 	ostringstream ios;	
-	ios << setw(50) << firstName_
+	// data Teacher
+	ios << setw(50) << status_ 
+		<< setw(50) << firstName_
 		<< setw(50) << name_
 		<< setw(50) << hoursToDo_
 		<< setw(50) << seniority_
-		<< setw(50) << address_.getAddressForStream()
-		<< setw(50) << status_
-		<< endl;
+		<< setw(50) << address_.getAddressForStream();
+	ios << ';';
+	// data skill
+	for each (Skill* s in skill_){
+		ios << s->stringForWriteFile();
+	}
+	ios << ';';
+	// data course to follow = none
+	ios << ';';
+	// data course to give
+	for each (Course* c in courseToGive_){
+		ios << c->stringForWriteFile();
+	}
+	ios << ';';
 	return ios.str();
 
 }
@@ -1235,6 +1228,14 @@ Skill::Skill(string entiteld, int salaryBonus){
 	salaryBonus_ = salaryBonus;
 	numberInstance_++;
 
+}
+
+string Skill::stringForWriteFile(){
+
+	string str( "|" + entiteld_ + "&");
+	str += salaryBonus_ ;
+
+	return string();
 }
 
 void Skill::display(){
@@ -1270,12 +1271,19 @@ void Secretary::display(){
 string Secretary::stringForWriteFile(){
 	
 	ostringstream ios;	
-	ios << setw(50) << firstName_
+	// data secretary
+	ios << setw(50) << status_ 
+		<< setw(50) << firstName_
 		<< setw(50) << name_
 		<< setw(50) << hoursToDo_
-		<< setw(50) << address_.getAddressForStream()
-		<< setw(50) << status_
-		<< endl;
+		<< setw(50) << address_.getAddressForStream();
+	ios << ';';
+	// skill = none
+	ios << ';';
+	// course to follow = none
+	ios << ';';
+	// course to give = none
+	ios << ';';
 	return ios.str();
 
 }
@@ -1303,7 +1311,7 @@ void Student::display(){
 	cout << "% de glandage : " << percentageOfGlanding_ << "%" << endl;
 	cout << "% de reussite : " << percentageOfSucces_ << "%" << endl;
 
-	for each (Course* c in course_){
+	for each (Course* c in courseToFollow_){
 		c->display();
 	}
 
@@ -1312,19 +1320,98 @@ void Student::display(){
 string Student::stringForWriteFile(){
 	
 	ostringstream ios;	
-	ios << setw(50) << firstName_
+	// data student
+	ios << setw(50) << status_ 
+		<< setw(50) << firstName_
 		<< setw(50) << name_
 		<< setw(50) << percentageOfGlanding_
 		<< setw(50) << percentageOfSucces_
-		<< setw(50) << address_.getAddressForStream()
-		<< setw(50) << status_
-		<< endl;
+		<< setw(50) << address_.getAddressForStream();
+	ios << ';';
+	// skill = none
+	ios << ';';
+	// course to follow
+	for each (Course* c in courseToFollow_){
+		ios << c->stringForWriteFile();
+	}
+	ios << ';';
+	// course to give = none;
+	ios << ';';
 	return ios.str();
 
 }
 
 Student::~Student(){
 	numberInstance_--;
+}
+
+Hybrid::Hybrid(string name, string firstName, int hoursTodo, int seniority, int boxNumber, int number, int postalCode, string street, string town, int percentageOfGlanding, int percentageOfSucces)
+	   :Teacher( name, firstName, hoursTodo , seniority , boxNumber, number, postalCode, street, town )
+	   ,Student( name, firstName, percentageOfGlanding , percentageOfSucces , boxNumber, number, postalCode, street, town ){
+
+
+
+}
+
+void Hybrid::display(){
+
+	cout << "Nom : \t\t\t" << Person::name_ << endl;
+	cout << "Prenom : \t\t" << Person::firstName_ << endl;
+	cout << "Adresse : \t\t" << Person::address_.display() << endl;
+	cout << "Prestation semaine : " << hoursToDo_ << endl;
+	cout << "Anciennete : " << seniority_ << endl;
+	cout << endl;
+	cout << "Competences possedees :" << endl;
+	for each (Skill* s in skill_){
+		s->display();
+	}
+	cout << endl;
+	cout << "Donne les cours suivant : " << endl;
+	for each (Course* c in courseToGive_){
+		c->display();
+	}
+	cout << "Suit les cours suivant : " << endl;
+	for each (Course* c in courseToFollow_){
+		c->display();
+	}
+
+
+}
+
+string Hybrid::stringForWriteFile(){
+
+	ostringstream ios;	
+	// data Teacher
+	cout << "Informations : " << endl;
+	ios << setw(50) << Person::status_ 
+		<< setw(50) << Person::firstName_
+		<< setw(50) << Person::name_
+		<< setw(50) << hoursToDo_
+		<< setw(50) << seniority_
+		<< setw(50) << percentageOfGlanding_
+		<< setw(50) << percentageOfSucces_
+		<< setw(50) << Person::address_.getAddressForStream();
+	ios << ';';
+	// data skill
+	cout << "Les competences : " << endl;
+	for each (Skill* s in skill_){
+		ios << s->stringForWriteFile();
+	}
+	ios << ';';
+	// data course to follow
+	cout << "Les cours a suivre : " << endl;
+	for each (Course* s in courseToFollow_){
+		ios << s->stringForWriteFile();
+	}
+	ios << ';';
+	// data course to give
+	cout << "Les cours a donner : " << endl;
+	for each (Course* c in courseToGive_){
+		ios << c->stringForWriteFile();
+	}
+	ios << ';';
+	return ios.str();
+
 }
 
 Hybrid::~Hybrid(){

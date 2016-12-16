@@ -24,9 +24,27 @@ void main(){
 	fi.open("test.txt",ios::in);
 	string myStr;
 	while ( getline(fi,myStr) ){
+
 		cout << "size :" << myStr.size() << endl;
-		cout << "size - chaine base :" << myStr.size()-150 << endl;
+		cout << "size - chaine base :" << myStr.size()-100 << endl;
+
+		stringstream ss;
+		string subClassReturn;
+		ss.str(myStr);
+		cout << "Sous routune : " << endl;
+		while ( getline( ss, subClassReturn, ';') ){
+
+			cout << subClassReturn << endl;
+
+		}
+
+
+		system("pause");
+
+
+
 	}
+	exit(0);
 
 	
 	/*********************************** START MENU *************************************/
