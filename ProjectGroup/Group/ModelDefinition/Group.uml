@@ -683,40 +683,8 @@
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="2eac7d54-39ea-4910-9823-0829c75effe0"
-            name="delDirector"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
             Id="b23356a9-ae7b-4f01-aa71-ca34c769ea73"
             name="displayPerson"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="2516b092-c28c-48d9-84f0-5b4e1fac07de"
-            name="addBuilding"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="fec0b1d5-f735-45fd-88ee-313adecf7a43"
-            name="delBuilding"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="64006069-8d21-4563-bc13-10a2b95a80ec"
-            name="displayBuilding"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -733,22 +701,6 @@
           <operation
             Id="66dce5c1-9e7e-4e1a-9241-9ae2ae84dd31"
             name="displayStatistics"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="ae8368f7-8eec-4f48-9e54-a75d691b32ff"
-            name="addRoom"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="f752cc52-6da0-4f54-a5c8-3c0bc6a8deb2"
-            name="delRoom"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -884,24 +836,64 @@
             concurrency="Sequential"
             isQuery="false" />
           <operation
-            Id="e48ea719-7567-47f9-ab15-ea94367f9cb1"
-            name="addRoomToTeacher"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="be85e0b0-cc8c-4e67-b217-49a43bfcd880"
-            name="delListStudentToCourse"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
             Id="4e662220-c31e-4c26-942b-591cb9a2ff8e"
             name="delRoomToTeacher"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="d925c588-b3a9-43bb-a9e2-dfb1633a924d"
+            name="displayPersonForSelect"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6f64748c-10fa-4d7b-8ca7-9581267d2364"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="d5de4905-1bb2-41f8-9cd6-1327e1fa69d4"
+                      LastKnownName="Person"
+                      LastKnownLocation="Group.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="3c3523cc-c78d-48f9-af50-586c127f6c65"
+            name="delPerson"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="02912910-3680-46ed-836e-7003d3705a88"
+            name="addDirector"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="e52ed483-bcf0-44f5-8bd8-7dca7fcaae18"
+            name="addListStudent"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="1f5a92a7-2325-48e1-8e4d-3e6aa17cdcbb"
+            name="modifyDirector"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -966,44 +958,6 @@
                       value="*" />
                   </upperValueInternal>
                 </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="11d30b15-e59a-430c-9378-0f8beb00bb03"
-            isDerived="false"
-            sourceEndRoleName=""
-            targetEndRoleName=""
-            isLeaf="false"
-            name="est composé de"
-            isAbstract="false">
-            <classMoniker
-              Id="64391bfc-660b-4303-9168-cab98d8f6b83"
-              LastKnownName="Address"
-              LastKnownLocation="Group.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="b66491fd-5383-4b61-8070-980ade8df895"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Composite"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="6116bd54-bf5c-418b-b4d1-061bac1634ea"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="true" />
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
@@ -1959,14 +1913,6 @@
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="d66ee37a-fc05-4ef1-ac8f-3ecd7de81846"
-            name="Director"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
             Id="8f91d638-967e-4f7f-baad-67cb03336cf2"
             name="~Director"
             isLeaf="false"
@@ -2005,6 +1951,22 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="bb044b72-8d71-4ade-94e4-8225c98851be"
+            name="addSkill"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="f8c2219c-b5b2-4030-a1e0-31bf93fbf4d6"
+            name="delSkill"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -2409,6 +2371,22 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="2a9257dd-d029-43cc-86af-21a7fcdb9c16"
+            name="addCourseToFollow"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="d755cc0c-0ca3-4994-a8b8-2ff8d461fc20"
+            name="delCourseToFollow"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -2620,12 +2598,20 @@
         <ownedOperationsInternal>
           <operation
             Id="75ba727c-4404-46fb-b359-3c9bc386214f"
-            name="Teacher"
+            name="addSkill"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5e60e681-eaab-4eb2-a7a8-32aaaa945d2b"
+                  direction="Return" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
           <operation
             Id="91769775-883a-4544-8903-e86d45e1e073"
             name="~Teacher"
@@ -2636,20 +2622,12 @@
             isQuery="false" />
           <operation
             Id="f742f9be-57ce-4d72-aeed-db859ae367cc"
-            name="display"
+            name="addCourseToGive"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false">
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="14ffd6bd-c425-4bfc-9529-32abd00b11b1"
-                  direction="Return" />
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
+            isQuery="false" />
           <operation
             Id="56928765-fca9-46a2-a379-63752c9019d0"
             name="stringForWriteFile"
@@ -2673,6 +2651,22 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="cc2c34fe-26ea-4b44-8cee-878f8e401c02"
+            name="delSkill"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="f093b302-2772-4c1e-acfc-d215f1d01bef"
+            name="delCourseToGive"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -2770,6 +2764,22 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="c9ff8603-9502-4705-878e-7a1ef6433384"
+            name="addCourseToGive"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="3b0aeb54-ce9c-4dac-8ad8-7ade1e5a5e02"
+            name="addCourseToFollow"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -3868,6 +3878,22 @@
           <operation
             Id="2c0a518d-cf2a-4ced-8680-94ce337e97ed"
             name="emptyBuffer"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="0d176e09-5227-4144-8b36-2284236efa8e"
+            name="cutStream"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="9b0ae22b-3f06-460e-9968-cfa9e2d35674"
+            name="cutStream"
             isLeaf="false"
             isStatic="true"
             isAbstract="false"

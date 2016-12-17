@@ -183,42 +183,6 @@
       <class Id="62e3a2da-cd5f-4a46-b39b-5766c6aca3ba" name="School" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="b559fef0-1b70-4cea-8c38-4c095c883aec" />
         <targetEnds>
-          <association Id="8fd82018-b090-45fb-b87d-4297c8c505a4" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="Possède" isAbstract="false">
-            <classMoniker Id="4ca59a9b-3ee8-43e4-ae95-288af9ff518e" LastKnownName="Building" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="37eea664-5033-4a31-b071-a22d734c5e45" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
-                  <lowerValueInternal>
-                    <literalString Id="ba5e307c-429a-4103-bade-d610f0726c7f" name="Lower" value="0">
-                      <elementDefinition Id="51b6af82-2de3-4c06-b3a1-ca98ed998f80" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="045769b9-436d-4714-a95d-de994988cc7c" name="Upper" value="0">
-                      <elementDefinition Id="0550053a-a74e-4927-b02b-01915bd4949c" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="b726d489-89f5-46c8-8154-d01a434ee5f0" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="99114a00-4e70-4c54-848a-9b8327777efb" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <lowerValueInternal>
-                    <literalString Id="d2066bd3-074c-4381-984f-10d73edb60c0" name="Lower" value="1">
-                      <elementDefinition Id="478593c9-341d-4174-8816-c59b2f20bbf8" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="156ea6d4-3c16-44a9-b77b-70ad7b980d9a" name="Upper" value="*">
-                      <elementDefinition Id="6fd42134-4d10-4644-aba0-93e042229235" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="5edcf844-5ac2-43f6-9a68-29e45f6382b2" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="83c35623-0836-4421-8220-fc8948c90ddf" />
-          </association>
           <association Id="71d6a3f9-f124-4e21-a4d9-2d06837bbd98" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="Possède" isAbstract="false">
             <classMoniker Id="2a583902-721b-4428-9176-96abfc8efb8e" LastKnownName="Course" />
             <relationshipOwnedElementsInternal>
@@ -313,32 +277,14 @@
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="7b7647c8-5a3a-44c4-b0d2-6a2e3f6b0a4d" name="delDirector" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="2eac7d54-39ea-4910-9823-0829c75effe0" />
-          </operation>
           <operation Id="67a1d8cd-b79d-450d-8c80-5e1f55321a59" name="displayPerson" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="b23356a9-ae7b-4f01-aa71-ca34c769ea73" />
-          </operation>
-          <operation Id="dee331ba-6e21-49b1-82c1-224acaeec8f0" name="addBuilding" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="2516b092-c28c-48d9-84f0-5b4e1fac07de" />
-          </operation>
-          <operation Id="7a95c800-e879-4cc5-b4f0-cb369c0c2f56" name="delBuilding" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="fec0b1d5-f735-45fd-88ee-313adecf7a43" />
-          </operation>
-          <operation Id="e0e3e523-08a7-4767-9374-ea88b068f2bc" name="displayBuilding" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="64006069-8d21-4563-bc13-10a2b95a80ec" />
           </operation>
           <operation Id="eb93a96e-9f26-49fd-8b53-7e377e9621f3" name="displayTotalPersonPerType" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="1725f16a-26e6-47a7-976f-088becc66c59" />
           </operation>
           <operation Id="2ee10e93-ffba-4eb2-84a4-3ab0dbc2f602" name="displayStatistics" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="66dce5c1-9e7e-4e1a-9241-9ae2ae84dd31" />
-          </operation>
-          <operation Id="7127a9cd-bd8a-4907-997e-a061337d6e82" name="addRoom" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="ae8368f7-8eec-4f48-9e54-a75d691b32ff" />
-          </operation>
-          <operation Id="8be131c4-2d68-4c2e-9188-044c22e9f059" name="delRoom" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="f752cc52-6da0-4f54-a5c8-3c0bc6a8deb2" />
           </operation>
           <operation Id="1a218b66-94c4-4ea6-be69-d66bce5033fc" name="displayRooms" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="d3185681-e4de-44ba-898f-7bf615b7de29" />
@@ -396,130 +342,33 @@
           <operation Id="2e79c0f7-e3f3-45cf-af7e-27b7bf6010dd" name="fire" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="ff1c81af-3bcd-495d-b14f-fbea367be422" />
           </operation>
-          <operation Id="1b6c8343-63c5-4a41-aa6a-a26419fea5b6" name="addRoomToTeacher" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="e48ea719-7567-47f9-ab15-ea94367f9cb1" />
-          </operation>
-          <operation Id="97cba673-41f3-4e6c-bbc0-57ba947a2c21" name="delListStudentToCourse" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="be85e0b0-cc8c-4e67-b217-49a43bfcd880" />
-          </operation>
           <operation Id="40e57e12-74d6-46cb-a2fe-42283cf7e918" name="delRoomToTeacher" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="4e662220-c31e-4c26-942b-591cb9a2ff8e" />
           </operation>
-        </ownedOperationsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="4ca59a9b-3ee8-43e4-ae95-288af9ff518e" name="Building" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="587c682e-e801-4eac-8bf3-da361c3afb07" />
-        <targetEnds>
-          <association Id="a7b3591f-ee75-4f1e-9620-1e217383467f" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="est composé de" isAbstract="false">
-            <classMoniker Id="839458b1-9f00-473a-a753-cdf53c276bf6" LastKnownName="Room" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="1f0b2fea-f400-4528-9d71-2013b80cc2f9" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="6ef0f161-e331-4391-ba6e-e2233a5b0822" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="f231c042-0d79-4e22-82e9-e927347e6305" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
-                  <lowerValueInternal>
-                    <literalString Id="efbe2ecb-e78f-405c-86d5-5c0f0797671c" name="Lower" value="1">
-                      <elementDefinition Id="7bdeb9ea-d7cc-4670-8a1b-1fea6be0cbb8" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="4a34c8ea-e585-458e-96aa-9c59496f2874" name="Upper" value="*">
-                      <elementDefinition Id="79bd296f-1789-42fb-923d-4d4924c6af31" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="2c902573-fbdf-4d11-8e9a-5a9ff7329bfe" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="35312725-edab-46c3-b3e8-4a44410bbc05" />
-          </association>
-          <association Id="5a4444c1-5e6b-4809-986e-e7b8cbd8d138" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="est composé de" isAbstract="false">
-            <classMoniker Id="86589014-f02c-4586-a1db-12924e8a6703" LastKnownName="Address" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="0bb1cc27-723d-434d-9c45-18d93a8deb24" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="b66491fd-5383-4b61-8070-980ade8df895" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="2065faae-1763-4221-bee8-d93727dcbe9a" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
-                  <elementDefinition Id="6116bd54-bf5c-418b-b4d1-061bac1634ea" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="11d30b15-e59a-430c-9378-0f8beb00bb03" />
-          </association>
-        </targetEnds>
-        <ownedAttributesInternal>
-          <property Id="b6560787-f018-4020-aa9c-f60d839f5bdc" name="address_" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="f5a3b13c-45d2-4318-a558-2c87cc01a037" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="30da372c-6751-48ef-8a49-e2c6792eacd1" LastKnownName="Address" />
-            </type_NamedElement>
-          </property>
-          <property Id="2532b412-6aea-49ca-bd14-9f6af3600be3" name="numberFloor_" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="90796053-eb38-4419-ac7e-f722d01f75f9" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="930bfc25-8581-4450-b345-45bfd0e09269" LastKnownName="Integer" />
-            </type_NamedElement>
-          </property>
-          <property Id="1b51010d-962e-40aa-bc81-bef7c6f58faf" name="numberInstance_" visibility="Private" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="a64aeb7a-6765-43eb-8766-d969d93e9f7a" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="930bfc25-8581-4450-b345-45bfd0e09269" LastKnownName="Integer" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation Id="534a3078-b391-4e3c-b27f-4c2a2f2404f0" name="Building" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="e818f3cf-e52f-44a7-bdfd-8426ca221c72" />
+          <operation Id="bf80e164-44df-42f9-af75-ded570a5277c" name="displayPersonForSelect" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d925c588-b3a9-43bb-a9e2-dfb1633a924d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5dd4e9f9-399d-416c-a5d8-e21fbb4c1c75" direction="Return" isUnique="false">
+                  <elementDefinition Id="6f64748c-10fa-4d7b-8ca7-9581267d2364" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="8dbb01e0-8db7-4fb1-8b09-36c6fd3f2a07" LastKnownName="Person" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
-          <operation Id="c0d7e55c-f504-4dbe-90b6-59408741e45d" name="~Building" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="b13a82c9-c370-4e0d-acb9-4767f97d4d83" />
+          <operation Id="d6703cfe-e2fd-4422-9cb8-5db5af09b3d6" name="delPerson" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="3c3523cc-c78d-48f9-af50-586c127f6c65" />
           </operation>
-          <operation Id="fadbbdc3-7487-4397-a8ef-ec0ab68adc65" name="addRoom" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="c87e29a7-e569-4bba-a7db-f4656312805a" />
+          <operation Id="0dc31408-ea50-4270-aa27-f5b565f25f31" name="addDirector" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="02912910-3680-46ed-836e-7003d3705a88" />
           </operation>
-          <operation Id="2b0e5211-7f22-4f5d-920d-befa9e77246f" name="delRoom" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="20f07189-cac2-4276-ad87-04e74074beb3" />
+          <operation Id="bb807234-dbea-47d5-9155-1aac669becdc" name="addListStudent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e52ed483-bcf0-44f5-8bd8-7dca7fcaae18" />
           </operation>
-        </ownedOperationsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="839458b1-9f00-473a-a753-cdf53c276bf6" name="Room" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="60c0d7e3-58d0-41d4-86df-6571b14338da" />
-        <ownedAttributesInternal>
-          <property Id="05e4066f-8e9c-4fd4-8c59-df5d87099bbd" name="area_" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="9d8252f3-63d9-4737-bd75-1fd7505ce4bd" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="259a8658-c4c0-4152-8d37-6ec11902bc95" LastKnownName="Integer" />
-            </type_NamedElement>
-          </property>
-          <property Id="c9a034e8-8f7a-4f70-82a3-0cc2beee1652" name="numberPlace_" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="744661c0-14c2-44d6-b690-f1e501014ef4" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="0186a17c-3c1c-4523-a4bd-edb829e80ed0" LastKnownName="Integer" />
-            </type_NamedElement>
-          </property>
-          <property Id="d8408927-25e2-4289-b798-581c3ceb7c86" name="numberInstance_" visibility="Private" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="b2a41206-ccd1-4d47-ab92-6b1483122497" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="930bfc25-8581-4450-b345-45bfd0e09269" LastKnownName="Integer" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation Id="e92b543d-2ef2-4668-b67e-6ef1c4ff6645" name="Room" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="00d00415-47df-4509-9f3d-fe093b3d97a1" />
-          </operation>
-          <operation Id="7089b4ca-265e-4962-98b6-77c402c44ab2" name="~Room" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="fa045ffb-02fe-4e60-b32e-cc35897ac2c2" />
+          <operation Id="104e0e58-b8e2-401b-a6e0-6a94b8a7bc8c" name="modifyDirector" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1f5a92a7-2325-48e1-8e4d-3e6aa17cdcbb" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -536,16 +385,6 @@
     </packageHasNamedElement>
     <packageHasNamedElement>
       <referencedType Id="930bfc25-8581-4450-b345-45bfd0e09269" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
-        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="259a8658-c4c0-4152-8d37-6ec11902bc95" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
-        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="0186a17c-3c1c-4523-a4bd-edb829e80ed0" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
         <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
       </referencedType>
     </packageHasNamedElement>
@@ -849,9 +688,6 @@
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="6d7be529-2487-45ff-a003-093b8776bbdc" name="Director" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="d66ee37a-fc05-4ef1-ac8f-3ecd7de81846" />
-          </operation>
           <operation Id="040d0c2e-07c2-4ef6-bf71-734d022e02a2" name="~Director" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="8f91d638-967e-4f7f-baad-67cb03336cf2" />
           </operation>
@@ -870,6 +706,12 @@
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
+          </operation>
+          <operation Id="034618d1-b06e-4b87-9bc9-0d952676eaf6" name="addSkill" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="bb044b72-8d71-4ade-94e4-8225c98851be" />
+          </operation>
+          <operation Id="ebabc797-2d3a-4274-94ff-77942424788e" name="delSkill" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f8c2219c-b5b2-4030-a1e0-31bf93fbf4d6" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -1052,6 +894,12 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="7448001d-04a8-41bf-bd70-8271c8e6ba77" name="addCourseToFollow" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="2a9257dd-d029-43cc-86af-21a7fcdb9c16" />
+          </operation>
+          <operation Id="fb0c1154-68c5-46bf-b7e4-8cf992d737b8" name="delCourseToFollow" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d755cc0c-0ca3-4994-a8b8-2ff8d461fc20" />
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -1169,21 +1017,21 @@
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="58129e35-d00e-4360-ae1b-04151f366fb8" name="Teacher" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="58129e35-d00e-4360-ae1b-04151f366fb8" name="addSkill" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="75ba727c-4404-46fb-b359-3c9bc386214f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ded93c85-8dc9-4b98-b73c-80a49da38356" direction="Return">
+                  <elementDefinition Id="5e60e681-eaab-4eb2-a7a8-32aaaa945d2b" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="9928b01c-4afa-4fd4-be6f-f9c128d805fd" name="~Teacher" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="91769775-883a-4544-8903-e86d45e1e073" />
           </operation>
-          <operation Id="273acb6a-80b0-4d32-844c-8a08e664e4f0" name="display" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="273acb6a-80b0-4d32-844c-8a08e664e4f0" name="addCourseToGive" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="f742f9be-57ce-4d72-aeed-db859ae367cc" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="9d34abc3-a1c9-4c7c-b111-f15da4c7287e" direction="Return">
-                  <elementDefinition Id="14ffd6bd-c425-4bfc-9529-32abd00b11b1" />
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
           </operation>
           <operation Id="1731b9bd-272e-4661-9e3b-0c01a7ec729b" name="stringForWriteFile" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="56928765-fca9-46a2-a379-63752c9019d0" />
@@ -1197,6 +1045,12 @@
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
+          </operation>
+          <operation Id="81b1f499-e702-41c1-80b6-5da8080d3881" name="delSkill" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cc2c34fe-26ea-4b44-8cee-878f8e401c02" />
+          </operation>
+          <operation Id="9a12f07b-83bb-4e34-bf60-81e3d9c8e74c" name="delCourseToGive" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f093b302-2772-4c1e-acfc-d215f1d01bef" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -1249,6 +1103,12 @@
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
+          </operation>
+          <operation Id="972b9a4e-92b0-4d02-9d84-a61511cc280a" name="addCourseToGive" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c9ff8603-9502-4705-878e-7a1ef6433384" />
+          </operation>
+          <operation Id="d3f53baa-9020-4ea9-a44f-d493093d5d5f" name="addCourseToFollow" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="3b0aeb54-ce9c-4dac-8ad8-7ade1e5a5e02" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -1312,11 +1172,6 @@
     <packageHasNamedElement>
       <referencedType Id="667a9503-42e8-48b4-aba5-d6d1c900ba92" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
         <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="30da372c-6751-48ef-8a49-e2c6792eacd1" name="Address" isAbstract="false" isLeaf="false" cachedFullName="Group::Address">
-        <elementDefinition Id="64391bfc-660b-4303-9168-cab98d8f6b83" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -1422,6 +1277,12 @@
           <operation Id="3b6de118-0c19-4c0c-a4c2-7867e5ee1dce" name="emptyBuffer" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="2c0a518d-cf2a-4ced-8680-94ce337e97ed" />
           </operation>
+          <operation Id="a64a1591-878d-4574-9b56-f5d9670615c7" name="cutStream" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="0d176e09-5227-4144-8b36-2284236efa8e" />
+          </operation>
+          <operation Id="e6d6f464-6d71-490d-b6ad-de764bcef45f" name="cutStream" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9b0ae22b-3f06-460e-9968-cfa9e2d35674" />
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -1518,6 +1379,11 @@
     <packageHasNamedElement>
       <referencedType Id="6ac7440b-9ad7-4326-b7df-5f442f480ca6" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
         <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="8dbb01e0-8db7-4fb1-8b09-36c6fd3f2a07" name="Person" isAbstract="false" isLeaf="false" cachedFullName="Group::Person">
+        <elementDefinition Id="d5de4905-1bb2-41f8-9cd6-1327e1fa69d4" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

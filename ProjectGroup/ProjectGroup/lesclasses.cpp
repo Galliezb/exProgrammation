@@ -7,16 +7,8 @@
 int Address::numberInstance_	= 0;
 int Group::numberInstance_		= 0;
 int School::numberInstance_		= 0;
-int Building::numberInstance_	= 0;
-int Room::numberInstance_		= 0;
 int Course::numberInstance_		= 0;
 int Person::numberInstance_		= 0;
-int Advisor::numberInstance_	= 0;
-int Director::numberInstance_	= 0;
-int Secretary::numberInstance_	= 0;
-int Teacher::numberInstance_	= 0;
-int Student::numberInstance_	= 0;
-int Hybrid::numberInstance_		= 0;
 int Skill::numberInstance_		= 0;
 
 
@@ -221,9 +213,17 @@ int Display::menuSecretary(){
 	// build menu
 	vector<string> vector;
 	vector.push_back( string("QUITTER") );
+	vector.push_back( string("DIRECTEUR : AJOUTER") );
+	vector.push_back( string("DIRECTEUR : MODIFIER") );
+	vector.push_back( string("ETUDIANT : AJOUTER UNE LISTE") );
+	vector.push_back( string("ETUDIANT : VIRER") );
+	vector.push_back( string("COURS : AJOUTER") );
+	vector.push_back( string("COURS : SUPPRIMER") );
+	vector.push_back( string("COMPETENCE : AJOUTER") );
+	vector.push_back( string("COMPETENCE : SUPPRIMER") );
 	// push menu to build and display
 	Treatment::makeMenu(vector);
-	Display::pauseAtBottom(28);
+	Display::pauseAtBottom(29-vector.size());
 
 	cin >> valueReturn;
 
@@ -549,7 +549,6 @@ int Group::displayAdvisorForDelete(){
 
 School* Group::displaySchoolForSelect(){
 
-
 	int numberSelected = -1;
 	bool goodOrRetry = false;
 
@@ -671,8 +670,6 @@ Advisor::Advisor( string name , string firstName , int boxNumber , int number , 
 	telephone_ = telephone;
 	fax_ = fax;
 
-	numberInstance_++;
-
 }
 
 void Advisor::display(){
@@ -706,8 +703,6 @@ string Advisor::stringForWriteFile(){
 Advisor::~Advisor(){
 	// debug
 	// cout << "Deconstruct instance Advisor" << endl;
-
-	numberInstance_--;
 }
 
 void School::displayTotalPersonPerType(){
@@ -742,6 +737,58 @@ void School::displayTotalPersonPerType(){
 	Display::pauseAtBottom(26);
 }
 
+void School::addDirector(){
+
+	string name , firstName , street , town;
+	int boxNumber , number , postalCode;
+	bool goodOrRetry;
+
+	system("cls");
+	Display::fillFullLine('-');
+	Display::centerOutputString("VEUILLEZ ENTRER LE NOM");
+	Display::fillFullLine('-');
+	getline( cin , name);
+
+	system("cls");
+	Display::fillFullLine('-');
+	Display::centerOutputString("VEUILLEZ ENTRER LE PRENOM");
+	Display::fillFullLine('-');
+	getline( cin , firstName);
+
+	Display::instruction("ENTREZ LA RUE");
+	getline( cin , street );
+
+	do {
+		Display::instruction("ENTREZ LA BOITE POSTALE ( 0 si aucune )");
+		cin >> boxNumber;
+		goodOrRetry = Treatment::checkCinIntValidity(0,9999,boxNumber);
+	} while ( !goodOrRetry );
+
+	do {
+		Display::instruction("ENTREZ LE NUMERO");
+		cin >> number;
+		goodOrRetry = Treatment::checkCinIntValidity(0,9999,number);
+	} while ( !goodOrRetry );
+
+	Display::instruction("ENTREZ LA VILLE");
+	getline( cin , town );
+
+	do {
+		Display::instruction("ENTREZ LE CODE POSTAL");
+		cin >> postalCode;
+		goodOrRetry = Treatment::checkCinIntValidity(0,9999,postalCode);
+	} while ( !goodOrRetry );
+
+	Director* d = new Director( name, firstName, boxNumber, number, postalCode, street, town, string("director") );
+	addPerson( d , false);
+
+	system("cls");
+	Display::instruction("NOUVEAU DIRECTEUR ENREGISTRE");
+	system("pause");
+
+
+}
+
 void School::addPerson(Teacher * t){
 
 	// teacher in save in Person vector
@@ -763,6 +810,33 @@ void School::addPerson(Secretary * s){
 	regenerateFilePerson();
 
 }
+
+
+void School::addPerson(Director * d, bool replace=false){
+
+	// modifiy director = delete + new entry
+	
+	if ( replace ){
+
+		for each (Person* pers in person_){
+			if ( pers->getStatus() == "director" ){
+				person_.erase( person_.begin() +1 );
+			}
+		}
+
+	}
+	
+
+	// Secretary in save in Person vector
+	Person* p = d;
+	person_.push_back(p);
+
+	// empty + rewrite file
+	regenerateFilePerson();
+
+
+}
+
 
 string School::getNameAndStatus(){
 	return string(name_ + " ( " + type_ + " ) ");
@@ -804,10 +878,6 @@ School::~School(){
 		delete pers;
 	}
 
-	for each(Building *build in building_ ){
-		delete build;
-	}
-
 	numberInstance_--;
 
 }
@@ -821,22 +891,16 @@ void School::reloadFromFile(){
 	string filename = "fileSave/person_school_" + Treatment::getAlphaNumeric(this->name_) + '_' + Treatment::getAlphaNumeric(this->type_) + ".txt";
 	file.open( filename );
 
-	cout << "Debug Acces file : " << filename << endl << "fs::exists(filename) : " << fs::exists(filename) << endl;
 
-	
-	
+	// Debug
+	//cout << "Debug Acces file : " << filename << endl << "fs::exists(filename) : " << fs::exists(filename) << endl;
+
+
 	// only if file exist. No file, nothing to load
 	if ( fs::exists(filename) ){
-		cout << "Le fichier existe" << endl;
-	} else {
-		cout << "Le fichier n'existe pas" << endl;
-	}
 
-	
-	if ( fs::exists(filename) ){
-
-		cout << "Condition : OK" << "( " << this->name_ << " )" << endl;
-		system("pause");
+		//cout << "Condition : OK" << "( " << this->name_ << " )" << endl;
+		//system("pause");
 
 		string line;
 		while( getline( file, line ) ){
@@ -844,25 +908,142 @@ void School::reloadFromFile(){
 			// DATA PERSON + TYPE ( director, secretary etc... )	
 
 			string firstName,name,street,town,status;
-			int seniority,hoursToWork,boxNumber,number,postalCode;		
+			int seniority,hoursToDo,hoursToWork,boxNumber,number,postalCode,percentageOfGlanding,percentageOfSucces;		
 
 			// who are you ?
 			status = Treatment::deleteWhiteSpace( line, 0, 50);
 
 			if ( status == "director" ){
+
+				// variable for cut line in file
+				stringstream ss;
+				string partOfLine;
+				int i=0;
+
+				//cout << "Debug : Director Found " << endl;
+
+				firstName = Treatment::deleteWhiteSpace( line, 50, 50);
+				name = Treatment::deleteWhiteSpace( line, 100, 50);
+
+				boxNumber = stoi(line.substr(150,50));
+				number = stoi(line.substr(200,50));
+				postalCode = stoi(line.substr(250,50));
+
+				street = Treatment::deleteWhiteSpace( line, 300, 50);
+				town = Treatment::deleteWhiteSpace( line, 350, 50);
+
+				Director* t = new Director( name , firstName , boxNumber , number , postalCode , street, town , string("director"));
+
+				// first : cut the chain in 4 string
+				vector<string> firstChain;
+				Treatment::cutStream( line , firstChain , ';');
+
+				/***************   ADD SKILL    *********************/
+				// Skill : cut the chain[1] for recieve data
+				vector<string> skillChain;
+				Treatment::cutStream( firstChain[1] , skillChain , '|');
+
+				for each (string str in skillChain){
+
+					// | = first char, thus first data recieved are always empty
+					if ( !str.empty() ){
+
+						string entiteld;
+						int salaryBonus;
+
+						Treatment::cutStream( str, entiteld, salaryBonus );
+
+						t->addSkill( entiteld , salaryBonus );
+
+					}
+
+				}
+
+				// transform director in Person for the vector
+				Person* pt = t;
+				person_.push_back(t);
+
 			
 			} else if ( status == "secretary" ){
 
-			} else if ( status == "student" ){
-
-			} else if ( status == "teacher" ){
-
-				//cout << "Debug : Teacher Found " << endl;
+				//cout << "Debug : Secretary Found " << endl;
 
 				firstName = Treatment::deleteWhiteSpace( line, 50, 50);
 				name = Treatment::deleteWhiteSpace( line, 100, 50);
 
 				hoursToWork = stoi(line.substr(150,50));
+				boxNumber = stoi(line.substr(200,50));
+				number = stoi(line.substr(250,50));
+				postalCode = stoi(line.substr(300,50));
+
+				street = Treatment::deleteWhiteSpace( line, 400, 50);
+				town = Treatment::deleteWhiteSpace( line, 450, 50);
+
+				Person* s = new Secretary( name , firstName , hoursToWork, boxNumber , number , postalCode , street, town );
+
+				person_.push_back(s);
+
+			} else if ( status == "student" ){
+
+				//cout << "Debug : Student Found " << endl;
+
+				/***************   ADD DATA    *********************/
+				firstName = Treatment::deleteWhiteSpace( line, 50, 50);
+				name = Treatment::deleteWhiteSpace( line, 100, 50);
+
+				percentageOfGlanding = stoi(line.substr(150,50));
+				percentageOfSucces = stoi(line.substr(200,50));
+				seniority = stoi(line.substr(250,50));
+				boxNumber = stoi(line.substr(300,50));
+				number = stoi(line.substr(350,50));
+				postalCode = stoi(line.substr(400,50));
+
+				street = Treatment::deleteWhiteSpace( line, 400, 50);
+				town = Treatment::deleteWhiteSpace( line, 300, 50);
+
+				Student* s = new Student( name , firstName , percentageOfGlanding , percentageOfSucces , boxNumber , number , postalCode , street , town );
+
+				// first : cut the chain in 4 string
+				vector<string> firstChain;
+				Treatment::cutStream( line , firstChain , ';');
+
+				/***************   ADD COURSE TO FOLLOW    *********************/
+				// courseToFollow : cut the chain[2] for recieve data
+				vector<string> courseChain;
+				Treatment::cutStream( firstChain[2] , courseChain , '|');
+
+				for each (string str in courseChain){
+
+					// | = first char, thus first data recieved are always empty
+					if ( !str.empty() ){
+
+						string entiteld;
+						int hoursRequire;
+
+						Treatment::cutStream( str, entiteld, hoursRequire );
+
+						s->addCourseToFollow( entiteld , hoursRequire );
+
+					}
+
+				}
+
+
+
+				// transform student in Person for the vector
+				Person* ps = s;
+				person_.push_back(ps);
+
+
+			} else if ( status == "teacher" ){
+
+				//cout << "Debug : Teacher Found " << endl;
+
+				/***************   ADD DATA    *********************/
+				firstName = Treatment::deleteWhiteSpace( line, 50, 50);
+				name = Treatment::deleteWhiteSpace( line, 100, 50);
+
+				hoursToDo = stoi(line.substr(150,50));
 				seniority = stoi(line.substr(200,50));
 				boxNumber = stoi(line.substr(250,50));
 				number = stoi(line.substr(300,50));
@@ -871,23 +1052,158 @@ void School::reloadFromFile(){
 				street = Treatment::deleteWhiteSpace( line, 400, 50);
 				town = Treatment::deleteWhiteSpace( line, 300, 50);
 
-				Person* t = new Teacher( name , firstName , hoursToWork , seniority , boxNumber , number , postalCode , street, string("teacher"));
+				Teacher* t = new Teacher( name , firstName , hoursToDo , seniority , boxNumber , number , postalCode , street, town);
+			
+				// first : cut the chain in 4 string
+				vector<string> firstChain;
+				Treatment::cutStream( line , firstChain , ';');
 
-				// TODO add skills
+				/***************   ADD SKILL    *********************/
+				// Skill : cut the chain[1] for recieve data
+				vector<string> skillChain;
+				Treatment::cutStream( firstChain[1] , skillChain , '|');
 
-				person_.push_back(t);
+				for each (string str in skillChain){
+
+					// | = first char, thus first data recieved are always empty
+					if ( !str.empty() ){
+
+						string entiteld;
+						int salaryBonus;
+
+						Treatment::cutStream( str, entiteld, salaryBonus );
+
+						t->addSkill( entiteld , salaryBonus );
+
+					}
+					
+				}
+
+				/***************   ADD COURSE    *********************/
+				// courseToGive : cut the chain[3] for recieve data
+				vector<string> courseChain;
+				Treatment::cutStream( firstChain[3] , courseChain , '|');
+
+				for each (string str in courseChain){
+
+					// | = first char, thus first data recieved are always empty
+					if ( !str.empty() ){
+
+						string entiteld;
+						int hoursRequire;
+
+						Treatment::cutStream( str, entiteld, hoursRequire );
+
+						t->addCourseToGive( entiteld , hoursRequire );
+
+					}
+
+				}
+
+
+				
+				// transform teacher in Person for the vector
+				Person* pt = t;
+				person_.push_back(pt);
 
 		
 			} else if ( status == "hybrid" ){
 
+				//cout << "Debug : hybrid Found " << endl;
+
+				/***************   ADD DATA    *********************/
+				firstName = Treatment::deleteWhiteSpace( line, 50, 50);
+				name = Treatment::deleteWhiteSpace( line, 100, 50);
+
+				hoursToDo = stoi(line.substr(150,50));
+				seniority = stoi(line.substr(200,50));
+				percentageOfGlanding = stoi(line.substr(250,50));
+				percentageOfSucces = stoi(line.substr(300,50));			
+				boxNumber = stoi(line.substr(350,50));
+				number = stoi(line.substr(400,50));
+				postalCode = stoi(line.substr(450,50));
+
+				street = Treatment::deleteWhiteSpace( line, 500, 50);
+				town = Treatment::deleteWhiteSpace( line, 550, 50);
+
+				Hybrid* h = new Hybrid( name , firstName , hoursToDo, seniority , boxNumber , number , postalCode , street , town , percentageOfGlanding , percentageOfSucces );
+
+				// first : cut the chain in 4 string
+				vector<string> firstChain;
+				Treatment::cutStream( line , firstChain , ';');
+
+				/***************   ADD SKILL    *********************/
+				// Skill : cut the chain[1] for recieve data
+				vector<string> skillChain;
+				Treatment::cutStream( firstChain[1] , skillChain , '|');
+
+				for each (string str in skillChain){
+
+					// | = first char, thus first data recieved are always empty
+					if ( !str.empty() ){
+
+						string entiteld;
+						int salaryBonus;
+
+						Treatment::cutStream( str, entiteld, salaryBonus );
+
+						h->addSkill( entiteld , salaryBonus );
+
+					}
+
+				}
+
+				/***************   ADD COURSE TO FOLLOW    *********************/
+				// courseToFollow : cut the chain[2] for recieve data
+				vector<string> courseToFollowChain;
+				Treatment::cutStream( firstChain[2] , courseToFollowChain , '|');
+
+				for each (string str in courseToFollowChain){
+
+					// | = first char, thus first data recieved are always empty
+					if ( !str.empty() ){
+
+						string entiteld;
+						int hoursRequire;
+
+						Treatment::cutStream( str, entiteld, hoursRequire );
+
+						h->addCourseToFollow( entiteld , hoursRequire );
+
+					}
+
+				}
+
+
+				/***************   ADD COURSE    *********************/
+				// courseToGive : cut the chain[3] for recieve data
+				vector<string> courseToGiveChain;
+				Treatment::cutStream( firstChain[3] , courseToGiveChain , '|');
+
+				for each (string str in courseToGiveChain){
+
+					// | = first char, thus first data recieved are always empty
+					if ( !str.empty() ){
+
+						string entiteld;
+						int hoursRequire;
+
+						Treatment::cutStream( str, entiteld, hoursRequire );
+
+						h->addCourseToGive( entiteld , hoursRequire );
+
+					}
+
+				}
+
+
+
+				// transform teacher in Person for the vector
+				Person* ph = h;
+				person_.push_back(ph);
+
+
 			}	
-
-
-			// pointer for polymorphism ( Person is abstract )
-			//Person* a = new Director( name, firstName, boxNumber, number, postalCode, street, town, string("director") );
-			//this->person_.push_back(a);
-
-
 
 		}
 		file.close();
@@ -914,23 +1230,23 @@ void School::regenerateFilePerson(){
 
 		if ( pers->getStatus() == "director" ){
 		
-			file << pers->stringForWriteFile();
+			file << pers->stringForWriteFile() << endl;
 
 		} else if ( pers->getStatus() == "secretary" ){
 
-			file << pers->stringForWriteFile();
+			file << pers->stringForWriteFile() << endl;
 
 		} else if ( pers->getStatus() == "student" ){
 
-			file << pers->stringForWriteFile();
+			file << pers->stringForWriteFile() << endl;
 
 		} else if ( pers->getStatus() == "teacher" ){
 
-			file << pers->stringForWriteFile();
+			file << pers->stringForWriteFile() << endl;
 
 		} else if ( pers->getStatus() == "hybrid" ){
 
-			file << pers->stringForWriteFile();
+			file << pers->stringForWriteFile() << endl;
 
 		}
 
@@ -955,36 +1271,6 @@ School::School( string type , string name ){
 
 	reloadFromFile();
 
-}
-
-Building::Building(int numberFloor, Address & address){
-
-	numberFloor_ = numberFloor_;
-	address_ = address;
-
-	numberInstance_++;
-
-}
-
-Building::~Building(){
-	// debug
-	// cout << "Deconstruct instance Building" << endl;
-	numberInstance_--;
-}
-
-Room::Room(int area, int numberPlace){
-
-	area_ = area;
-	numberPlace_ = numberPlace;
-
-	numberInstance_++;
-
-}
-
-Room::~Room(){
-	// debug
-	// cout << "Deconstruct instance Room" << endl;
-	numberInstance_--;
 }
 
 Treatment::Treatment(){
@@ -1079,6 +1365,41 @@ string Treatment::getAlphaNumeric(string str){
 
 }
 
+void Treatment::cutStream(string str, vector<string>& vectorString , char delimiter){
+
+	stringstream cutStream;
+	string recievedData;
+	cutStream.str(str);
+
+	while ( getline(cutStream, recievedData, delimiter) ) {
+
+		vectorString.push_back(recievedData);
+		
+	}
+
+}
+
+void Treatment::cutStream ( string str, string & strReturn, int & number){
+
+	stringstream cutStream;
+	string recievedData;
+	cutStream.str(str);
+
+	int i=0;
+	while ( getline(cutStream, recievedData, '&') ) {
+
+		if ( i == 0 ){
+			strReturn = recievedData;
+		} else {
+			number =  stoi(recievedData);
+		}
+		
+		i++;
+
+	}
+
+}
+
 Treatment::~Treatment(){
 	// debug
 	// cout << "Deconstruct Treatment" << endl;
@@ -1086,8 +1407,12 @@ Treatment::~Treatment(){
 
 Director::Director(string name, string firstName, int boxNumber, int number, int codePostal, string street, string town, string status = "director")
 		 :Person( name , firstName , boxNumber , number , codePostal , street , town , status){
+}
 
-	numberInstance_++;
+void Director::addSkill( string entiteld , int salaryBonus ){
+
+	Skill* s = new Skill( entiteld , salaryBonus );
+	skill_.push_back(s);
 
 }
 
@@ -1133,9 +1458,11 @@ Director::~Director(){
 	// cout << "Deconstruct director by default" << endl;
 }
 
-Course::Course(){
-	// debug
-	// cout << "Construct Course by default" << endl;
+Course::Course( string entiteld , int hoursRequire ){
+
+	entiteld_ = entiteld;
+	hoursRequire_ = hoursRequire;
+
 }
 
 string Course::display(){
@@ -1188,11 +1515,54 @@ void School::displayPerson( string who ){
 
 }
 
+Person* School::displayPersonForSelect(string who){
+
+	int numberSelected = -1;
+	bool goodOrRetry = false;
+
+	system("cls");
+
+	Display::fillFullLine('-');
+	Display::centerOutputString("CHOISSISSEZ LA PERSONNE A SUPPRIMER");
+	Display::fillFullLine('-');
+	Display::pauseAtBottom(2);
+
+	// build menu
+	vector<string> vectMenu;
+	vector<int> vectMemory;
+
+	int i=0;
+
+	for each (Person *p in person_){
+
+		if ( p->getStatus() == who ){
+			// return string, and save for build menu
+			vectMenu.push_back( p->getFullName() );
+			// memory of index fore delete the good element
+			vectMemory.push_back(i);
+		}
+		i++;
+	}
+
+	// push menu to build and display
+	Treatment::makeMenu(vectMenu);
+	Display::pauseAtBottom(35-6-vectMemory.size());
+
+	// Tss you can't troll !
+	do {
+		cin >> numberSelected;
+		goodOrRetry = Treatment::checkCinIntValidity(0,i,numberSelected);
+	} while ( !goodOrRetry );
+
+	// return the school for manipulation
+	return person_[ vectMemory[numberSelected] ];
+
+}
+
 Teacher::Teacher(string name, string firstName, int hoursTodo, int seniority, int boxNumber, int number, int postalCode, string street, string town)
 		:Person( name , firstName , boxNumber , number , postalCode , street , town, string("teacher") ){
 	hoursToDo_ = hoursTodo;
 	seniority_ = seniority;
-	numberInstance_++;
 }
 
 
@@ -1242,6 +1612,22 @@ string Teacher::stringForWriteFile(){
 
 }
 
+void Teacher::addCourseToGive(string entiteld, int hoursRequire){
+
+	Course* c = new Course( entiteld , hoursRequire );
+	courseToGive_.push_back(c);
+
+}
+
+void Teacher::addSkill(string entiteld, int salaryBonus){
+
+	Skill* s = new Skill( entiteld , salaryBonus );
+	skill_.push_back(s);
+
+
+}
+
+
 Teacher::~Teacher(){
 
 	// debug
@@ -1254,8 +1640,6 @@ Teacher::~Teacher(){
 	for each (Skill* s in skill_){
 		delete s;
 	}
-
-	numberInstance_--;
 
 }
 
@@ -1293,7 +1677,6 @@ Secretary::Secretary(string name, string firstName, int hoursToWork, int boxNumb
 		  :Person( name , firstName , boxNumber , number , postalCode , street , town, string("secretary") ){
 
 	hoursToWork_ = hoursToWork;
-	numberInstance_++;
 
 }
 
@@ -1326,19 +1709,20 @@ string Secretary::stringForWriteFile(){
 
 }
 
-Secretary::~Secretary(){
-
-	numberInstance_--;
-
-}
+Secretary::~Secretary(){}
 
 Student::Student(string name, string firstName, int percentageOfGlanding, int percentageOfSucces, int boxNumber, int number, int postalCode, string street, string town)
 		:Person( name , firstName , boxNumber , number , postalCode , street , town, string("student") ){
 
 	percentageOfGlanding_ = percentageOfGlanding;
 	percentageOfSucces_ = percentageOfSucces;
+}
 
-	numberInstance_++;
+void Student::addCourseToFollow( string entiteld , int hoursRequire ){
+
+	Course* c = new Course( entiteld , hoursRequire );
+	courseToFollow_.push_back(c);
+
 }
 
 void Student::display(){
@@ -1379,13 +1763,12 @@ string Student::stringForWriteFile(){
 
 }
 
-Student::~Student(){
-	numberInstance_--;
-}
+Student::~Student(){}
 
 Hybrid::Hybrid(string name, string firstName, int hoursTodo, int seniority, int boxNumber, int number, int postalCode, string street, string town, int percentageOfGlanding, int percentageOfSucces)
 	   :Teacher( name, firstName, hoursTodo , seniority , boxNumber, number, postalCode, street, town )
-	   ,Student( name, firstName, percentageOfGlanding , percentageOfSucces , boxNumber, number, postalCode, street, town ){
+	   ,Student( name, firstName, percentageOfGlanding , percentageOfSucces , boxNumber, number, postalCode, street, town )
+	   ,Person ( name , firstName , boxNumber , number , postalCode , street , town , string("hybrid") ){
 
 
 
@@ -1452,6 +1835,18 @@ string Hybrid::stringForWriteFile(){
 
 }
 
-Hybrid::~Hybrid(){
-	numberInstance_--;
+Hybrid::~Hybrid(){}
+
+void School::delPerson(Person * p){
+
+	int i=0;
+	for each (Person* ptrP in person_){
+		if ( ptrP->getFullName() == p->getFullName() ){
+			break;
+		}
+		i++;
+	}
+	person_.erase( person_.begin() + i );
+	regenerateFilePerson();
+
 }

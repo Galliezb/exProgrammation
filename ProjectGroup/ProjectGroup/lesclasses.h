@@ -13,6 +13,7 @@ namespace fs = std::experimental::filesystem;
 
 class Teacher;
 class Secretary;
+class Director;
 class School;
 
 /************************************/
@@ -33,43 +34,13 @@ private:
 	string town_;
 };
 
-/************************************/
-/**********   CLASS ROOM  ***********/
-/************************************/
-class Room{
-public:
-	Room( int area , int numberPlace );
-	~Room();
-private:
-	int area_;
-	int numberPlace_;
-	static int numberInstance_;
-};
-
-
-/************************************/
-/********* CLASS BUILDING ***********/
-/************************************/
-class Building{
-public:
-	Building( int numberFloor, Address& address);
-	void addRoom();
-	void delRoom();
-	~Building();
-private:
-	Address address_;
-	int numberFloor_;
-	static int numberInstance_;
-	vector<Room> room_;
-};
-
 
 /************************************/
 /*********  CLASS COURSE  ***********/
 /************************************/
 class Course{
 public:
-	Course();
+	Course( string entiteld , int hoursRequire );
 	string display();
 	string stringForWriteFile();
 	~Course();
@@ -108,23 +79,18 @@ class School{
 public:
 	School();
 	School( string type , string name );
-	void addBuilding();
-	void addRoom();
-	void addRoomToTeacher();
-	void delBuilding();
-	void delListStdudentToCourse();
-	void delRoom();
-	void delRoomToTeacher();
-	void displayBuilding();
+	void delPerson(Person *p);
 	void displayCourses();
 	void displayDirector();
 	static void displayNumberInstance();
 	void displayPerson( string who = "" );
-	void displayRoom();
+	Person* displayPersonForSelect( string who = "" );
 	void displayStatistics();
 	void displayTotalPersonPerType();
+	void addDirector();
 	void addPerson(Teacher* t);
 	void addPerson(Secretary* s);
+	void addPerson(Director * d, bool replace);
 	
 	string getNameAndStatus();
 	Person* getYourDirector();
@@ -134,7 +100,6 @@ public:
 private:
 	string type_, name_;
 	static int numberInstance_;
-	vector<Building*> building_;
 	// pointer for polymorphism
 	vector<Person*> person_;
 
@@ -153,7 +118,6 @@ public:
 	string stringForWriteFile();
 	~Advisor();
 private:
-	static int numberInstance_;
 	string function_ , telephone_ , fax_ ;
 };
 
@@ -209,11 +173,12 @@ private:
 class Director : public Person {
 public:
 	Director(string name, string firstName, int boxNumber, int number, int codePostal, string street, string town, string status );
+	void addSkill( string entiteld , int salaryBonus );
+	void delSkill();
 	void display();
 	string stringForWriteFile();
 	~Director();
 private:
-	static int numberInstance_;
 	vector<Skill*> skill_;
 };
 
@@ -229,21 +194,20 @@ public:
 	~Secretary();
 private:
 	int hoursToWork_;
-	static int numberInstance_;
 };
 
 
 /************************************/
 /*********  CLASS STUDENT ***********/
 /************************************/
-class Student : public Person{
+class Student : virtual public Person{
 public:
 	Student( string name, string firstName, int percentageOfGlanding , int percentageOfSucces , int boxNumber, int number, int postalCode, string street, string town );
+	void addCourseToFollow( string entiteld , int hoursRequire );
+	void delCourseToFollow();
 	virtual void display();
 	virtual string stringForWriteFile();
 	~Student();
-private:
-	static int numberInstance_;
 protected:
 	int percentageOfGlanding_;
 	int percentageOfSucces_;
@@ -255,14 +219,16 @@ protected:
 /************************************/
 /*********  CLASS TEACHER ***********/
 /************************************/
-class Teacher : public Person {
+class Teacher : virtual public Person {
 public:
 	Teacher( string name, string firstName, int hoursTodo , int seniority , int boxNumber, int number, int postalCode, string street, string town ); 
 	virtual void display();
 	virtual string stringForWriteFile();
+	void addCourseToGive( string entiteld , int hoursRequire );
+	void addSkill( string entiteld , int salaryBonus );
+	void delSkill( string entiteld );
+	void delCourseToGive( string entiteld );
 	~Teacher();
-private:
-	static int numberInstance_;
 protected:
 	vector<Course*> courseToGive_;
 	vector<Skill*> skill_;
@@ -280,8 +246,6 @@ public:
 	void display();
 	string stringForWriteFile();
 	~Hybrid();
-private:
-	static int numberInstance_;
 };
 
 
@@ -319,5 +283,7 @@ public:
 	static void makeMenu(vector<string> vect);
 	static void displayProgramStatistics();
 	static string getAlphaNumeric( string str ); 
+	static void cutStream ( string str , vector<string>& vectorString , char delimiter);
+	static void cutStream ( string str, string& strReturn, int &number );
 	~Treatment();
 };

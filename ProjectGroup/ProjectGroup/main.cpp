@@ -183,10 +183,6 @@ void main(){
 			School* schoolSelected;
 			schoolSelected = helha.displaySchoolForSelect();
 
-			
-
-		
-
 			do {
 
 				choiceMenuDirector = Display::menuDirector();
@@ -247,12 +243,15 @@ void main(){
 				// fire secretary
 				} else if ( choiceMenuDirector == 2 ){
 
+					Person* p = schoolSelected->displayPersonForSelect("secretary");
+					schoolSelected->delPerson(p);
 
 
 				// fire teacher
 				} else if ( choiceMenuDirector == 3 ){
 
-
+					Person* p = schoolSelected->displayPersonForSelect("teacher");
+					schoolSelected->delPerson(p);
 
 				// hire secretary
 				} else if ( choiceMenuDirector == 4 ){
@@ -377,7 +376,62 @@ void main(){
 		/********************************* START MENU SECRETARY *************************************/
 		} else if ( choiceMenuStart == 3 ){
 
-			Display::menuSecretary();
+			int choiceMenuSecretary = -1;
+
+			// select school to administrate
+			School* schoolSelected;
+			schoolSelected = helha.displaySchoolForSelect();
+
+			do {
+
+				do {
+					int choiceMenuSecretary = Display::menuSecretary();
+				} while ( Treatment::checkCinIntValidity(0,8,choiceMenuSecretary) );
+
+
+				// Add director
+				if ( choiceMenuSecretary == 1 ){
+					
+					Person* t = schoolSelected->getYourDirector();
+
+					if ( t != NULL ){
+
+						system("cls");
+						Display::instruction("UN DIRECTEUR EST DEJA PRESENT. MERCI DE LE MODIFIER.");
+						system("pause");
+
+					} else {
+						
+						//schoolSelected->addDirector();
+
+					}
+
+
+				// Modify director
+				} else if ( choiceMenuSecretary == 2 ){
+
+				// add list of student
+				} else if ( choiceMenuSecretary == 3 ){
+
+				// fire student
+				} else if ( choiceMenuSecretary == 4 ){
+
+				// course add
+				} else if ( choiceMenuSecretary == 5 ){
+
+				// course delete
+				} else if ( choiceMenuSecretary == 6 ){
+
+				// skill add
+				} else if ( choiceMenuSecretary == 7 ){
+
+				// skill del
+				} else if ( choiceMenuSecretary == 8 ){
+
+
+				}
+
+			} while ( choiceMenuSecretary > 0 );
 
 		/****************************** START MENU COMPUTER SCIENTIST  *****************************/
 		} else if ( choiceMenuStart == 4 ){
