@@ -1,5 +1,6 @@
                                          Don Bosco                                         Don Bosco
-                                              test                                      Jeanne D'Arc
+                                      Jeanne D'Arc                                              test
                                     Freres Mariste                                    Freres Mariste
                                    Freres Maristes                                   Freres Maristes
                                           nomEcole                                          nomEcole
+                                       Haute ecole                                Helha Informatique

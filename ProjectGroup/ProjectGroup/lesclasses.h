@@ -22,7 +22,8 @@ class School;
 /************************************/
 class Address {
 public:
-	Address( int boxnumber, int number, int postalCode, string street, string town );
+	Address( int boxnumber, int number, int postalCode,
+			 string street, string town );
 	string display();
 	static void displayNumberOfInstance();
 	string getAddressForStream();
@@ -273,7 +274,7 @@ public:
 
 
 /************************************/
-/********  CLASS TREATEMENT *********/
+/********  CLASS TREATMENT *********/
 /************************************/
 class Treatment{
 public:

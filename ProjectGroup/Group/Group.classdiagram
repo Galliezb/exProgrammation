@@ -384,12 +384,12 @@
             <classMoniker Id="86589014-f02c-4586-a1db-12924e8a6703" LastKnownName="Address" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="284cfda8-79b4-43df-805b-baff81e6c7e5" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                <memberEnd Id="284cfda8-79b4-43df-805b-baff81e6c7e5" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
                   <elementDefinition Id="1db0de1e-7c3a-491c-b258-881a2626b1e0" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="d0c86d99-36ea-48eb-bdf7-657b1a6af4fa" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                <memberEnd Id="d0c86d99-36ea-48eb-bdf7-657b1a6af4fa" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                   <elementDefinition Id="3f0d6e3b-f16a-402a-aeba-527941b118cb" />
                 </memberEnd>
               </associationHasOwnedEnds>

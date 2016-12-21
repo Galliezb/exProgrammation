@@ -84,6 +84,22 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="584452cf-d512-47b1-9c18-addcea8d7200" />
           </association>
+          <association Id="f229f614-9ff4-4cc5-96a4-019bc4ab40fa" isDerived="false" sourceEndRoleName="Directeur" targetEndRoleName="Afficher les personnes" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="671f5b17-2e00-47d0-a415-10ee29755d50" LastKnownName="Afficher les personnes" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b5bdfd11-f70f-4edd-b349-b3d03e9068c4" name="Directeur" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="cc1633f2-077d-466d-bc43-de9583d49257" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c2fc0240-52f2-405a-a9ea-26b5f7f9e143" name="Afficher les personnes" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="16b1c069-ac51-43ba-aebb-0033600981fa" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c4cb0903-ec33-482a-8765-7e7dac4694ee" />
+          </association>
         </targetEnds>
       </actor>
     </useCaseModelRootHasTypes>
@@ -98,7 +114,7 @@
         </suppliersInternal>
         <targetEnds>
           <association Id="b426a9f7-b952-457b-89b6-15811de811a3" isDerived="false" sourceEndRoleName="secrétaire" targetEndRoleName="Gérer les étudiants inscrits" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="bd6aabb4-396b-44cd-9de4-4bfa6a967b2c" LastKnownName="Inscrire les étudiants" />
+            <useCaseMoniker Id="bd6aabb4-396b-44cd-9de4-4bfa6a967b2c" LastKnownName="Ajouter un directeur" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="39ccfc37-fe93-452e-8cd1-8891f59a5e4a" name="secrétaire" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -114,7 +130,7 @@
             <elementDefinition Id="838992ec-df99-47d4-b16a-2bd4d72a83d0" />
           </association>
           <association Id="b9d64ff8-f6e7-40f2-81dc-1b28f282d4a6" isDerived="false" sourceEndRoleName="secrétaire" targetEndRoleName="désinscrire les étudiants" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="08610e44-261d-40c5-93da-e3463894c2e3" LastKnownName="désinscrire les étudiants" />
+            <useCaseMoniker Id="08610e44-261d-40c5-93da-e3463894c2e3" LastKnownName="Ajouter une liste de personnes" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="e76775a9-aa16-4bc7-b328-a4084c016ad1" name="secrétaire" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -129,37 +145,37 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="b337d497-63a8-4014-93ba-bd2047baf5e3" />
           </association>
-          <association Id="76fe979f-80c8-466e-bded-105befb572fb" isDerived="false" sourceEndRoleName="secrétaire" targetEndRoleName="Ajouter un batiment" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="4b081a34-3b5d-4ba4-a54e-8a196122ef27" LastKnownName="Gérer les batiments" />
+          <association Id="f3d76435-3103-4e04-a9a4-720d694a37fa" isDerived="false" sourceEndRoleName="secrétaire" targetEndRoleName="Modifier les infos du directeur" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="b12079f9-104f-4a3f-907a-ad530cfdb82f" LastKnownName="Modifier les infos du directeur" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="49d3f5e4-4294-4886-934b-026f55ecef36" name="secrétaire" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="838ae367-3ef8-473f-b945-0ba87413900b" />
+                <memberEnd Id="9f2ba4ac-4e20-4f57-ae85-55c9f6d389a5" name="secrétaire" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="48f54b43-998c-4977-b0f1-c87c536d905a" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="ba659c69-0aba-4017-ae9c-1d3859265402" name="Ajouter un batiment" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="661a24df-9d3e-4426-ac06-b038e4e2df62" />
+                <memberEnd Id="711df75c-4133-47f4-930e-67288073eced" name="Modifier les infos du directeur" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="88f8466d-3b9e-4784-87b5-81300825a806" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="e11be898-dca6-492f-97f8-8df2a1b93452" />
+            <elementDefinition Id="decdf2e0-f2af-4e3f-878e-f8fdf6b145e3" />
           </association>
-          <association Id="3f3bc620-1842-4a2b-8b0a-ff0cbd30e172" isDerived="false" sourceEndRoleName="secrétaire" targetEndRoleName="Ajouter un cours" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="83e540c6-7c97-49dd-818b-7ca7e98295ec" LastKnownName="Gérer le planning de cours" />
+          <association Id="ba6b4f4a-c95d-4c93-9543-1527267ea65f" isDerived="false" sourceEndRoleName="secrétaire" targetEndRoleName="Afficher les informations d'une personne" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="08e8ea04-7c65-46bb-bb52-e2400246ee12" LastKnownName="Afficher les informations d'une personne" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="4ad1e30f-ea65-4729-824b-9d7c2845d567" name="secrétaire" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="211dee10-c1dd-40e3-9e97-e9a8a172558a" />
+                <memberEnd Id="4905e459-37f5-4507-9810-5040232b07f2" name="secrétaire" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="fcc69b63-7ed2-4273-b4ff-3daa3812355b" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="57b12798-c6a8-4cca-8210-ec186caaf44b" name="Ajouter un cours" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="ef2bdc1c-8255-4386-966a-08a84d9f2aef" />
+                <memberEnd Id="9476a2dc-c858-48ad-9423-8e13c21405a8" name="Afficher les informations d'une personne" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3abe49ad-1ee6-43b2-8f3b-ecb931519910" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="e4ce78b9-e4e4-4b08-a04b-20d6e591d07b" />
+            <elementDefinition Id="fd4e2ff8-d6c4-4696-a579-76ace6d589fa" />
           </association>
         </targetEnds>
       </actor>
@@ -189,12 +205,12 @@
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <useCase Id="bd6aabb4-396b-44cd-9de4-4bfa6a967b2c" name="Inscrire les étudiants" isAbstract="false" isLeaf="false">
+      <useCase Id="bd6aabb4-396b-44cd-9de4-4bfa6a967b2c" name="Ajouter un directeur" isAbstract="false" isLeaf="false">
         <elementDefinition Id="45db341b-a283-4eb4-b54f-52405d9bfe66" />
         <additions>
-          <include Id="8355e27f-7362-4edc-a65b-3f3443e4459c">
-            <useCaseMoniker Id="892bd8be-1df5-4df2-b5fb-9e6100eeb868" LastKnownName="En ordre administrativement" />
-            <elementDefinition Id="f335a1c9-e96a-44b6-adc3-0732f7239578" />
+          <include Id="1d5167a3-588f-4649-af14-baef5f81d336">
+            <useCaseMoniker Id="892bd8be-1df5-4df2-b5fb-9e6100eeb868" LastKnownName="Si aucun directeur présent" />
+            <elementDefinition Id="fb29fb7e-88a7-4dff-8994-61ff8ae59bb5" />
           </include>
         </additions>
         <subjects>
@@ -203,7 +219,7 @@
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <useCase Id="892bd8be-1df5-4df2-b5fb-9e6100eeb868" name="En ordre administrativement" isAbstract="false" isLeaf="false">
+      <useCase Id="892bd8be-1df5-4df2-b5fb-9e6100eeb868" name="Si aucun directeur présent" isAbstract="false" isLeaf="false">
         <elementDefinition Id="2eef3a83-598d-48df-b635-ebd7368227a6" />
         <subjects>
           <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
@@ -211,58 +227,8 @@
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <useCase Id="08610e44-261d-40c5-93da-e3463894c2e3" name="désinscrire les étudiants" isAbstract="false" isLeaf="false">
+      <useCase Id="08610e44-261d-40c5-93da-e3463894c2e3" name="Ajouter une liste de personnes" isAbstract="false" isLeaf="false">
         <elementDefinition Id="4d68e22e-09f6-4430-814b-f72b19f89cee" />
-        <additions>
-          <include Id="5e847e88-661e-4b8e-bdc9-84b69d776b72">
-            <useCaseMoniker Id="b87fa903-9959-47cc-a984-fa048398d561" LastKnownName="fin d'étude ou abandon" />
-            <elementDefinition Id="87cc9d10-d420-4550-9f4e-16daf6244bad" />
-          </include>
-        </additions>
-        <subjects>
-          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="b87fa903-9959-47cc-a984-fa048398d561" name="fin d'étude ou abandon" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="a6f7dd6d-1001-4cae-86c0-83bed2f83c7f" />
-        <subjects>
-          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="4b081a34-3b5d-4ba4-a54e-8a196122ef27" name="Gérer les batiments" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="ffeb2ce0-6e1e-445d-8853-c808c4817882" />
-        <extendedCases>
-          <extend Id="7c54f4e5-c801-43f7-9cd4-4f8c00dc88d8">
-            <useCaseMoniker Id="2c0e233d-733c-4327-b88e-bde5f33f8e4f" LastKnownName="Gérer les classes" />
-            <elementDefinition Id="919be910-b7c0-44d3-bb4e-2b1e41e750de" />
-          </extend>
-        </extendedCases>
-        <subjects>
-          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="2c0e233d-733c-4327-b88e-bde5f33f8e4f" name="Gérer les classes" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="5f8230a5-edef-40dd-b3ed-3ac9d6c654d6" />
-        <extendedCases>
-          <extend Id="766da6e8-2aaa-4c92-a6e7-4fe9b9551177">
-            <useCaseMoniker Id="2bc74b42-03ca-4b6b-b10e-4f2f24e2cf60" LastKnownName="Allouer à un professeur" />
-            <elementDefinition Id="4190959a-0939-4b0d-9b4c-5d22b5f5e180" />
-          </extend>
-        </extendedCases>
-        <subjects>
-          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="83e540c6-7c97-49dd-818b-7ca7e98295ec" name="Gérer le planning de cours" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="618dd4ec-da8b-4779-a4c5-70469f453c26" />
         <subjects>
           <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
         </subjects>
@@ -295,14 +261,6 @@
     <packageHasNamedElement>
       <useCase Id="b929757a-88a2-4f57-a9fa-0e37ccc9c8c5" name="Supprimer" isAbstract="false" isLeaf="false">
         <elementDefinition Id="aa7cf454-5787-4b24-b830-5b6792d51bb4" />
-        <subjects>
-          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="2bc74b42-03ca-4b6b-b10e-4f2f24e2cf60" name="Allouer à un professeur" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="a38971f9-5254-452a-bf47-0465502ffa05" />
         <subjects>
           <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
         </subjects>
@@ -368,6 +326,44 @@
     <packageHasNamedElement>
       <useCase Id="90a9d221-7399-4469-aa84-20801f1a24b2" name="afficher etat du programme" isAbstract="false" isLeaf="false">
         <elementDefinition Id="8e81484a-992a-4d66-af41-cacb170d3273" />
+        <subjects>
+          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="b12079f9-104f-4a3f-907a-ad530cfdb82f" name="Modifier les infos du directeur" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f5a87abf-0763-4858-9c6d-bb2e3c6247ed" />
+        <subjects>
+          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="08e8ea04-7c65-46bb-bb52-e2400246ee12" name="Afficher les informations d'une personne" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="dc9c991b-192a-4d67-a74e-48378db44dbc" />
+        <subjects>
+          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="671f5b17-2e00-47d0-a415-10ee29755d50" name="Afficher les personnes" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fa406472-605c-4892-9e25-60efe354c0b0" />
+        <extendedCases>
+          <extend Id="e3a0f215-6bb3-4949-8241-35be3c1e0a8e">
+            <useCaseMoniker Id="f09b81db-b2b7-4fe0-a5f0-e86e9a7b2204" LastKnownName="par type" />
+            <elementDefinition Id="62ffdcec-4439-4ba7-8ecd-8cf114ef76ca" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="f09b81db-b2b7-4fe0-a5f0-e86e9a7b2204" name="par type" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f5dd60eb-4efa-4de3-ab11-5639576ea130" />
         <subjects>
           <subsystemMoniker Id="e6952812-07b8-476e-8e85-a76282b4e8a3" LastKnownName="Gestion du groupe" />
         </subjects>
