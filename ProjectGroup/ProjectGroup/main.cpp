@@ -47,7 +47,7 @@ void main(){
 				// register choiceMenuGroup
 				cin >> choiceMenuGroup;
 				// check validity and clean buffer
-				if ( !Treatment::checkCinIntValidity(0,5,choiceMenuGroup) ){
+				if ( !Treatment::checkCinIntValidity(0,6,choiceMenuGroup) ){
 					
 					// default for restart START MENU GROUP
 					choiceMenuGroup = -1;
@@ -67,7 +67,7 @@ void main(){
 				/*********************************** ADD ADVISOR *************************************/
 				} else if ( choiceMenuGroup == 3 ) {
 					
-					string name , firstName , street , town , status , telephone , fax;
+					string name , firstName , street , town , telephone , fax;
 					int boxNumber , number , postalCode;
 
 					Display::instruction("ENTREZ LE NOM");
@@ -76,10 +76,6 @@ void main(){
 
 					Display::instruction("ENTREZ LE PRENOM");
 					getline( cin , firstName );
-
-
-					Display::instruction("ENTREZ LE STATUS");
-					getline( cin , status );
 
 
 					Display::instruction("ENTREZ LA RUE");
@@ -115,7 +111,7 @@ void main(){
 					getline( cin , fax );
 
 
-					helha.addAdvisor(name,firstName,boxNumber,number,postalCode,street,town,status,telephone,fax);
+					helha.addAdvisor(name,firstName,boxNumber,number,postalCode,street,town, string("advisor") ,telephone,fax);
 
 					system("cls");
 					Display::centerOutputString("NOUVEAU CONSEILLER ENREGISTRE");
@@ -191,6 +187,7 @@ void main(){
 				if ( choiceMenuDirector == 1 ){
 					
 					vector<string> menu;
+					menu.push_back( string("QUITTER") );
 					menu.push_back( string("TOUT LE MONDE") );
 					menu.push_back( string("DIRECTEUR") );
 					menu.push_back( string("SECRETAIRE") );
@@ -200,45 +197,56 @@ void main(){
 					menu.push_back( string("NOMBRE DE PERSONE PAR TYPE") );
 
 					int choiceUserPersonToDisplay = -1;
-					do{
 
-						Display::fillFullLine('-');
-						Display::centerOutputString("CHOISISSEZ QUI AFFICHER");
-						Display::fillFullLine('-');
+					do {
 
-						Treatment::makeMenu(menu);
-						Display::pauseAtBottom( 35-4-menu.size() );
+						do{
 
-						cin >> choiceUserPersonToDisplay;
+							Display::fillFullLine('-');
+							Display::centerOutputString("CHOISISSEZ QUI AFFICHER");
+							Display::fillFullLine('-');
+
+							Treatment::makeMenu(menu);
+							Display::pauseAtBottom( 35-4-menu.size() );
+
+							cin >> choiceUserPersonToDisplay;
 					
-					} while ( !Treatment::checkCinIntValidity( 0,6,choiceUserPersonToDisplay ) );
+						} while ( !Treatment::checkCinIntValidity( 0,7,choiceUserPersonToDisplay ) );
 
-					system("cls");
-					switch ( choiceUserPersonToDisplay ){
-						case 0 :
-							// display all
-							schoolSelected->displayPerson();
-						case 1 :
-							schoolSelected->displayPerson( string("director") );
-							break;
-						case 2 :
-							schoolSelected->displayPerson( string("secretary") );
-							break;
-						case 3 :
-							schoolSelected->displayPerson( string("teacher") );
-							break;
-						case 4 :
-							schoolSelected->displayPerson( string("student") );
-							break;
-						case 5 :
-							schoolSelected->displayPerson( string("hybrid") );
-							break;
-						case 6 :
-							// display statistics
-							schoolSelected->displayTotalPersonPerType();
-					}
-					system("pause");
-					system("cls");
+						system("cls");
+
+						switch ( choiceUserPersonToDisplay ){
+							case 1 :
+								// display all
+								schoolSelected->displayPerson();
+								break;
+							case 2 :
+								schoolSelected->displayPerson( string("director") );
+								break;
+							case 3 :
+								schoolSelected->displayPerson( string("secretary") );
+								break;
+							case 4 :
+								schoolSelected->displayPerson( string("teacher") );
+								break;
+							case 5 :
+								schoolSelected->displayPerson( string("student") );
+								break;
+							case 6 :
+								schoolSelected->displayPerson( string("hybrid") );
+								break;
+							case 7 :
+								// display statistics
+								schoolSelected->displayTotalPersonPerType();
+						}
+						
+						if ( choiceUserPersonToDisplay > 0 ){
+							system("pause");
+							system("cls");
+						}
+
+					} while ( choiceUserPersonToDisplay > 0 );
+
 
 				// fire secretary
 				} else if ( choiceMenuDirector == 2 ){
@@ -382,12 +390,15 @@ void main(){
 			School* schoolSelected;
 			schoolSelected = helha.displaySchoolForSelect();
 
+
+
 			do {
 
 				do {
-					int choiceMenuSecretary = Display::menuSecretary();
-				} while ( Treatment::checkCinIntValidity(0,8,choiceMenuSecretary) );
 
+					choiceMenuSecretary = Display::menuSecretary();
+
+				} while ( !Treatment::checkCinIntValidity(0,4,choiceMenuSecretary) );
 
 				// Add director
 				if ( choiceMenuSecretary == 1 ){
@@ -402,7 +413,7 @@ void main(){
 
 					} else {
 						
-						//schoolSelected->addDirector();
+						schoolSelected->addDirector(false);
 
 					}
 
@@ -410,33 +421,38 @@ void main(){
 				// Modify director
 				} else if ( choiceMenuSecretary == 2 ){
 
+					schoolSelected->addDirector(true);
+
 				// add list of student
 				} else if ( choiceMenuSecretary == 3 ){
+
+					Display::fillFullLine('-');
+					Display::centerOutputString("VEUILLER ENTRER LE NOM DU FICHIER A CHARGER + EXTENSION");
+					Display::fillFullLine('-');
+					Display::pauseAtBottom(31);
+
+					string tmpFileAccess;
+					getline(cin,tmpFileAccess);
+
+					schoolSelected->addPerson( tmpFileAccess );
 
 				// fire student
 				} else if ( choiceMenuSecretary == 4 ){
 
-				// course add
-				} else if ( choiceMenuSecretary == 5 ){
-
-				// course delete
-				} else if ( choiceMenuSecretary == 6 ){
-
-				// skill add
-				} else if ( choiceMenuSecretary == 7 ){
-
-				// skill del
-				} else if ( choiceMenuSecretary == 8 ){
-
+					Person* student = schoolSelected->displayPersonForSelect("");
+					system("cls");
+					student->display();
+					system("pause");
 
 				}
 
 			} while ( choiceMenuSecretary > 0 );
 
+
 		/****************************** START MENU COMPUTER SCIENTIST  *****************************/
 		} else if ( choiceMenuStart == 4 ){
 
-			Display::menuComputerScientist();
+			Display::statsComputerScientist();
 
 		}
 

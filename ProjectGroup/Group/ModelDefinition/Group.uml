@@ -586,13 +586,13 @@
                     <literalString
                       Id="d2a3c310-c5f7-4f6a-977f-22dc25fa87b8"
                       name="Lower"
-                      value="0" />
+                      value="1" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
                       Id="a008c8db-abe9-4f06-be7b-864ebb4f0243"
                       name="Upper"
-                      value="0" />
+                      value="1" />
                   </upperValueInternal>
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -894,6 +894,14 @@
           <operation
             Id="1f5a92a7-2325-48e1-8e4d-3e6aa17cdcbb"
             name="modifyDirector"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="cb4cc32a-6328-4261-828d-c8359755ad3b"
+            name="addPerson"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -1951,22 +1959,6 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation
-            Id="bb044b72-8d71-4ade-94e4-8225c98851be"
-            name="addSkill"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="f8c2219c-b5b2-4030-a1e0-31bf93fbf4d6"
-            name="delSkill"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -2371,22 +2363,6 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation
-            Id="2a9257dd-d029-43cc-86af-21a7fcdb9c16"
-            name="addCourseToFollow"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="d755cc0c-0ca3-4994-a8b8-2ff8d461fc20"
-            name="delCourseToFollow"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -2597,32 +2573,8 @@
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="75ba727c-4404-46fb-b359-3c9bc386214f"
-            name="addSkill"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="5e60e681-eaab-4eb2-a7a8-32aaaa945d2b"
-                  direction="Return" />
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation
             Id="91769775-883a-4544-8903-e86d45e1e073"
             name="~Teacher"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="f742f9be-57ce-4d72-aeed-db859ae367cc"
-            name="addCourseToGive"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -2652,16 +2604,32 @@
             </ownedParameters>
           </operation>
           <operation
-            Id="cc2c34fe-26ea-4b44-8cee-878f8e401c02"
-            name="delSkill"
+            Id="75005e45-bbef-40cf-9a2d-3f9e445dd210"
+            name="Teacher"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
           <operation
-            Id="f093b302-2772-4c1e-acfc-d215f1d01bef"
-            name="delCourseToGive"
+            Id="bcf3007b-8967-4ec6-8d21-a0bb589753c0"
+            name="display"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="b9cd1ad9-d8d8-458b-b4a6-f4a2f9cab06d"
+            name="addskill"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="f980a4d0-49ad-40c9-be1d-b8e70aa9e410"
+            name="addCourseToGive"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -2764,22 +2732,6 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation
-            Id="c9ff8603-9502-4705-878e-7a1ef6433384"
-            name="addCourseToGive"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="3b0aeb54-ce9c-4dac-8ad8-7ade1e5a5e02"
-            name="addCourseToFollow"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -3838,14 +3790,6 @@
           <operation
             Id="f8b4eb62-7787-4ec7-83c8-56bed15eb4cb"
             name="makeMenu"
-            isLeaf="false"
-            isStatic="true"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="37e5491e-542a-4086-ac80-0d7591931a75"
-            name="displayProgramStatistics"
             isLeaf="false"
             isStatic="true"
             isAbstract="false"

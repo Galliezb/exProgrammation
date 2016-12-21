@@ -225,12 +225,12 @@
               <associationHasOwnedEnds>
                 <memberEnd Id="f1dcfb47-0b94-4f33-8e2e-6cc4f2dcb41d" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false">
                   <lowerValueInternal>
-                    <literalString Id="54e441c9-a115-4bdb-a4dc-e6b26f834fab" name="Lower" value="0">
+                    <literalString Id="54e441c9-a115-4bdb-a4dc-e6b26f834fab" name="Lower" value="1">
                       <elementDefinition Id="d2a3c310-c5f7-4f6a-977f-22dc25fa87b8" />
                     </literalString>
                   </lowerValueInternal>
                   <upperValueInternal>
-                    <literalString Id="2261615c-d0fd-4611-9196-d4f4e83af2e7" name="Upper" value="0">
+                    <literalString Id="2261615c-d0fd-4611-9196-d4f4e83af2e7" name="Upper" value="1">
                       <elementDefinition Id="a008c8db-abe9-4f06-be7b-864ebb4f0243" />
                     </literalString>
                   </upperValueInternal>
@@ -369,6 +369,9 @@
           </operation>
           <operation Id="104e0e58-b8e2-401b-a6e0-6a94b8a7bc8c" name="modifyDirector" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="1f5a92a7-2325-48e1-8e4d-3e6aa17cdcbb" />
+          </operation>
+          <operation Id="e57485d7-ad24-4244-a63b-92a16ed9b2e8" name="addPerson" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cb4cc32a-6328-4261-828d-c8359755ad3b" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -707,12 +710,6 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="034618d1-b06e-4b87-9bc9-0d952676eaf6" name="addSkill" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="bb044b72-8d71-4ade-94e4-8225c98851be" />
-          </operation>
-          <operation Id="ebabc797-2d3a-4274-94ff-77942424788e" name="delSkill" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="f8c2219c-b5b2-4030-a1e0-31bf93fbf4d6" />
-          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -894,12 +891,6 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="7448001d-04a8-41bf-bd70-8271c8e6ba77" name="addCourseToFollow" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="2a9257dd-d029-43cc-86af-21a7fcdb9c16" />
-          </operation>
-          <operation Id="fb0c1154-68c5-46bf-b7e4-8cf992d737b8" name="delCourseToFollow" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="d755cc0c-0ca3-4994-a8b8-2ff8d461fc20" />
-          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -1017,21 +1008,8 @@
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="58129e35-d00e-4360-ae1b-04151f366fb8" name="addSkill" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="75ba727c-4404-46fb-b359-3c9bc386214f" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="ded93c85-8dc9-4b98-b73c-80a49da38356" direction="Return">
-                  <elementDefinition Id="5e60e681-eaab-4eb2-a7a8-32aaaa945d2b" />
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
           <operation Id="9928b01c-4afa-4fd4-be6f-f9c128d805fd" name="~Teacher" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="91769775-883a-4544-8903-e86d45e1e073" />
-          </operation>
-          <operation Id="273acb6a-80b0-4d32-844c-8a08e664e4f0" name="addCourseToGive" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="f742f9be-57ce-4d72-aeed-db859ae367cc" />
           </operation>
           <operation Id="1731b9bd-272e-4661-9e3b-0c01a7ec729b" name="stringForWriteFile" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="56928765-fca9-46a2-a379-63752c9019d0" />
@@ -1046,11 +1024,17 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="81b1f499-e702-41c1-80b6-5da8080d3881" name="delSkill" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="cc2c34fe-26ea-4b44-8cee-878f8e401c02" />
+          <operation Id="8ea4f1bb-4b58-4849-b276-47959df1352e" name="Teacher" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="75005e45-bbef-40cf-9a2d-3f9e445dd210" />
           </operation>
-          <operation Id="9a12f07b-83bb-4e34-bf60-81e3d9c8e74c" name="delCourseToGive" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="f093b302-2772-4c1e-acfc-d215f1d01bef" />
+          <operation Id="cff88ca2-d23d-49ee-acdc-0be688e22fae" name="display" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="bcf3007b-8967-4ec6-8d21-a0bb589753c0" />
+          </operation>
+          <operation Id="f948a376-7f0d-4638-8ba4-44aa0f9dda75" name="addskill" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b9cd1ad9-d8d8-458b-b4a6-f4a2f9cab06d" />
+          </operation>
+          <operation Id="fef4d80d-1aa7-4740-bec5-ff606c403a48" name="addCourseToGive" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f980a4d0-49ad-40c9-be1d-b8e70aa9e410" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -1103,12 +1087,6 @@
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
-          </operation>
-          <operation Id="972b9a4e-92b0-4d02-9d84-a61511cc280a" name="addCourseToGive" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="c9ff8603-9502-4705-878e-7a1ef6433384" />
-          </operation>
-          <operation Id="d3f53baa-9020-4ea9-a44f-d493093d5d5f" name="addCourseToFollow" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="3b0aeb54-ce9c-4dac-8ad8-7ade1e5a5e02" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -1257,9 +1235,6 @@
           </operation>
           <operation Id="c6f4b5b2-9147-47d6-a1a9-793bdce80275" name="makeMenu" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="f8b4eb62-7787-4ec7-83c8-56bed15eb4cb" />
-          </operation>
-          <operation Id="a442c9f2-eeaa-40b3-a580-76e9f3e6e6ba" name="displayProgramStatistics" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="37e5491e-542a-4086-ac80-0d7591931a75" />
           </operation>
           <operation Id="0d392066-c52b-4929-b14b-3203ab442ba0" name="checkCinIntValidity" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="65f6726c-7033-48de-b938-86509493cf9a" />

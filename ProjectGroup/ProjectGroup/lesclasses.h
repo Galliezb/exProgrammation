@@ -12,6 +12,7 @@ using namespace std;
 namespace fs = std::experimental::filesystem; 
 
 class Teacher;
+class Student;
 class Secretary;
 class Director;
 class School;
@@ -23,6 +24,7 @@ class Address {
 public:
 	Address( int boxnumber, int number, int postalCode, string street, string town );
 	string display();
+	static void displayNumberOfInstance();
 	string getAddressForStream();
 	~Address();
 private:
@@ -42,6 +44,7 @@ class Course{
 public:
 	Course( string entiteld , int hoursRequire );
 	string display();
+	static void displayNumberOfInstance();
 	string stringForWriteFile();
 	~Course();
 private:
@@ -59,6 +62,7 @@ class Person{
 public:
 	Person( string name , string firstName , int boxNumber , int number , int postalCode , string street , string town , string status );
 	virtual void display()=0;
+	static void displayNumberOfInstance();
 	string getFullName();
 	string getStatus();
 	virtual string stringForWriteFile()=0;
@@ -79,18 +83,19 @@ class School{
 public:
 	School();
 	School( string type , string name );
-	void delPerson(Person *p);
-	void displayCourses();
-	void displayDirector();
-	static void displayNumberInstance();
-	void displayPerson( string who = "" );
-	Person* displayPersonForSelect( string who = "" );
-	void displayStatistics();
-	void displayTotalPersonPerType();
-	void addDirector();
+	void addDirector(bool replace);
 	void addPerson(Teacher* t);
 	void addPerson(Secretary* s);
 	void addPerson(Director * d, bool replace);
+	void addPerson(Student * d);
+	void addPerson( string dirTolistOfStudent );
+	void delPerson(Person *p);
+	static void displayNumberOfInstance();
+	void displayDirector();
+	void displayPerson( string who = "" );
+	Person* displayPersonForSelect( string who = "" );
+	void displayTotalPersonPerType();
+
 	
 	string getNameAndStatus();
 	Person* getYourDirector();
@@ -134,6 +139,7 @@ public:
 	void delAdvisor( int numberOfLine );
 	void delSchool( int numberOfLine );
 	int displayAdvisorForDelete();
+	static void displayNumberOfInstance();
 	School* displaySchoolForSelect();
 	int displaySchoolForDelete();
 	void displayInfo();
@@ -157,6 +163,7 @@ private:
 class Skill{
 public:
 	Skill( string entiteld , int salaryBonus );
+	static void displayNumberOfInstance();
 	string stringForWriteFile();
 	void display();
 	~Skill();
@@ -174,7 +181,6 @@ class Director : public Person {
 public:
 	Director(string name, string firstName, int boxNumber, int number, int codePostal, string street, string town, string status );
 	void addSkill( string entiteld , int salaryBonus );
-	void delSkill();
 	void display();
 	string stringForWriteFile();
 	~Director();
@@ -204,7 +210,6 @@ class Student : virtual public Person{
 public:
 	Student( string name, string firstName, int percentageOfGlanding , int percentageOfSucces , int boxNumber, int number, int postalCode, string street, string town );
 	void addCourseToFollow( string entiteld , int hoursRequire );
-	void delCourseToFollow();
 	virtual void display();
 	virtual string stringForWriteFile();
 	~Student();
@@ -226,8 +231,6 @@ public:
 	virtual string stringForWriteFile();
 	void addCourseToGive( string entiteld , int hoursRequire );
 	void addSkill( string entiteld , int salaryBonus );
-	void delSkill( string entiteld );
-	void delCourseToGive( string entiteld );
 	~Teacher();
 protected:
 	vector<Course*> courseToGive_;
@@ -264,7 +267,7 @@ public:
 	static void menuGroup();
 	static int menuDirector();
 	static int menuSecretary();
-	static int menuComputerScientist();
+	static void statsComputerScientist();
 	static void pauseAtBottom(int cpt);
 	~Display();
 };
@@ -281,7 +284,6 @@ public:
 	static string deleteWhiteSpace( string str, int start, int end);
 	static void emptyBuffer();
 	static void makeMenu(vector<string> vect);
-	static void displayProgramStatistics();
 	static string getAlphaNumeric( string str ); 
 	static void cutStream ( string str , vector<string>& vectorString , char delimiter);
 	static void cutStream ( string str, string& strReturn, int &number );

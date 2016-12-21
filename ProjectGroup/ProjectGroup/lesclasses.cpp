@@ -47,6 +47,10 @@ string Address::display(){
 
 }
 
+void Address::displayNumberOfInstance(){
+	cout << "Nombre d'adresse : " << numberInstance_ << endl;
+}
+
 string Address::getAddressForStream(){
 	ostringstream stream;
 	stream	<< setw(50) << boxnumber_ 
@@ -179,7 +183,7 @@ int Display::menuDirector(){
 		// build menu
 		vector<string> vector;
 		vector.push_back( string("QUITTER") );
-		vector.push_back( string("AFFICHER LES EMPLOYES") );
+		vector.push_back( string("AFFICHER LES PERSONNES") );
 		vector.push_back( string("VIRER UNE SECRETAIRE") );
 		vector.push_back( string("VIRER UN PROFESSEUR") );
 		vector.push_back( string("EMBAUCHER UNE SECRETAIRE") );
@@ -215,12 +219,8 @@ int Display::menuSecretary(){
 	vector.push_back( string("QUITTER") );
 	vector.push_back( string("DIRECTEUR : AJOUTER") );
 	vector.push_back( string("DIRECTEUR : MODIFIER") );
-	vector.push_back( string("ETUDIANT : AJOUTER UNE LISTE") );
-	vector.push_back( string("ETUDIANT : VIRER") );
-	vector.push_back( string("COURS : AJOUTER") );
-	vector.push_back( string("COURS : SUPPRIMER") );
-	vector.push_back( string("COMPETENCE : AJOUTER") );
-	vector.push_back( string("COMPETENCE : SUPPRIMER") );
+	vector.push_back( string("AJOUTER UNE LISTE DE PERSONNES") );
+	vector.push_back( string("AFFICHER UNE PERSONNE") );
 	// push menu to build and display
 	Treatment::makeMenu(vector);
 	Display::pauseAtBottom(29-vector.size());
@@ -231,9 +231,7 @@ int Display::menuSecretary(){
 
 }
 
-int Display::menuComputerScientist(){
-
-	int valueReturn;
+void Display::statsComputerScientist(){
 
 	// clean console
 	system("cls");
@@ -244,16 +242,16 @@ int Display::menuComputerScientist(){
 	// space between title and menu
 	pauseAtBottom(2);
 
-	// build menu
-	vector<string> vector;
-	vector.push_back( string("QUITTER") );
-	// push menu to build and display
-	Treatment::makeMenu(vector);
-	Display::pauseAtBottom(28);
-
-	cin >> valueReturn;
-
-	return valueReturn;
+	
+	Address::displayNumberOfInstance();
+	Group::displayNumberOfInstance();
+	School::displayNumberOfInstance();
+	Course::displayNumberOfInstance();
+	Skill::displayNumberOfInstance();
+	Person::displayNumberOfInstance();
+	
+	Display::pauseAtBottom(29);
+	system("pause");
 
 }
 
@@ -496,7 +494,7 @@ void Group::regenerateFile( string nameTxtFile ){
 
 	if ( nameTxtFile == "fileSave/advisor.txt" ){
 		for each (Person *pers in advisor_){
-			f << pers->stringForWriteFile() << endl;
+			f << pers->stringForWriteFile();
 		}
 	} else if ( nameTxtFile == "fileSave/school.txt" ){
 		for each (School *sch in school_){
@@ -545,6 +543,10 @@ int Group::displayAdvisorForDelete(){
 	return numberToDelete;
 
 
+}
+
+void Group::displayNumberOfInstance(){
+	cout << "Nombre de Group : " << numberInstance_ << endl;
 }
 
 School* Group::displaySchoolForSelect(){
@@ -649,6 +651,10 @@ Person::Person( string name , string firstName , int boxNumber , int number , in
 	numberInstance_++;
 }
 
+void Person::displayNumberOfInstance(){
+	cout << "Nombre de personnes : " << numberInstance_ << endl;
+}
+
 string Person::getFullName(){
 	return string(firstName_ + " " + name_);
 }
@@ -737,24 +743,21 @@ void School::displayTotalPersonPerType(){
 	Display::pauseAtBottom(26);
 }
 
-void School::addDirector(){
+void School::addDirector(bool replace = false){
 
 	string name , firstName , street , town;
 	int boxNumber , number , postalCode;
 	bool goodOrRetry;
 
 	system("cls");
-	Display::fillFullLine('-');
-	Display::centerOutputString("VEUILLEZ ENTRER LE NOM");
-	Display::fillFullLine('-');
+	Display::instruction("VEUILLEZ ENTRER LE NOM");
 	getline( cin , name);
 
 	system("cls");
-	Display::fillFullLine('-');
-	Display::centerOutputString("VEUILLEZ ENTRER LE PRENOM");
-	Display::fillFullLine('-');
+	Display::instruction("VEUILLEZ ENTRER LE PRENOM");
 	getline( cin , firstName);
 
+	system("cls");
 	Display::instruction("ENTREZ LA RUE");
 	getline( cin , street );
 
@@ -780,12 +783,12 @@ void School::addDirector(){
 	} while ( !goodOrRetry );
 
 	Director* d = new Director( name, firstName, boxNumber, number, postalCode, street, town, string("director") );
-	addPerson( d , false);
+	addPerson( d , replace);
 
 	system("cls");
 	Display::instruction("NOUVEAU DIRECTEUR ENREGISTRE");
 	system("pause");
-
+	system("cls");
 
 }
 
@@ -815,17 +818,17 @@ void School::addPerson(Secretary * s){
 void School::addPerson(Director * d, bool replace=false){
 
 	// modifiy director = delete + new entry
-	
 	if ( replace ){
-
+		int i = 0;
 		for each (Person* pers in person_){
 			if ( pers->getStatus() == "director" ){
-				person_.erase( person_.begin() +1 );
+				person_.erase( person_.begin() + i );
+				break;
 			}
+			i++;
 		}
 
 	}
-	
 
 	// Secretary in save in Person vector
 	Person* p = d;
@@ -834,6 +837,15 @@ void School::addPerson(Director * d, bool replace=false){
 	// empty + rewrite file
 	regenerateFilePerson();
 
+
+}
+
+void School::addPerson(Student * d){
+
+	person_.push_back(d);
+
+	// empty + rewrite file
+	regenerateFilePerson();
 
 }
 
@@ -993,13 +1005,12 @@ void School::reloadFromFile(){
 
 				percentageOfGlanding = stoi(line.substr(150,50));
 				percentageOfSucces = stoi(line.substr(200,50));
-				seniority = stoi(line.substr(250,50));
-				boxNumber = stoi(line.substr(300,50));
-				number = stoi(line.substr(350,50));
-				postalCode = stoi(line.substr(400,50));
+				boxNumber = stoi(line.substr(250,50));
+				number = stoi(line.substr(300,50));
+				postalCode = stoi(line.substr(350,50));
 
 				street = Treatment::deleteWhiteSpace( line, 400, 50);
-				town = Treatment::deleteWhiteSpace( line, 300, 50);
+				town = Treatment::deleteWhiteSpace( line, 450, 50);
 
 				Student* s = new Student( name , firstName , percentageOfGlanding , percentageOfSucces , boxNumber , number , postalCode , street , town );
 
@@ -1027,8 +1038,8 @@ void School::reloadFromFile(){
 					}
 
 				}
-
-
+				// debug
+				// s->display();
 
 				// transform student in Person for the vector
 				Person* ps = s;
@@ -1115,10 +1126,10 @@ void School::reloadFromFile(){
 				firstName = Treatment::deleteWhiteSpace( line, 50, 50);
 				name = Treatment::deleteWhiteSpace( line, 100, 50);
 
-				hoursToDo = stoi(line.substr(150,50));
-				seniority = stoi(line.substr(200,50));
-				percentageOfGlanding = stoi(line.substr(250,50));
-				percentageOfSucces = stoi(line.substr(300,50));			
+				percentageOfGlanding = stoi(line.substr(150,50));
+				percentageOfSucces = stoi(line.substr(200,50));			
+				hoursToDo = stoi(line.substr(250,50));
+				seniority = stoi(line.substr(300,50));
 				boxNumber = stoi(line.substr(350,50));
 				number = stoi(line.substr(400,50));
 				postalCode = stoi(line.substr(450,50));
@@ -1358,6 +1369,7 @@ void Treatment::makeMenu(vector<string> vect){
 string Treatment::getAlphaNumeric(string str){
 
 	// replace all no alpha numeric character in string by _
+	// Credits : people from StackOverflow
 	for ( auto & c : str ) {
 		if ( ! isalnum( c ) ) c = '-';
 	}
@@ -1463,25 +1475,28 @@ Course::Course( string entiteld , int hoursRequire ){
 	entiteld_ = entiteld;
 	hoursRequire_ = hoursRequire;
 
+	numberInstance_++;
 }
 
 string Course::display(){
 
-	string ret;
-	ret += entiteld_;
-	ret += " ( ";
-	ret += hoursRequire_;
-	ret += " heures )";
+	stringstream ss;
+	ss << hoursRequire_;
 
+	string ret(entiteld_ + " ( " + ss.str() + " heures )" );
 	return ret;
+}
+
+void Course::displayNumberOfInstance(){
+	cout << "Nombre de cours : " << numberInstance_ << endl;
 }
 
 string Course::stringForWriteFile(){
 
-	string str('|' + entiteld_ + '&');
-	str += hoursRequire_;
+	ostringstream ss;
+	ss << '|' << entiteld_ << '&' << hoursRequire_;
 
-	return str;
+	return ss.str();
 
 }
 
@@ -1504,7 +1519,7 @@ void School::displayDirector(){
 }
 
 void School::displayPerson( string who ){
-
+	
 	for each(Person* pers in person_ ){
 
 		if ( pers->getStatus() == who || who == "" ){
@@ -1523,7 +1538,7 @@ Person* School::displayPersonForSelect(string who){
 	system("cls");
 
 	Display::fillFullLine('-');
-	Display::centerOutputString("CHOISSISSEZ LA PERSONNE A SUPPRIMER");
+	Display::centerOutputString("CHOISSISSEZ LA PERSONNE SVP");
 	Display::fillFullLine('-');
 	Display::pauseAtBottom(2);
 
@@ -1535,7 +1550,7 @@ Person* School::displayPersonForSelect(string who){
 
 	for each (Person *p in person_){
 
-		if ( p->getStatus() == who ){
+		if ( p->getStatus() == who || who == "" ){
 			// return string, and save for build menu
 			vectMenu.push_back( p->getFullName() );
 			// memory of index fore delete the good element
@@ -1554,7 +1569,7 @@ Person* School::displayPersonForSelect(string who){
 		goodOrRetry = Treatment::checkCinIntValidity(0,i,numberSelected);
 	} while ( !goodOrRetry );
 
-	// return the school for manipulation
+	// return the Person for manipulation
 	return person_[ vectMemory[numberSelected] ];
 
 }
@@ -1579,9 +1594,9 @@ void Teacher::display(){
 		s->display();
 	}
 	cout << endl;
-	cout << "Attribué aux cours suivant : " << endl;
+	cout << "Attribue aux cours suivant : " << endl;
 	for each (Course* c in courseToGive_){
-		c->display();
+		cout << c->display() << endl;
 	}
 }
 
@@ -1652,12 +1667,18 @@ Skill::Skill(string entiteld, int salaryBonus){
 
 }
 
+void Skill::displayNumberOfInstance(){
+
+	cout << "Nombre de competence : " << numberInstance_ << endl;
+
+}
+
 string Skill::stringForWriteFile(){
 
-	string str( "|" + entiteld_ + "&");
-	str += salaryBonus_ ;
+	ostringstream ss;
+	ss << "|" << entiteld_ << "&" << salaryBonus_;
 
-	return string();
+	return ss.str();
 }
 
 void Skill::display(){
@@ -1722,7 +1743,7 @@ void Student::addCourseToFollow( string entiteld , int hoursRequire ){
 
 	Course* c = new Course( entiteld , hoursRequire );
 	courseToFollow_.push_back(c);
-
+	
 }
 
 void Student::display(){
@@ -1732,9 +1753,10 @@ void Student::display(){
 	cout << "Adresse : \t\t" << address_.display() << endl;
 	cout << "% de glandage : " << percentageOfGlanding_ << "%" << endl;
 	cout << "% de reussite : " << percentageOfSucces_ << "%" << endl;
-
+	
+	cout << endl << "Cours suivie par l'etudiant : " << endl;
 	for each (Course* c in courseToFollow_){
-		c->display();
+		cout << c->display() << endl;
 	}
 
 }
@@ -1779,21 +1801,31 @@ void Hybrid::display(){
 	cout << "Nom : \t\t\t" << Person::name_ << endl;
 	cout << "Prenom : \t\t" << Person::firstName_ << endl;
 	cout << "Adresse : \t\t" << Person::address_.display() << endl;
+
+	cout << endl;
 	cout << "Prestation semaine : " << hoursToDo_ << endl;
 	cout << "Anciennete : " << seniority_ << endl;
+
+	cout << endl;
+	cout << "% de glandage : " << percentageOfGlanding_ << "%" << endl;
+	cout << "% de reussite : " << percentageOfSucces_ << "%" << endl;
+
 	cout << endl;
 	cout << "Competences possedees :" << endl;
 	for each (Skill* s in skill_){
 		s->display();
 	}
+
 	cout << endl;
 	cout << "Donne les cours suivant : " << endl;
 	for each (Course* c in courseToGive_){
-		c->display();
+		cout << c->display() << endl;
 	}
+
+	cout << endl;
 	cout << "Suit les cours suivant : " << endl;
 	for each (Course* c in courseToFollow_){
-		c->display();
+		cout << c->display() << endl;
 	}
 
 
@@ -1837,6 +1869,40 @@ string Hybrid::stringForWriteFile(){
 
 Hybrid::~Hybrid(){}
 
+void School::addPerson(string dirTolistOfStudent){
+
+	// file exists ?
+	if ( !fs::exists( "fileSave/" + dirTolistOfStudent ) ){
+	
+		Display::instruction("LE FICHIER N'EXISTE PAS");
+
+	} else {
+	
+		ofstream fileToWrite;
+		string filenameToWrite = "fileSave/person_school_" + Treatment::getAlphaNumeric(this->name_) + '_' + Treatment::getAlphaNumeric(this->type_) + ".txt";
+		// file append mode !
+		fileToWrite.open( filenameToWrite , ios::app);
+
+
+		// transfert lines from file to file
+		// no verification here !!!
+		ifstream fileToRead;
+		string filenameToRead = "fileSave/" + dirTolistOfStudent;
+		// file append mode !
+		fileToRead.open( filenameToRead );
+
+		string tmp;
+		while ( getline(fileToRead, tmp) ){
+			fileToWrite << tmp << endl;
+		}
+
+		Display::instruction("CHARGEMENT EFFECTUE. MERCI DE RELANCER LE PROGRAMME.");
+		system("pause");
+		exit(0);
+	}
+
+}
+
 void School::delPerson(Person * p){
 
 	int i=0;
@@ -1849,4 +1915,8 @@ void School::delPerson(Person * p){
 	person_.erase( person_.begin() + i );
 	regenerateFilePerson();
 
+}
+
+void School::displayNumberOfInstance(){
+	cout << "Nombre d'ecole : " << numberInstance_ << endl;
 }
