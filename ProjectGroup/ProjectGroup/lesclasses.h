@@ -95,8 +95,6 @@ public:
 	void displayPerson( string who = "" );
 	Person* displayPersonForSelect( string who = "" );
 	void displayTotalPersonPerType();
-
-	
 	string getNameAndStatus();
 	Person* getYourDirector();
 	string stringForWriteFile();
@@ -260,15 +258,15 @@ class Display{
 public:
 	Display();
 	static void centerOutputString( string str );
-	static void instruction( string str);
 	static void error();
 	static void fillFullLine( const char c);
-	static void menuStart();
+	static void instruction( string str);
 	static void menuGroup();
+	static void menuStart();
 	static int menuDirector();
 	static int menuSecretary();
-	static void statsComputerScientist();
 	static void pauseAtBottom(int cpt);
+	static void statsComputerScientist();
 	~Display();
 };
 
@@ -281,11 +279,11 @@ class Treatment{
 public:
 	Treatment();
 	static bool checkCinIntValidity(int min, int max, int valueToVerify);
+	static void cutStream ( string str , vector<string>& vectorString , char delimiter);
+	static void cutStream ( string str, string& strReturn, int &number );
 	static string deleteWhiteSpace( string str, int start, int end);
 	static void emptyBuffer();
 	static void makeMenu(vector<string> vect);
 	static string getAlphaNumeric( string str ); 
-	static void cutStream ( string str , vector<string>& vectorString , char delimiter);
-	static void cutStream ( string str, string& strReturn, int &number );
 	~Treatment();
 };

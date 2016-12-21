@@ -1421,6 +1421,7 @@ Director::Director(string name, string firstName, int boxNumber, int number, int
 		 :Person( name , firstName , boxNumber , number , codePostal , street , town , status){
 }
 
+
 void Director::addSkill( string entiteld , int salaryBonus ){
 
 	Skill* s = new Skill( entiteld , salaryBonus );

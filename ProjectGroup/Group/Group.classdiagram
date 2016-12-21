@@ -51,12 +51,12 @@
             <classMoniker Id="dc36abd5-a9ad-4923-8ac6-98289ebfc961" LastKnownName="Advisor" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="f507944e-b5a9-48b7-8529-5ab9f437e816" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                <memberEnd Id="f507944e-b5a9-48b7-8529-5ab9f437e816" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
                   <elementDefinition Id="980f1320-6477-41d1-8d11-98289ed27001" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="9e3a266b-4851-4c34-a6cf-bc93b75a0c7b" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                <memberEnd Id="9e3a266b-4851-4c34-a6cf-bc93b75a0c7b" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                   <lowerValueInternal>
                     <literalString Id="5e86753d-0327-4824-8316-eb36f9de6a77" name="Lower" value="3">
                       <elementDefinition Id="d95832d4-771a-4be5-9b8f-db47261de755" />
@@ -176,6 +176,12 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="77891919-7de7-4d9c-9f4b-daff20dfa6d5" name="displayNumberOfInstance" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d08ea0bb-3ddf-4305-aa87-5976352c0660" />
+          </operation>
+          <operation Id="b40cacab-caa9-4450-b7df-c29d11078475" name="displaySchool" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="938af6e5-43a5-41b4-826f-6f4e9d20ddeb" />
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -283,15 +289,6 @@
           <operation Id="eb93a96e-9f26-49fd-8b53-7e377e9621f3" name="displayTotalPersonPerType" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="1725f16a-26e6-47a7-976f-088becc66c59" />
           </operation>
-          <operation Id="2ee10e93-ffba-4eb2-84a4-3ab0dbc2f602" name="displayStatistics" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="66dce5c1-9e7e-4e1a-9241-9ae2ae84dd31" />
-          </operation>
-          <operation Id="1a218b66-94c4-4ea6-be69-d66bce5033fc" name="displayRooms" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="d3185681-e4de-44ba-898f-7bf615b7de29" />
-          </operation>
-          <operation Id="a77896ef-5e8d-4594-94b5-7c5a19834f5e" name="displayCourses" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="89c47a7a-6eb5-4ce7-9751-3e20ba8ec9d5" />
-          </operation>
           <operation Id="23322392-943e-4a78-9f87-f3d56840768b" name="School" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="47c8ec09-cb58-4f26-bc9a-aa84f9d0f784" />
           </operation>
@@ -330,20 +327,11 @@
                 <parameter Id="f0e11c60-fb37-4a62-a041-7cfdfeba81d8" direction="Return">
                   <elementDefinition Id="4720d297-322b-4ef3-9f44-b00e5f588f66" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="e14e10ae-56b6-4eca-8a98-620ce64421fc" LastKnownName="Director" />
+                    <referencedTypeMoniker Id="063db0eb-4147-484a-aff1-201cd70e2f83" LastKnownName="Person" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
-          </operation>
-          <operation Id="ef702bd0-815c-40fc-b1c0-ad4e8c6aba36" name="hire" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="55abf738-e5a6-427c-b569-26404c752a4c" />
-          </operation>
-          <operation Id="2e79c0f7-e3f3-45cf-af7e-27b7bf6010dd" name="fire" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="ff1c81af-3bcd-495d-b14f-fbea367be422" />
-          </operation>
-          <operation Id="40e57e12-74d6-46cb-a2fe-42283cf7e918" name="delRoomToTeacher" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="4e662220-c31e-4c26-942b-591cb9a2ff8e" />
           </operation>
           <operation Id="bf80e164-44df-42f9-af75-ded570a5277c" name="displayPersonForSelect" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="d925c588-b3a9-43bb-a9e2-dfb1633a924d" />
@@ -364,14 +352,11 @@
           <operation Id="0dc31408-ea50-4270-aa27-f5b565f25f31" name="addDirector" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="02912910-3680-46ed-836e-7003d3705a88" />
           </operation>
-          <operation Id="bb807234-dbea-47d5-9155-1aac669becdc" name="addListStudent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="e52ed483-bcf0-44f5-8bd8-7dca7fcaae18" />
-          </operation>
-          <operation Id="104e0e58-b8e2-401b-a6e0-6a94b8a7bc8c" name="modifyDirector" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="1f5a92a7-2325-48e1-8e4d-3e6aa17cdcbb" />
-          </operation>
           <operation Id="e57485d7-ad24-4244-a63b-92a16ed9b2e8" name="addPerson" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="cb4cc32a-6328-4261-828d-c8359755ad3b" />
+          </operation>
+          <operation Id="e659fcf4-28a9-447b-a454-c9e0906296a2" name="displayDirector" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8b4c579f-e9ef-4d86-8b8a-433498bc58d5" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -442,7 +427,7 @@
           <operation Id="7134a52c-54cf-4040-bcc5-133d508f74cd" name="Person" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="d44833d8-183a-43fd-886c-ec40247e8905" />
           </operation>
-          <operation Id="70a148e2-6e03-4952-8cb1-aed5fa03f661" name="~Person" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+          <operation Id="70a148e2-6e03-4952-8cb1-aed5fa03f661" name="~Person" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="e9f994c5-24ef-41c2-9450-e2cd8a29dac9" />
           </operation>
           <operation Id="ae8c624d-afd7-4821-90ff-d5abe95c5b3e" name="display" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
@@ -476,6 +461,9 @@
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
+          </operation>
+          <operation Id="a2567ec2-67c4-4095-9011-abebd7e44411" name="displayNumberOfInstance" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c8f414fe-113b-4d96-b2ac-879b934ee1e5" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -551,6 +539,9 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="7c061a85-6f8f-472e-be6a-bf7ee8280433" name="displayNumberOfInstance" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ed0964a6-86f2-47cc-88a1-b6f50c81e39c" />
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -588,12 +579,6 @@
             <elementDefinition Id="89ec2687-c544-474a-ae25-d5c7b2b14240" />
             <type_NamedElement>
               <referencedTypeMoniker Id="92909b8d-a4d0-4443-b32a-ceedc68f7fa4" LastKnownName="String" />
-            </type_NamedElement>
-          </property>
-          <property Id="0d34e5e1-d72a-4ec3-be2e-f1e3939dcc83" name="numberInstance_" visibility="Private" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="8dd17736-7088-4e0a-bd74-c921cbe3ede5" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="930bfc25-8581-4450-b345-45bfd0e09269" LastKnownName="Integer" />
             </type_NamedElement>
           </property>
           <property Id="05436994-478f-4aa6-98e4-e0d3b36f9968" name="telefoon_" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -682,14 +667,6 @@
             <elementDefinition Id="1b92ae1a-70a5-4c8e-89f8-898d14396e4f" />
           </association>
         </targetEnds>
-        <ownedAttributesInternal>
-          <property Id="40702ead-7fd6-40db-91ed-f52145b781dc" name="numberInstance_" visibility="Private" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="030577b1-c86d-49f5-9fcc-577a98455897" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="930bfc25-8581-4450-b345-45bfd0e09269" LastKnownName="Integer" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="040d0c2e-07c2-4ef6-bf71-734d022e02a2" name="~Director" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="8f91d638-967e-4f7f-baad-67cb03336cf2" />
@@ -710,6 +687,12 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="dfe3abf9-3968-4f17-9fb9-ff5991078799" name="Director" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9a34f989-4670-4fee-b9e5-9aa051608fac" />
+          </operation>
+          <operation Id="c2c755f3-5612-4dba-b9c6-a1be4d2dfc89" name="addSkill" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f9328cda-5aa8-464c-acd8-568fc7049d9d" />
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -727,12 +710,6 @@
             <elementDefinition Id="6262ede0-a11c-4448-af58-cbe1c07e08e0" />
             <type_NamedElement>
               <referencedTypeMoniker Id="6ac7440b-9ad7-4326-b7df-5f442f480ca6" LastKnownName="Integer" />
-            </type_NamedElement>
-          </property>
-          <property Id="587ba290-fcfd-4421-9eac-54d9541e0013" name="numberInstance_" visibility="Private" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="67e59c2e-54b5-494d-b0dd-bd5a22bfde2c" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="930bfc25-8581-4450-b345-45bfd0e09269" LastKnownName="Integer" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -808,6 +785,9 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="b93e4b27-b87e-4b35-8051-45335bd22d90" name="displayNumberOfInstance" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="decc2966-bddc-40d9-81fd-cc78abee6361" />
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -861,12 +841,6 @@
               <referencedTypeMoniker Id="8d53dac9-fa56-45f9-b3a0-0d4c40a777b2" LastKnownName="Integer" />
             </type_NamedElement>
           </property>
-          <property Id="1fe56e6c-ccef-466a-b004-bf730793bcb2" name="numberInstance_" visibility="Private" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="92e039dd-5c75-4842-b5ac-e3d53749f718" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="930bfc25-8581-4450-b345-45bfd0e09269" LastKnownName="Integer" />
-            </type_NamedElement>
-          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="1296830a-68f5-486c-ba1b-48fe6eb1a74e" name="Student" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -890,6 +864,9 @@
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
+          </operation>
+          <operation Id="fafa386b-fbe2-49e8-b003-eeb785a2b07d" name="addCourseToFollow" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="38f4d7ed-57d1-4d31-a011-f22066b5bcb8" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -1000,12 +977,6 @@
               <referencedTypeMoniker Id="667a9503-42e8-48b4-aba5-d6d1c900ba92" LastKnownName="Integer" />
             </type_NamedElement>
           </property>
-          <property Id="50851771-ce5f-450b-92be-a5c0634d8672" name="numberInstance_" visibility="Private" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="a112609a-2904-474d-989a-94d218ed57db" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="930bfc25-8581-4450-b345-45bfd0e09269" LastKnownName="Integer" />
-            </type_NamedElement>
-          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="9928b01c-4afa-4fd4-be6f-f9c128d805fd" name="~Teacher" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -1057,14 +1028,6 @@
             <elementDefinition Id="9b1a9bab-e0d5-4611-8092-412652776101" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property Id="111c5c46-a3c1-4888-bdfb-bddbc56ae04e" name="numberInstance_" visibility="Private" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="63416a73-060f-479f-a3a8-739f0fcd32a8" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="930bfc25-8581-4450-b345-45bfd0e09269" LastKnownName="Integer" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="1d205e41-2e56-4a06-9ca5-1165349725b4" name="Hybrid" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="7da46046-1a60-45fb-8e0b-a832bb4f82aa" />
@@ -1124,6 +1087,9 @@
           <operation Id="ab56d68c-9807-453c-86f0-ea07838de1c1" name="display" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="82d0a681-5515-40e8-9fe2-d83f69bfb92b" />
           </operation>
+          <operation Id="a8383704-a6d7-433d-bff4-02fecbe86f81" name="displayNumberOfInstance" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="fcf482bc-7377-4eb8-8a2f-e94e9aaef2fd" />
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -1176,13 +1142,7 @@
       <class Id="5ffc344f-8136-4d96-a71d-e15f84bee3dd" name="Display" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="ed5a549e-cfbf-4e1a-a5e5-707473dd124d" />
         <ownedOperationsInternal>
-          <operation Id="9280a79a-1e57-4904-b896-4fb3c21f0c4e" name="menuStart" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="2033bf8d-39e2-4b15-bbab-afd2e154e735" />
-          </operation>
-          <operation Id="858f31b4-a77c-4921-a481-5ccafca9303b" name="Display" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="9f8e7a01-94a1-4b77-a594-a96bf7daa71d" />
-          </operation>
-          <operation Id="d00c3ec0-e059-4649-abc3-d5b2d2269274" name="~Display" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="d00c3ec0-e059-4649-abc3-d5b2d2269274" name="~Display" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="a1899c5f-a6f9-4674-9eeb-c7b8d90ee927" />
           </operation>
           <operation Id="02940fbd-a493-4829-badd-14c6f6038845" name="pauseAtBottom" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -1197,31 +1157,26 @@
           <operation Id="decd017c-2108-4eb0-855a-5de1c80e1f1f" name="centerOutputString" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="6047d105-8f04-474f-9066-56c05f4c4a94" />
           </operation>
-          <operation Id="2ad909ac-2a10-41b6-adac-7b9c9fda33e0" name="deleteWhiteSpace" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="c8aac24e-9d33-40fa-9a8f-1ec5099effdd" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="97a0938d-164f-4494-896c-b3f5cd118ab3" direction="Return" isUnique="false">
-                  <elementDefinition Id="ad8e2b50-1bb6-4013-87da-513052921ba9" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="40ca066e-bd5a-4d15-aa76-2b3572172f69" LastKnownName="String" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
           <operation Id="5ee2199c-3128-42c8-9da4-4592d808c243" name="instruction" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="335a15bb-13c4-45b1-a634-54223aed7e0e" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="53cb4f68-0a41-4f89-86dd-2731fd534373" direction="Return" isUnique="false">
-                  <elementDefinition Id="18117f09-0ede-4832-ab98-57dc28f45b64" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="40ca066e-bd5a-4d15-aa76-2b3572172f69" LastKnownName="String" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
+          </operation>
+          <operation Id="4cd94abc-e4cd-40f1-b1cf-e028a9249c84" name="fillFullLine" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="875d6993-3aaa-43e2-bd6a-8d8f76d1a6e8" />
+          </operation>
+          <operation Id="6c5bf231-3e8a-467b-8518-ed1f4d3d14cb" name="menuStart" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="97ea0488-b634-45e3-a565-9b2b3f191cf3" />
+          </operation>
+          <operation Id="8798a8bc-1db2-481e-88dc-868eb05d905a" name="menuDirector" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b4903b42-323c-41a9-ac0d-e19ee3fc980b" />
+          </operation>
+          <operation Id="2452c2c0-f8dd-46a2-ad22-4e04c8b7c2e5" name="menuSecretary" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a3212ea4-0b80-4b6f-832e-2158fb2b2abf" />
+          </operation>
+          <operation Id="7b18fdb5-1184-4077-a16c-15d4be1cc532" name="statsComputerScientist" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="3a94698e-2619-48e7-a1cd-a29946256581" />
+          </operation>
+          <operation Id="85db4124-2a2b-4840-be59-07828fa3ecce" name="Display" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8349ed35-93ba-4dd3-afa1-340af212e97f" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -1232,6 +1187,16 @@
         <ownedOperationsInternal>
           <operation Id="36978fc8-755c-481e-94cb-96b2673f3d5a" name="deleteWhiteSpace" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="fd48a0c1-7ebd-4fee-bc15-e55a889384f9" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="872aa891-7547-4f19-a871-4863207743db" direction="Return">
+                  <elementDefinition Id="0a87c057-311a-42dc-80e2-14a4d42f536d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e9eecb77-522a-4098-ae3b-a25aa8136f4f" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="c6f4b5b2-9147-47d6-a1a9-793bdce80275" name="makeMenu" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="f8b4eb62-7787-4ec7-83c8-56bed15eb4cb" />
@@ -1257,6 +1222,19 @@
           </operation>
           <operation Id="e6d6f464-6d71-490d-b6ad-de764bcef45f" name="cutStream" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="9b0ae22b-3f06-460e-9968-cfa9e2d35674" />
+          </operation>
+          <operation Id="0d0f9a28-0c85-4481-bd2d-456e4a8a77d3" name="getAlphaNumeric" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="93b0948d-cd8a-470c-8e45-c96f95a33aa4" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f7a0722c-a089-4218-9f7b-86e125d3676b" direction="Return">
+                  <elementDefinition Id="c9a2ff49-1c9a-4c53-be7c-bce8a8bebba1" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e2543436-59ef-4c12-9977-c6f460c06dd0" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -1337,11 +1315,6 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="e14e10ae-56b6-4eca-8a98-620ce64421fc" name="Director" isAbstract="false" isLeaf="false" cachedFullName="Group::Director">
-        <elementDefinition Id="7d1931b4-ebc6-4298-8303-85d00e55bc56" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="4f7a0bbd-3483-45e8-aad3-03cc6d79e2c6" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
         <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
       </referencedType>
@@ -1359,6 +1332,21 @@
     <packageHasNamedElement>
       <referencedType Id="8dbb01e0-8db7-4fb1-8b09-36c6fd3f2a07" name="Person" isAbstract="false" isLeaf="false" cachedFullName="Group::Person">
         <elementDefinition Id="d5de4905-1bb2-41f8-9cd6-1327e1fa69d4" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="063db0eb-4147-484a-aff1-201cd70e2f83" name="Person" isAbstract="false" isLeaf="false" cachedFullName="Group::Person">
+        <elementDefinition Id="d5de4905-1bb2-41f8-9cd6-1327e1fa69d4" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="e9eecb77-522a-4098-ae3b-a25aa8136f4f" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="e2543436-59ef-4c12-9977-c6f460c06dd0" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
