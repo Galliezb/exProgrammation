@@ -20,6 +20,7 @@ namespace C_sharp_exercice {
             InitializeComponent();
             // no rezize dude !
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            // center
             this.StartPosition = FormStartPosition.CenterScreen;
 
             int widthBox = cbPays.Width;
@@ -29,6 +30,12 @@ namespace C_sharp_exercice {
 
             buOk.Text = "Test";
             buOk.Width = widthBox;
+
+
+        }
+
+        private void Autant_Pour_Moi () {
+
 
 
         }
@@ -130,6 +137,10 @@ namespace C_sharp_exercice {
             /*
             capitale = txtCapitale.Text.ToString();
             */
+        }
+
+        private void button1_Click ( object sender , EventArgs e ) {
+
         }
     }
 }

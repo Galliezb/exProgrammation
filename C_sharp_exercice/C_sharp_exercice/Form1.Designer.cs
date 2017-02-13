@@ -36,7 +36,12 @@
             this.tiHorloge = new System.Windows.Forms.Timer(this.components);
             this.lbErreur = new System.Windows.Forms.Label();
             this.lbHeure = new System.Windows.Forms.Label();
+            this.PUTAINEUREKA = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             ((System.ComponentModel.ISupportInitialize)(this.pbDrapeau)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -58,7 +63,6 @@
             // 
             // cbPays
             // 
-            resources.ApplyResources(this.cbPays, "cbPays");
             this.cbPays.AccessibleRole = System.Windows.Forms.AccessibleRole.ComboBox;
             this.cbPays.FormattingEnabled = true;
             this.cbPays.Items.AddRange(new object[] {
@@ -68,6 +72,7 @@
             resources.GetString("cbPays.Items3"),
             resources.GetString("cbPays.Items4"),
             resources.GetString("cbPays.Items5")});
+            resources.ApplyResources(this.cbPays, "cbPays");
             this.cbPays.Name = "cbPays";
             this.cbPays.TabStop = false;
             this.cbPays.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -80,8 +85,8 @@
             // 
             // buOk
             // 
-            resources.ApplyResources(this.buOk, "buOk");
             this.buOk.ForeColor = System.Drawing.Color.Red;
+            resources.ApplyResources(this.buOk, "buOk");
             this.buOk.Name = "buOk";
             this.buOk.UseVisualStyleBackColor = true;
             this.buOk.Click += new System.EventHandler(this.Form1_MouseOver);
@@ -94,8 +99,8 @@
             // 
             // lbDate
             // 
-            resources.ApplyResources(this.lbDate, "lbDate");
             this.lbDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.lbDate, "lbDate");
             this.lbDate.Name = "lbDate";
             // 
             // tiHorloge
@@ -109,15 +114,33 @@
             // 
             // lbHeure
             // 
-            resources.ApplyResources(this.lbHeure, "lbHeure");
             this.lbHeure.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.lbHeure, "lbHeure");
             this.lbHeure.Name = "lbHeure";
             this.lbHeure.Click += new System.EventHandler(this.lbHeure_Click);
+            // 
+            // PUTAINEUREKA
+            // 
+            resources.ApplyResources(this.PUTAINEUREKA, "PUTAINEUREKA");
+            this.PUTAINEUREKA.Name = "PUTAINEUREKA";
+            this.PUTAINEUREKA.UseVisualStyleBackColor = true;
+            this.PUTAINEUREKA.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // hScrollBar1
+            // 
+            resources.ApplyResources(this.hScrollBar1, "hScrollBar1");
+            this.hScrollBar1.Name = "hScrollBar1";
             // 
             // formPays
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.hScrollBar1);
+            this.Controls.Add(this.PUTAINEUREKA);
             this.Controls.Add(this.lbHeure);
             this.Controls.Add(this.lbErreur);
             this.Controls.Add(this.lbDate);
@@ -130,8 +153,8 @@
             this.Controls.Add(this.label1);
             this.Name = "formPays";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.MouseEnter += new System.EventHandler(this.Form1_MouseOver);
             ((System.ComponentModel.ISupportInitialize)(this.pbDrapeau)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,6 +173,10 @@
         private System.Windows.Forms.Timer tiHorloge;
         private System.Windows.Forms.Label lbErreur;
         private System.Windows.Forms.Label lbHeure;
+        private System.Windows.Forms.Button PUTAINEUREKA;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.HScrollBar hScrollBar1;
     }
 }
 

@@ -121,8 +121,15 @@
     <value>lbPays</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 41</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 17</value>
+    <value>39, 13</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Pays : </value>
@@ -130,8 +137,14 @@
   <data name="label2.AccessibleName" xml:space="preserve">
     <value>lbCapitale</value>
   </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 66</value>
+  </data>
+  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 17</value>
+    <value>54, 13</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Capitale : </value>
@@ -142,8 +155,14 @@
   <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial Narrow, 9pt</value>
   </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 90</value>
+  </data>
+  <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 20</value>
+    <value>119, 16</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Valider en  appuyant sur : </value>
@@ -152,28 +171,37 @@
     <value>cbPays</value>
   </data>
   <data name="cbPays.Location" type="System.Drawing.Point, System.Drawing">
-    <value>217, 50</value>
+    <value>163, 41</value>
+  </data>
+  <data name="cbPays.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="cbPays.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 24</value>
+    <value>92, 21</value>
   </data>
   <data name="cbPays.Text" xml:space="preserve">
     <value>Allemagne</value>
   </data>
   <data name="txtCapitale.Location" type="System.Drawing.Point, System.Drawing">
-    <value>217, 81</value>
+    <value>163, 66</value>
+  </data>
+  <data name="txtCapitale.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="txtCapitale.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 22</value>
+    <value>92, 20</value>
   </data>
   <data name="buOk.AccessibleName" xml:space="preserve">
     <value>lbBouton</value>
   </data>
   <data name="buOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>217, 111</value>
+    <value>163, 90</value>
+  </data>
+  <data name="buOk.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="buOk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 23</value>
+    <value>91, 19</value>
   </data>
   <data name="buOk.Text" xml:space="preserve">
     <value>Envoyer</value>
@@ -181,10 +209,15 @@
   <data name="pbDrapeau.AccessibleName" xml:space="preserve">
     <value>pbDrapeau</value>
   </data>
-  <data name="pbDrapeau.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 90</value>
+  <data name="pbDrapeau.Location" type="System.Drawing.Point, System.Drawing">
+    <value>43, 150</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pbDrapeau.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="pbDrapeau.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 73</value>
+  </data>
   <data name="pbDrapeau.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
   </data>
@@ -195,8 +228,14 @@
   <data name="lbDate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="lbDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 238</value>
+  </data>
+  <data name="lbDate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
   <data name="lbDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>2, 19</value>
+    <value>2, 15</value>
   </data>
   <data name="lbErreur.AccessibleName" xml:space="preserve">
     <value>lbValeur</value>
@@ -204,8 +243,14 @@
   <data name="lbErreur.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="lbErreur.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 114</value>
+  </data>
+  <data name="lbErreur.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
   <data name="lbErreur.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 17</value>
+    <value>35, 13</value>
   </data>
   <data name="lbErreur.Text" xml:space="preserve">
     <value>label4</value>
@@ -216,8 +261,14 @@
   <data name="lbHeure.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="lbHeure.Location" type="System.Drawing.Point, System.Drawing">
+    <value>113, 238</value>
+  </data>
+  <data name="lbHeure.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
   <data name="lbHeure.Size" type="System.Drawing.Size, System.Drawing">
-    <value>2, 19</value>
+    <value>2, 15</value>
   </data>
   <data name="$this.AccessibleDescription" xml:space="preserve">
     <value>cbPays</value>
@@ -225,8 +276,11 @@
   <data name="$this.AccessibleName" xml:space="preserve">
     <value>cbPays</value>
   </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>354, 327</value>
+    <value>266, 422</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Information sur les pays</value>
