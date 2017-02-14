@@ -5,131 +5,129 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
-namespace C_sharp_exercice {
+namespace WindowsFormsApplication1 {
+    public partial class frInfoPays : Form {
+        string pays, capitale;
+        string[] tcapitale;
+        int cpt;
+        int sec;
 
-    public partial class formPays : Form {
-
-        //string[] tCapitale = { "Berlin" , "Brussel" , "Paris" };
-        //string capitale, pays;
-        //int cpt = 0;
-
-        public formPays () {
+        public frInfoPays () {
             InitializeComponent();
+            /*
             // no rezize dude !
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            // center
             this.StartPosition = FormStartPosition.CenterScreen;
-
-            int widthBox = cbPays.Width;
-
-                
-            txtCapitale.Width = widthBox;
-
-            buOk.Text = "Test";
-            buOk.Width = widthBox;
-
-
-        }
-
-        private void Form1_MouseOver( object sender, EventArgs e) {
-
-            int newX, newY, sizeScreenMaxX, sizeScreenMaxY;
-
-            sizeScreenMaxX = Screen.PrimaryScreen.Bounds.Width;
-            sizeScreenMaxY = Screen.PrimaryScreen.Bounds.Height;
-
-            if ( this.Location.X < sizeScreenMaxX/2 ) {
-                newX = new Random().Next( sizeScreenMaxX/2, sizeScreenMaxX - 375 );
-            } else {
-                newX = new Random().Next( 0 , sizeScreenMaxX / 2 - 375 );
-            }
-
-            if ( this.Location.Y < sizeScreenMaxY / 2 ) {
-                newY = new Random().Next( sizeScreenMaxY/2 , sizeScreenMaxY-375 );
-            } else {
-                newY = new Random().Next( 0 , sizeScreenMaxY / 2 - 375 );
-            }
-
-            this.Location = new Point(newX,newY);
-            //lbDate.Text = this.Location.X.ToString() + " / " + this.Location.Y.ToString();
-            //lbHeure.Text = newX.ToString() + " / " + newY.ToString();
-
-        }
-
-        private void Form1_Load ( object sender , EventArgs e ) {
-
-            //buOk.BackColor = Color.Blue;
-            //buOk.ForeColor = Color.Red;
-            //label
-
-            //int pos;
-            //tCapitale = new string[10];
-            //tCapitale[]
-            //cbPays[]
-
-        }
-
-        private void label1_Click ( object sender , EventArgs e ) {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged ( object sender , EventArgs e ) {
-            /*
-            pays = cbPays.SelectedItem.ToString();
-            capitale = tCapitale[cbPays.SelectedIndex];
-            pbDrapeau.Image = null;
-            lbErreur.Text = "TXT qu'on souhaite";
             */
         }
 
-        private void tiHorloge_Tick ( object sender , EventArgs e ) {
-            /*
+        private void frInfoPays_Load ( object sender , EventArgs e ) {
+            this.CenterToScreen();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            int pos;
+            tcapitale = new string[10];
+            pos = cbPays.Items.Add( "Allemagne" );
+            tcapitale[pos] = "Berlin";
+            pos = cbPays.Items.Add( "Belgique" );
+            tcapitale[pos] = "Bruxelles";
+            pos = cbPays.Items.Add( "Chine" );
+            tcapitale[pos] = "Pékin";
+            pos = cbPays.Items.Add( "Egypte" );
+            tcapitale[pos] = "Le Caire";
+            pos = cbPays.Items.Add( "France" );
+            tcapitale[pos] = "Paris";
+            pos = cbPays.Items.Add( "Italie" );
+            tcapitale[pos] = "Rome";
+            pos = cbPays.Items.Add( "Maroc" );
+            tcapitale[pos] = "Rabat";
+            pos = cbPays.Items.Add( "Roumanie" );
+            tcapitale[pos] = "Bugarest";
+            pos = cbPays.Items.Add( "Rwanda" );
+            tcapitale[pos] = "Kigali";
+            //exercice 1 c
+            lbDateJour.ForeColor = Color.Green;
+            FontStyle style = FontStyle.Bold | FontStyle.Italic;
+            Font f = new Font( "Microsoft Sans Serif" , 14 , style );
+            lbDateJour.Font = f;
+            //afficher date et heure du jour
             DateTime dt;
             dt = DateTime.Now;
             string msg;
-            msg = "Date : " + dt.ToString();
-            lbDate.Text = msg;
-            */
+            msg = "Date " + dt.ToString( "d" );
+            lbDateJour.Text = msg;
+            msg = dt.ToString( "t" );
+            lbHeureCourante.Text = msg;
+
+            //exercice 1 b
+            btOK.ForeColor = Color.White;
+            btOK.BackColor = Color.Blue;
+
+            //exercice 1 e
+            sec = 0;
+            lbTempsEcoule.Text = sec.ToString();
+
+            //exercice 1 f)
+            cbPays.DropDownStyle = ComboBoxStyle.Simple;
         }
 
-        private void buOk_Click ( object sender , EventArgs e ) {
-            /*
+        private void tiHorloge_Tick ( object sender , EventArgs e ) {
+            string msg;
+            DateTime dt;
+            dt = DateTime.Now;
+            msg = dt.ToString( "t" );
+            lbHeureCourante.Text = msg;
+            //Exercice 1 e)
+            sec += 1;
+            lbTempsEcoule.Text = sec.ToString();
+        }
+
+        private void cbPays_SelectedIndexChanged ( object sender , EventArgs e ) {
+            pays = cbPays.SelectedItem.ToString();
+            capitale = tcapitale[cbPays.SelectedIndex];
+            pbDrapeau.Image = null;
+            lbErreur.Text = "";
+            cpt = 0;
+        }
+
+        private void btOK_Click ( object sender , EventArgs e ) {
             string nom;
             nom = pays + ".bmp";
             nom = nom.ToLower();
             lbErreur.Text = "";
-            if ( txtCapitale.Text != "" && txtCapitale.Text == capitale ) {
-                pbDrapeau.Image = Image.FromFile( Application.StartupPath+"\\drapeaux\\"+ nom );
-            } else {
-
-                if ( cpt == 1 ) {
-                    this.Close();
+            if ( ( txtCapitale.Text != "" ) && ( txtCapitale.Text == capitale ) ) {
+                nom = Application.StartupPath + "\\drapeaux\\" + nom;
+                if ( File.Exists( nom ) == true ) {
+                    pbDrapeau.Image = Image.FromFile( nom );
                 } else {
+                    MessageBox.Show( "Fichier n'existe pas!!" );
+                }
+            } else {
+                if ( cpt == 1 ) this.Close();
+                else {
                     lbErreur.ForeColor = Color.Red;
-                    lbErreur.Text = "Vous avez le droit a une deuxième réponse";
+                    lbErreur.Text = "Vous avez droit à une deuxième réponse";
                     txtCapitale.Focus();
                 }
-
+                cpt += 1;
             }
-            */
         }
 
-        private void lbHeure_Click ( object sender , EventArgs e ) {
-            /*
-            DateTime dt;
-            dt = DateTime.Now;
-            string msg;
-            msg = "Date : " + dt.ToString();
-            lbDate.Text = msg;
-            */
+        private void button1_Click ( object sender , EventArgs e ) {
+            txtCapitale.Text = "";
+            lbErreur.Text = "";
+            pbDrapeau.Image = null;
+            cbPays.Text = cbPays.Items[0].ToString();
         }
 
-        private void tbCapitale_TextChanged ( object sender , EventArgs e ) {
-            /*
-            capitale = txtCapitale.Text.ToString();
-            */
+        private void btChoisir_Click ( object sender , EventArgs e ) {
+            int ind;
+            Random rnd = new Random();
+            ind = rnd.Next( 0 , 9 );
+            txtCapitale.Text = tcapitale[ind];
         }
     }
 }
