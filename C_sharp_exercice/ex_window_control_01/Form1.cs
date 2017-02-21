@@ -12,6 +12,12 @@ namespace ex_window_control_01 {
     public partial class Form1 : Form {
         public Form1 () {
             InitializeComponent();
+            if ( System.IO.File.Exists( "./ex_window_control_01.txt" ) ) {
+
+                lbOuvrirFichier.Enabled = Enabled;
+
+            }
+
         }
 
         private void txtLitre_MaskInputRejected ( object sender , MaskInputRejectedEventArgs e ) {
@@ -85,11 +91,15 @@ namespace ex_window_control_01 {
 
         private void sauver_Click ( object sender , EventArgs e ) {
 
-            string[] lines = txtSave.Lines;
-            txtSave.SaveFile( "C:\\Bruno\\exProgrammation\\C_sharp_exercice\\ex_window_control_01.txt" );
+            txtSave.SaveFile( "./ex_window_control_01.txt" );
 
-            this.lbOuvrirFichier.Enabled = Enabled;
-            this.lbOuvrirFichier.DataBindings
+        }
+
+        private void lbOuvrirFichier_LinkClicked ( object sender , LinkLabelLinkClickedEventArgs e ) {
+            txtSave.LoadFile( "./ex_window_control_01.txt" );
+        }
+
+        private void Form1_Load ( object sender , EventArgs e ) {
 
         }
     }
