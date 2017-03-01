@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Globalization;
 
 namespace WindowsFormsApplication1 {
     public partial class frInfoPays : Form {
@@ -78,8 +79,12 @@ namespace WindowsFormsApplication1 {
             string msg;
             DateTime dt;
             dt = DateTime.Now;
-            msg = dt.ToString( "t" );
+            msg = dt.ToString( "ty" );
             lbHeureCourante.Text = msg;
+            /*
+            CultureInfo arSY = new CultureInfo( "fr-FR" );
+            arSY.DateTimeFormat.Calendar = new GregorianCalendar();
+            */
             //Exercice 1 e)
             sec += 1;
             lbTempsEcoule.Text = sec.ToString();
@@ -121,6 +126,10 @@ namespace WindowsFormsApplication1 {
             lbErreur.Text = "";
             pbDrapeau.Image = null;
             cbPays.Text = cbPays.Items[0].ToString();
+        }
+
+        private void pbDrapeau_Click ( object sender , EventArgs e ) {
+
         }
 
         private void btChoisir_Click ( object sender , EventArgs e ) {

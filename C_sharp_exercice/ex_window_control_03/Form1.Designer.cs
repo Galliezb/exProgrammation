@@ -24,7 +24,6 @@
         /// </summary>
         private void InitializeComponent () {
             this.dudProduit = new System.Windows.Forms.DomainUpDown();
-            this.dudQuantite = new System.Windows.Forms.DomainUpDown();
             this.lbProduit = new System.Windows.Forms.Label();
             this.lbQuantite = new System.Windows.Forms.Label();
             this.buAjouter = new System.Windows.Forms.Button();
@@ -37,31 +36,25 @@
             this.lbGauche = new System.Windows.Forms.ListBox();
             this.lbDroite = new System.Windows.Forms.ListBox();
             this.cbMultiLigne = new System.Windows.Forms.CheckBox();
+            this.duQuantite = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.duQuantite)).BeginInit();
             this.SuspendLayout();
             // 
             // dudProduit
             // 
             this.dudProduit.Location = new System.Drawing.Point(338, 58);
             this.dudProduit.Name = "dudProduit";
-            this.dudProduit.Size = new System.Drawing.Size(120, 30);
+            this.dudProduit.Size = new System.Drawing.Size(120, 26);
             this.dudProduit.TabIndex = 0;
             this.dudProduit.Text = "domainUpDown1";
             this.dudProduit.SelectedItemChanged += new System.EventHandler(this.dudProduit_SelectedItemChanged);
-            // 
-            // dudQuantite
-            // 
-            this.dudQuantite.Location = new System.Drawing.Point(338, 126);
-            this.dudQuantite.Name = "dudQuantite";
-            this.dudQuantite.Size = new System.Drawing.Size(120, 30);
-            this.dudQuantite.TabIndex = 1;
-            this.dudQuantite.Text = "domainUpDown2";
             // 
             // lbProduit
             // 
             this.lbProduit.AutoSize = true;
             this.lbProduit.Location = new System.Drawing.Point(55, 70);
             this.lbProduit.Name = "lbProduit";
-            this.lbProduit.Size = new System.Drawing.Size(61, 24);
+            this.lbProduit.Size = new System.Drawing.Size(51, 20);
             this.lbProduit.TabIndex = 2;
             this.lbProduit.Text = "Produit";
             // 
@@ -70,7 +63,7 @@
             this.lbQuantite.AutoSize = true;
             this.lbQuantite.Location = new System.Drawing.Point(59, 138);
             this.lbQuantite.Name = "lbQuantite";
-            this.lbQuantite.Size = new System.Drawing.Size(72, 24);
+            this.lbQuantite.Size = new System.Drawing.Size(57, 20);
             this.lbQuantite.TabIndex = 3;
             this.lbQuantite.Text = "Quantité";
             // 
@@ -147,19 +140,20 @@
             // lbGauche
             // 
             this.lbGauche.FormattingEnabled = true;
-            this.lbGauche.ItemHeight = 24;
+            this.lbGauche.ItemHeight = 20;
             this.lbGauche.Location = new System.Drawing.Point(38, 349);
             this.lbGauche.Name = "lbGauche";
-            this.lbGauche.Size = new System.Drawing.Size(250, 340);
+            this.lbGauche.Size = new System.Drawing.Size(250, 324);
             this.lbGauche.TabIndex = 11;
+            this.lbGauche.SelectedIndexChanged += new System.EventHandler(this.lbGauche_SelectedIndexChanged);
             // 
             // lbDroite
             // 
             this.lbDroite.FormattingEnabled = true;
-            this.lbDroite.ItemHeight = 24;
+            this.lbDroite.ItemHeight = 20;
             this.lbDroite.Location = new System.Drawing.Point(463, 349);
             this.lbDroite.Name = "lbDroite";
-            this.lbDroite.Size = new System.Drawing.Size(250, 340);
+            this.lbDroite.Size = new System.Drawing.Size(250, 324);
             this.lbDroite.TabIndex = 12;
             // 
             // cbMultiLigne
@@ -167,17 +161,26 @@
             this.cbMultiLigne.AutoSize = true;
             this.cbMultiLigne.Location = new System.Drawing.Point(28, 711);
             this.cbMultiLigne.Name = "cbMultiLigne";
-            this.cbMultiLigne.Size = new System.Drawing.Size(242, 28);
+            this.cbMultiLigne.Size = new System.Drawing.Size(203, 24);
             this.cbMultiLigne.TabIndex = 13;
             this.cbMultiLigne.Text = "Autoriser la sélection multiple";
             this.cbMultiLigne.UseVisualStyleBackColor = true;
             this.cbMultiLigne.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // duQuantite
+            // 
+            this.duQuantite.Location = new System.Drawing.Point(338, 136);
+            this.duQuantite.Name = "duQuantite";
+            this.duQuantite.Size = new System.Drawing.Size(120, 26);
+            this.duQuantite.TabIndex = 14;
+            this.duQuantite.ValueChanged += new System.EventHandler(this.duQuantite_ValueChanged);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 744);
+            this.Controls.Add(this.duQuantite);
             this.Controls.Add(this.cbMultiLigne);
             this.Controls.Add(this.lbDroite);
             this.Controls.Add(this.lbGauche);
@@ -190,13 +193,13 @@
             this.Controls.Add(this.buAjouter);
             this.Controls.Add(this.lbQuantite);
             this.Controls.Add(this.lbProduit);
-            this.Controls.Add(this.dudQuantite);
             this.Controls.Add(this.dudProduit);
             this.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.duQuantite)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,7 +208,6 @@
         #endregion
 
         private System.Windows.Forms.DomainUpDown dudProduit;
-        private System.Windows.Forms.DomainUpDown dudQuantite;
         private System.Windows.Forms.Label lbProduit;
         private System.Windows.Forms.Label lbQuantite;
         private System.Windows.Forms.Button buAjouter;
@@ -218,6 +220,7 @@
         private System.Windows.Forms.ListBox lbGauche;
         private System.Windows.Forms.ListBox lbDroite;
         private System.Windows.Forms.CheckBox cbMultiLigne;
+        private System.Windows.Forms.NumericUpDown duQuantite;
     }
 }
 

@@ -18,14 +18,13 @@ namespace ex_window_control_03 {
             dudProduit.Items.Add( "Orange" );
             dudProduit.Sorted = true;
             dudProduit.SelectedItem = dudProduit.Items[0];
-
+            /*
             for ( int i = 10; i>0; i-- ) {
 
                 dudQuantite.Items.Add( i.ToString() );
 
-            }
-            dudQuantite.Sorted = false;
-            dudQuantite.SelectedIndex = 9;
+            }*/
+            duQuantite.Maximum= 10 ;
 
         }
 
@@ -55,7 +54,7 @@ namespace ex_window_control_03 {
 
         private void buAjouter_Click ( object sender , EventArgs e ) {
 
-            lbGauche.Items.Add( dudProduit.SelectedItem.ToString() + " ( " + dudQuantite.SelectedItem.ToString() + " ) " );
+            lbGauche.Items.Add( dudProduit.SelectedItem.ToString() + " ( " + duQuantite.Value + " ) " );
 
         }
 
@@ -128,11 +127,20 @@ namespace ex_window_control_03 {
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buToutDroite_Click ( object sender , EventArgs e ) {
-            if ( lbGauche.SelectedIndex > -1 ) {
-                lbDroite.Items.Add( lbGauche.Items.ToString() );
-                lbGauche.Items.Clear();
+
+            foreach ( string str in lbGauche.Items ) {
+
+                lbDroite.Items.Add( str );
+
             }
+
+            lbGauche.Items.Clear();
 
         }
 
@@ -144,10 +152,22 @@ namespace ex_window_control_03 {
         }
 
         private void buToutGauche_Click ( object sender , EventArgs e ) {
-            if ( lbDroite.SelectedIndex > -1 ) {
-                lbGauche.Items.Add( lbDroite.Items.ToString() );
-                lbDroite.Items.Clear();
+            foreach ( string str in lbDroite.Items ) {
+
+                lbGauche.Items.Add( str );
+
             }
+
+            lbDroite.Items.Clear();
+
+
+        }
+
+        private void lbGauche_SelectedIndexChanged ( object sender , EventArgs e ) {
+
+        }
+
+        private void duQuantite_ValueChanged ( object sender , EventArgs e ) {
 
         }
     }
