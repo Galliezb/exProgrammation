@@ -23,6 +23,7 @@
         /// le contenu de cette méthode avec l'éditeur de code.
         /// </summary>
         private void InitializeComponent () {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Addition");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Soustraction");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Multiplication");
@@ -41,6 +42,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tw1 = new System.Windows.Forms.TreeView();
             this.listView = new System.Windows.Forms.ListView();
+            this.imgList = new System.Windows.Forms.ImageList(this.components);
             this.tabControl.SuspendLayout();
             this.pageCalcul.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udNombre2)).BeginInit();
@@ -60,9 +62,10 @@
             this.tabControl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.ItemSize = new System.Drawing.Size(100, 25);
             this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(933, 634);
+            this.tabControl.Size = new System.Drawing.Size(1244, 780);
             this.tabControl.TabIndex = 0;
             this.tabControl.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tabControl_MouseDoubleClick);
             // 
@@ -78,9 +81,10 @@
             this.pageCalcul.Controls.Add(this.label2);
             this.pageCalcul.Controls.Add(this.label1);
             this.pageCalcul.Location = new System.Drawing.Point(4, 29);
+            this.pageCalcul.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pageCalcul.Name = "pageCalcul";
-            this.pageCalcul.Padding = new System.Windows.Forms.Padding(3);
-            this.pageCalcul.Size = new System.Drawing.Size(925, 601);
+            this.pageCalcul.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pageCalcul.Size = new System.Drawing.Size(1236, 747);
             this.pageCalcul.TabIndex = 0;
             this.pageCalcul.Text = "Calcul";
             this.pageCalcul.UseVisualStyleBackColor = true;
@@ -88,16 +92,18 @@
             // 
             // txtResultat
             // 
-            this.txtResultat.Location = new System.Drawing.Point(197, 414);
+            this.txtResultat.Location = new System.Drawing.Point(263, 510);
+            this.txtResultat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtResultat.Name = "txtResultat";
-            this.txtResultat.Size = new System.Drawing.Size(120, 27);
+            this.txtResultat.Size = new System.Drawing.Size(159, 32);
             this.txtResultat.TabIndex = 15;
             // 
             // btResultat
             // 
-            this.btResultat.Location = new System.Drawing.Point(60, 414);
+            this.btResultat.Location = new System.Drawing.Point(80, 510);
+            this.btResultat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btResultat.Name = "btResultat";
-            this.btResultat.Size = new System.Drawing.Size(88, 29);
+            this.btResultat.Size = new System.Drawing.Size(117, 36);
             this.btResultat.TabIndex = 14;
             this.btResultat.Text = "Résultat";
             this.btResultat.UseVisualStyleBackColor = true;
@@ -105,9 +111,10 @@
             // 
             // udOperation
             // 
-            this.udOperation.Location = new System.Drawing.Point(197, 291);
+            this.udOperation.Location = new System.Drawing.Point(263, 358);
+            this.udOperation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.udOperation.Name = "udOperation";
-            this.udOperation.Size = new System.Drawing.Size(120, 27);
+            this.udOperation.Size = new System.Drawing.Size(160, 32);
             this.udOperation.TabIndex = 13;
             this.udOperation.Text = "domainUpDown1";
             this.udOperation.SelectedItemChanged += new System.EventHandler(this.udOperation_SelectedItemChanged);
@@ -119,9 +126,10 @@
             0,
             0,
             0});
-            this.udNombre2.Location = new System.Drawing.Point(197, 175);
+            this.udNombre2.Location = new System.Drawing.Point(263, 215);
+            this.udNombre2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.udNombre2.Name = "udNombre2";
-            this.udNombre2.Size = new System.Drawing.Size(120, 27);
+            this.udNombre2.Size = new System.Drawing.Size(160, 32);
             this.udNombre2.TabIndex = 12;
             // 
             // udNombre1
@@ -131,35 +139,39 @@
             0,
             0,
             0});
-            this.udNombre1.Location = new System.Drawing.Point(197, 73);
+            this.udNombre1.Location = new System.Drawing.Point(263, 90);
+            this.udNombre1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.udNombre1.Name = "udNombre1";
-            this.udNombre1.Size = new System.Drawing.Size(120, 27);
+            this.udNombre1.Size = new System.Drawing.Size(160, 32);
             this.udNombre1.TabIndex = 11;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(57, 291);
+            this.label3.Location = new System.Drawing.Point(76, 358);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 18);
+            this.label3.Size = new System.Drawing.Size(135, 25);
             this.label3.TabIndex = 10;
             this.label3.Text = "Opération : ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(57, 178);
+            this.label2.Location = new System.Drawing.Point(76, 219);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 18);
+            this.label2.Size = new System.Drawing.Size(127, 25);
             this.label2.TabIndex = 9;
             this.label2.Text = "Nombre 2 :";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(57, 76);
+            this.label1.Location = new System.Drawing.Point(76, 94);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 18);
+            this.label1.Size = new System.Drawing.Size(127, 25);
             this.label1.TabIndex = 8;
             this.label1.Text = "Nombre 1 :";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -170,16 +182,18 @@
             this.pageAffichage.Controls.Add(this.splitContainer1);
             this.pageAffichage.ForeColor = System.Drawing.Color.Black;
             this.pageAffichage.Location = new System.Drawing.Point(4, 29);
+            this.pageAffichage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pageAffichage.Name = "pageAffichage";
-            this.pageAffichage.Padding = new System.Windows.Forms.Padding(3);
-            this.pageAffichage.Size = new System.Drawing.Size(925, 601);
+            this.pageAffichage.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pageAffichage.Size = new System.Drawing.Size(1236, 747);
             this.pageAffichage.TabIndex = 1;
             this.pageAffichage.Text = "Affichage";
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer1.Location = new System.Drawing.Point(4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -189,14 +203,16 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.listView);
-            this.splitContainer1.Size = new System.Drawing.Size(919, 595);
-            this.splitContainer1.SplitterDistance = 306;
+            this.splitContainer1.Size = new System.Drawing.Size(1228, 739);
+            this.splitContainer1.SplitterDistance = 408;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
             // tw1
             // 
             this.tw1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tw1.Location = new System.Drawing.Point(0, 0);
+            this.tw1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tw1.Name = "tw1";
             treeNode1.Name = "nodeAddition";
             treeNode1.Text = "Addition";
@@ -211,7 +227,7 @@
             treeNode2,
             treeNode3,
             treeNode4});
-            this.tw1.Size = new System.Drawing.Size(306, 595);
+            this.tw1.Size = new System.Drawing.Size(408, 739);
             this.tw1.TabIndex = 0;
             this.tw1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tw1_AfterSelect);
             // 
@@ -220,18 +236,27 @@
             this.listView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView.HideSelection = false;
             this.listView.Location = new System.Drawing.Point(0, 0);
+            this.listView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(609, 595);
+            this.listView.Size = new System.Drawing.Size(815, 739);
             this.listView.TabIndex = 0;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
+            this.listView.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
+            // 
+            // imgList
+            // 
+            this.imgList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imgList.ImageSize = new System.Drawing.Size(16, 16);
+            this.imgList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 634);
+            this.ClientSize = new System.Drawing.Size(1244, 780);
             this.Controls.Add(this.tabControl);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.tabControl.ResumeLayout(false);
@@ -264,6 +289,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TreeView tw1;
         private System.Windows.Forms.ListView listView;
+        private System.Windows.Forms.ImageList imgList;
     }
 }
 
