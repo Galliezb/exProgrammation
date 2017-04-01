@@ -22,11 +22,11 @@ namespace labo_01 {
             udOperation.SelectedIndex = 3;
 
             // Les images doivent être stockées dans les ressources du projet. Et ensuite par programmation, chargées dans un contrôle ImageList.
-            ImageList imgList = new ImageList();
-            imgList.Images.Add( "plus", Properties.Resources.plus );
-            imgList.Images.Add( "moins", Properties.Resources.moins );
-            imgList.Images.Add( "fois", Properties.Resources.fois );
-            imgList.Images.Add( "diviser", Properties.Resources.diviser );
+            //ImageList imgList = new ImageList();
+            imgList.Images.Add(Properties.Resources.plus );
+            imgList.Images.Add(Properties.Resources.moins );
+            imgList.Images.Add(Properties.Resources.fois );
+            imgList.Images.Add(Properties.Resources.diviser );
 
             // Ajout des colonnes dans le listview
             listView.View = View.Details;
@@ -40,17 +40,31 @@ namespace labo_01 {
             listView.GridLines = true;
 
             // creation des datas
-            ListViewItem list1 = new ListViewItem( "Addition" );
-            list1.SubItems.Add( "+" );
+            //ListViewItem list1 = new ListViewItem( "Addition" );
+            //list1.SubItems.Add( "+" );
+            ListViewItem lvi1 = new ListViewItem();
+            lvi1.Text = "Addition";
+            lvi1.ImageIndex = 0;
+            lvi1.SubItems.Add( "+" );
+            listView.Items.Add( lvi1 );
 
-            ListViewItem list2 = new ListViewItem( "Soustration" );
+            ListViewItem list2 = new ListViewItem();
+            list2.Text = "Soustration";
+            list2.ImageIndex = 1;
             list2.SubItems.Add( "-" );
+            listView.Items.Add( list2 );
 
-            ListViewItem list3 = new ListViewItem( "Multiplication" );
+            ListViewItem list3 = new ListViewItem();
+            list3.Text = "Multiplication";
+            list3.ImageIndex = 2;
             list3.SubItems.Add( "*" );
+            listView.Items.Add( list3 );
 
-            ListViewItem list4 = new ListViewItem( "Division" );
+            ListViewItem list4 = new ListViewItem();
+            list4.Text = "Division";
+            list4.ImageIndex = 3;
             list4.SubItems.Add( "/" );
+            listView.Items.Add( list4 );
 
 
             // ajoute les icons
@@ -61,7 +75,7 @@ namespace labo_01 {
 
 
             //Add the items to the ListView.
-            listView.Items.AddRange( new ListViewItem[] { list1 , list2 , list3 , list4 } );
+            //listView.Items.AddRange( new ListViewItem[] { list1 , list2 , list3 , list4 } );
 
             // ajoute l'evenement click au treeView
             tw1.MouseClick += new MouseEventHandler( treeView1_NodeMouseClick );
@@ -137,6 +151,10 @@ namespace labo_01 {
 
         private void tw1_AfterSelect ( object sender , TreeViewEventArgs e ) {
             MessageBox.Show( "text" + tw1.SelectedNode.Text );
+        }
+
+        private void listView_SelectedIndexChanged ( object sender , EventArgs e ) {
+
         }
     }
 }
