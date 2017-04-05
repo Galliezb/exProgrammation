@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bdd_04", "bdd_04\bdd_04.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bdd_05", "bdd_05\bdd_05.csproj", "{BC0F76C6-7AE8-4E73-81F0-853A79BC513E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "security_test", "security_test\security_test.csproj", "{10A52311-4511-4C2D-980F-268C27189936}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sondage", "security_test\sondage.csproj", "{10A52311-4511-4C2D-980F-268C27189936}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

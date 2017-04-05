@@ -121,14 +121,18 @@ namespace security_test {
 
             MySqlDataReader monReaderMysql = cmd.ExecuteReader();
 
+            int[] toReturn = { 0 , 0 , 0 , 0 , 0 };
+            if ( monReaderMysql.HasRows ) {
 
-            monReaderMysql.Read();
-            int[] toReturn =  { Convert.ToInt32(monReaderMysql.GetString( "total" )) ,
-                               Convert.ToInt32(monReaderMysql.GetString( "r1" )) ,
-                               Convert.ToInt32(monReaderMysql.GetString( "r2" )) ,
-                               Convert.ToInt32(monReaderMysql.GetString( "r3" )) ,
-                               Convert.ToInt32(monReaderMysql.GetString( "r4" ))
-                                };
+                monReaderMysql.Read();
+                toReturn[0] = Convert.ToInt32( monReaderMysql.GetString( "total" ) );
+                toReturn[0] = Convert.ToInt32( monReaderMysql.GetString( "r1" ) );
+                toReturn[0] = Convert.ToInt32( monReaderMysql.GetString( "r2" ) );
+                toReturn[0] = Convert.ToInt32( monReaderMysql.GetString( "r3" ) );
+                toReturn[0] = Convert.ToInt32( monReaderMysql.GetString( "r4" ) );
+
+            }
+
 
             maConnexionMysql.Close();
 

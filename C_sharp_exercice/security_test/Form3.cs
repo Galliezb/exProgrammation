@@ -60,6 +60,7 @@ namespace security_test {
 
             // recupère et affiche les % de réponse
             int[] tab = maConnection.getReplieStatFromQuestion( indexNumber );
+            if ( tab[0] == 0 ) { tab[0] = 1; }
             myLabelPercent1.Text = ( Math.Round( (float) ( tab[1] / tab[0] * 100 ) ) + "%" ).ToString();
             myLabelPercent2.Text = ( Math.Round( (float) ( tab[2] / tab[0] * 100 ) ) + "%" ).ToString();
             myLabelPercent3.Text = ( Math.Round( (float) ( tab[3] / tab[0] * 100 ) ) + "%" ).ToString();
