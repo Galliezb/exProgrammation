@@ -11,12 +11,14 @@ using System.Windows.Forms;
 namespace security_test {
     public partial class Form1 : Form {
 
-        List<string> question, replie;
-        int indexQuestion = 0;
-        monMysqlConnect maConnection = new monMysqlConnect();
+        public List<string> question, replie;
+        public int indexQuestion = 0;
+        monMysqlConnect maConnection;
 
         public Form1 () {
             InitializeComponent();
+
+            maConnection = new monMysqlConnect();
 
             maConnection.saveAllInformation();
 
@@ -75,6 +77,13 @@ namespace security_test {
         }
 
         private void Form1_Load ( object sender , EventArgs e ) {
+            /*
+            // ferme form1 lorsque l'on fermera form2
+            this.Hide();
+            Form2 reponse = new Form2( this );
+            reponse.ShowDialog();
+            this.Close();
+            */
 
             // centre le form à l'écran
             int posX = Screen.PrimaryScreen.Bounds.Width / 2 - this.Width / 2;
@@ -102,10 +111,13 @@ namespace security_test {
                 myButtonNext.Hide();
 
             }
-            // question suivante
-            indexQuestion++;
-            // update affichage
-            changeDisplay();
+
+            if ( indexQuestion < 6 ) {
+                // question suivante
+                indexQuestion++;
+                // update affichage
+                changeDisplay();
+            }
 
             // avancement
             myLabelAvancement.Text = (indexQuestion+1).ToString() + " / 7";
