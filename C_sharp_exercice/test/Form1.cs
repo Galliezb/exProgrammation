@@ -26,7 +26,6 @@ namespace test {
                this.Size = new Size( newWidth , this.Size.Height );
                monLabel.Width = newWidth;
                monLabel.Location = new Point( 0 , 10 );
-               i++;
 
                 // log fenetre
                 lbWidthLabel.Text = monLabel.Width.ToString();
