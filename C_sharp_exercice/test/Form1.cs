@@ -33,8 +33,6 @@ namespace test {
                 lbWidthWindow.Text = this.Width.ToString();
 
 
-
-
             }
 
         }
