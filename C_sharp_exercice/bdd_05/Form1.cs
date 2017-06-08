@@ -14,7 +14,7 @@ namespace bdd_05 {
 
         // on va récupérer les info du fichier qu'on mets dans le dataset
         gestionTennisSQLDataSet ds = new gestionTennisSQLDataSet();
-        SqlDataAdapter sql_adapteur;
+        //SqlDataAdapter sql_adapteur;
         SqlConnection sql_connection;
         SqlCommand sql_command;
 
